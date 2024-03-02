@@ -1,0 +1,2494 @@
+2024.02.29 17:16:18 INFO  Started: Metals version 0.11.12 in workspace '/home/habib/Documents/course/MA4/compilerConstruction/l3/compiler' for client Neovim 0.9.5.[0m
+Feb 29, 2024 5:16:18 PM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+Feb 29, 2024 5:16:18 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+Feb 29, 2024 5:16:18 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+Feb 29, 2024 5:16:18 PM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:/home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/.metals/metals (H2 2.1)
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.019s)
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": << Empty Schema >>
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "1 - Create tables"
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "2 - Server discovery"
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+Feb 29, 2024 5:16:19 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.072s)
+2024.02.29 17:16:19 INFO  time: initialize in 0.72s[0m
+2024.02.29 17:16:19 WARN  Build server is not auto-connectable.[0m
+2024.02.29 17:16:19 INFO  Selected port 5031[0m
+2024.02.29 17:16:19 WARN  no build target for: /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/src/l3/CL3Tree.scala[0m
+Feb 29, 2024 5:16:19 PM io.undertow.Undertow start
+INFO: starting server: Undertow - 2.2.20.Final
+Feb 29, 2024 5:16:19 PM org.xnio.Xnio <clinit>
+INFO: XNIO version 3.8.9.Final
+Feb 29, 2024 5:16:19 PM org.xnio.nio.NioXnio <clinit>
+INFO: XNIO NIO Implementation Version 3.8.9.Final
+Feb 29, 2024 5:16:19 PM org.jboss.threads.Version <clinit>
+INFO: JBoss Threads version 3.1.0.Final
+2024.02.29 17:16:19 INFO  Started Metals http server at http://127.0.0.1:5031[0m
+2024.02.29 17:16:22 INFO  running '/usr/lib/jvm/java-11-openjdk/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /tmp/metals13175365971979216071/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'[0m
+2024.02.29 17:16:25 INFO  no build target found for /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/src/l3/CL3Tree.scala. Using presentation compiler with project's scala-library version: 3.2.2[0m
+2024.02.29 17:16:26 INFO  [info] welcome to sbt 1.9.8 (Oracle Corporation Java 11.0.22)[0m
+2024.02.29 17:16:27 INFO  [info] loading global plugins from /home/habib/.sbt/1.0/plugins[0m
+2024.02.29 17:16:31 INFO  [info] loading settings for project compiler-build-build-build from metals.sbt ...[0m
+2024.02.29 17:16:31 INFO  [info] loading project definition from /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/project/project/project[0m
+2024.02.29 17:16:34 INFO  [info] loading settings for project compiler-build-build from metals.sbt ...[0m
+2024.02.29 17:16:34 INFO  [info] loading project definition from /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/project/project[0m
+2024.02.29 17:16:36 INFO  [success] Generated .bloop/compiler-build-build.json[0m
+2024.02.29 17:16:36 INFO  [success] Total time: 3 s, completed Feb 29, 2024, 5:16:36 PM[0m
+2024.02.29 17:16:36 INFO  [info] loading settings for project compiler-build from metals.sbt,plugins.sbt ...[0m
+2024.02.29 17:16:36 INFO  [info] loading project definition from /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/project[0m
+2024.02.29 17:16:38 WARN  no build target for: /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/src/l3/CPSTree.scala[0m
+2024.02.29 17:16:39 INFO  [success] Generated .bloop/compiler-build.json[0m
+2024.02.29 17:16:39 INFO  [success] Total time: 2 s, completed Feb 29, 2024, 5:16:39 PM[0m
+2024.02.29 17:16:41 INFO  [info] loading settings for project root from build.sbt ...[0m
+2024.02.29 17:16:41 INFO  [info] set current project to l3c (in build file:/home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/)[0m
+2024.02.29 17:16:43 INFO  [success] Generated .bloop/root.json[0m
+2024.02.29 17:16:43 INFO  [success] Generated .bloop/root-test.json[0m
+2024.02.29 17:16:43 INFO  [success] Total time: 1 s, completed Feb 29, 2024, 5:16:43 PM[0m
+2024.02.29 17:16:44 INFO  time: ran 'sbt bloopInstall' in 21s[0m
+2024.02.29 17:16:44 INFO  Attempting to connect to the build server...[0m
+2024.02.29 17:16:44 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+2024.02.29 17:16:50 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.02.29 17:16:50 INFO  Attempting to connect to the build server...[0m
+2024.02.29 17:16:50 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+2024.02.29 17:16:50 INFO  Attempting to connect to the build server...[0m
+2024.02.29 17:16:50 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+2024.02.29 17:16:50 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/project/project/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.02.29 17:16:51 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/project/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.02.29 17:16:51 INFO  time: Connected to build server in 7.13s[0m
+2024.02.29 17:16:51 INFO  Connected to Build server: Bloop v1.5.6[0m
+2024.02.29 17:16:51 INFO  time: Imported build in 0.4s[0m
+2024.02.29 17:16:53 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:16:53 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:16:54 INFO  no build target found for /home/habib/Documents/course/MA4/compilerConstruction/l3/compiler/src/l3/CPSTree.scala. Using presentation compiler with project's scala-library version: 3.2.2[0m
+2024.02.29 17:16:54 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:16:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:16:58 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.02.29 17:17:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:02 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.02.29 17:17:02 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.02.29 17:17:02 INFO  time: indexed workspace in 10s[0m
+2024.02.29 17:17:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:03 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:17:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:10 INFO  time: compiled root in 7.22s[0m
+2024.02.29 17:17:10 ERROR Unexpected error initializing server: 
+java.lang.UnsupportedOperationException
+	at org.eclipse.lsp4j.services.LanguageClient.refreshSemanticTokens(LanguageClient.java:193)
+	at scala.meta.internal.metals.clients.language.ConfiguredLanguageClient.refreshSemanticTokens(ConfiguredLanguageClient.scala:101)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$onWorksheetChanged$4(MetalsLspService.scala:2658)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.02.29 17:17:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:17:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:17:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:15 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:15 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:15 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:15 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:18:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:18:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:49 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:19:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:51 INFO  time: compiled root in 1.63s[0m
+2024.02.29 17:19:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:19:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:19:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:20:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:20:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:33 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:21:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:34 INFO  time: compiled root in 1.34s[0m
+2024.02.29 17:21:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:57 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:21:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:21:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:21:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:22:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:22:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:21 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 168
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 171
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:23 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 173
+2024.02.29 17:23:24 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:24 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:24 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:24 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:24 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:24 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 176
+2024.02.29 17:23:24 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:24 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:24 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:24 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 181
+2024.02.29 17:23:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:25 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 184
+2024.02.29 17:23:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:27 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 185
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 189
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 192
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 194
+2024.02.29 17:23:28 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:28 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 197
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 199
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 202
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 204
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:33 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 206
+2024.02.29 17:23:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:33 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 212
+2024.02.29 17:23:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:36 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 215
+2024.02.29 17:23:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:36 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 218
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 221
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 224
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 227
+2024.02.29 17:23:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 228
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 231
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 234
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 237
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 238
+2024.02.29 17:23:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 240
+2024.02.29 17:23:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 243
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 246
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 248
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 250
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 252
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 255
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 257
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 259
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:44 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 262
+2024.02.29 17:23:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:45 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 265
+2024.02.29 17:23:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:46 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:23:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 267
+2024.02.29 17:23:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:48 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:23:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:49 INFO  time: compiled root in 1.21s[0m
+2024.02.29 17:23:49 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:23:50 INFO  time: compiled root in 1.07s[0m
+2024.02.29 17:23:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:23:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:23:58 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 293
+2024.02.29 17:24:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:00 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 296
+2024.02.29 17:24:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:00 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 297
+2024.02.29 17:24:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:00 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 298
+2024.02.29 17:24:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:02 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 301
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 304
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 306
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 309
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:03 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 312
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 314
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 316
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:04 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 319
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 322
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 324
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 325
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:05 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 328
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 331
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 334
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:08 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  time: compiled root in 1.11s[0m
+2024.02.29 17:24:09 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:10 INFO  time: compiled root in 0.98s[0m
+2024.02.29 17:24:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 359
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:11 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 362
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 365
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 369
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:13 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:14 INFO  time: compiled root in 1.13s[0m
+2024.02.29 17:24:14 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:15 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:15 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:14 INFO  time: compiled root in 0.83s[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:17 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 381
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 384
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 388
+2024.02.29 17:24:17 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:17 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:18 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 392
+2024.02.29 17:24:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:19 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:19 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:19 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:30 INFO  time: compiled root in 11s[0m
+2024.02.29 17:24:30 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 411
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 414
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 418
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 421
+2024.02.29 17:24:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:24:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 423
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:37 INFO  time: compiled root in 6.91s[0m
+2024.02.29 17:24:37 INFO  compiling root (21 scala sources)[0m
+2024.02.29 17:24:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:49 INFO  time: compiled root in 11s[0m
+2024.02.29 17:24:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:24:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:24:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 450
+2024.02.29 17:25:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 453
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 456
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 459
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:11 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:11 INFO  time: compiled root in 0.32s[0m
+2024.02.29 17:25:11 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:11 INFO  time: compiled root in 0.35s[0m
+2024.02.29 17:25:15 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:15 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:30 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:30 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:31 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 474
+2024.02.29 17:25:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:31 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 475
+2024.02.29 17:25:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:32 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:37 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 476
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 483
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 485
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 488
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 489
+2024.02.29 17:25:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 492
+2024.02.29 17:25:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 493
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 498
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 499
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 500
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 502
+2024.02.29 17:25:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:41 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 504
+2024.02.29 17:25:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 506
+2024.02.29 17:25:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 507
+2024.02.29 17:25:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 508
+2024.02.29 17:25:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 510
+2024.02.29 17:25:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 512
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 514
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 517
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 519
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 525
+2024.02.29 17:25:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:46 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 529
+2024.02.29 17:25:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:46 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:46 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 531
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 539
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 542
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 546
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 548
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:49 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:49 INFO  time: compiled root in 0.13s[0m
+2024.02.29 17:25:49 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:49 INFO  time: compiled root in 64ms[0m
+2024.02.29 17:25:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:53 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:53 INFO  time: compiled root in 0.13s[0m
+2024.02.29 17:25:53 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:25:53 INFO  time: compiled root in 71ms[0m
+2024.02.29 17:25:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 579
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:25:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 582
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:25:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:25:59 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 585
+2024.02.29 17:26:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:34 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:34 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:34 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 593
+2024.02.29 17:26:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:37 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:37 INFO  time: compiled root in 0.11s[0m
+2024.02.29 17:26:37 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:37 INFO  time: compiled root in 72ms[0m
+2024.02.29 17:26:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 603
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 606
+2024.02.29 17:26:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 610
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 613
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 615
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 616
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 625
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 628
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 632
+2024.02.29 17:26:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:43 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 635
+2024.02.29 17:26:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  time: compiled root in 0.11s[0m
+2024.02.29 17:26:43 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:43 INFO  time: compiled root in 76ms[0m
+2024.02.29 17:26:43 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:43 INFO  time: compiled root in 0.15s[0m
+2024.02.29 17:26:43 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:43 INFO  time: compiled root in 0.1s[0m
+2024.02.29 17:26:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:48 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 649
+2024.02.29 17:26:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:49 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 652
+2024.02.29 17:26:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:49 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 655
+2024.02.29 17:26:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:49 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:26:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 657
+2024.02.29 17:26:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:54 INFO  time: compiled root in 0.39s[0m
+2024.02.29 17:26:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:55 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:55 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:59 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:26:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:59 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:26:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:26:59 INFO  time: compiled root in 0.39s[0m
+2024.02.29 17:26:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:26:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 702
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 705
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 706
+2024.02.29 17:27:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:07 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 708
+2024.02.29 17:27:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 709
+2024.02.29 17:27:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 711
+2024.02.29 17:27:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 712
+2024.02.29 17:27:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:08 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 713
+2024.02.29 17:27:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:11 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 714
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:11 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 718
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:11 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 721
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:12 INFO  time: compiled root in 0.68s[0m
+2024.02.29 17:27:12 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:13 INFO  time: compiled root in 0.33s[0m
+2024.02.29 17:27:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:26 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 733
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 744
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 748
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 752
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 757
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 760
+2024.02.29 17:27:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 762
+2024.02.29 17:27:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:42 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:42 INFO  time: compiled root in 0.17s[0m
+2024.02.29 17:27:42 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:42 INFO  time: compiled root in 0.1s[0m
+2024.02.29 17:27:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:44 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:44 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 777
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 781
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 783
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:47 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:47 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 786
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 789
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:48 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 792
+2024.02.29 17:27:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:50 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:49 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:49 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:50 INFO  time: compiled root in 0.13s[0m
+2024.02.29 17:27:50 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:50 INFO  time: compiled root in 69ms[0m
+2024.02.29 17:27:51 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:51 INFO  time: compiled root in 0.15s[0m
+2024.02.29 17:27:51 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:51 INFO  time: compiled root in 61ms[0m
+2024.02.29 17:27:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:54 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 810
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 814
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 817
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:56 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:27:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 820
+2024.02.29 17:27:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:58 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:58 INFO  time: compiled root in 0.13s[0m
+2024.02.29 17:27:58 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:58 INFO  time: compiled root in 65ms[0m
+2024.02.29 17:27:58 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:58 INFO  time: compiled root in 0.18s[0m
+2024.02.29 17:27:58 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:27:59 INFO  time: compiled root in 0.14s[0m
+2024.02.29 17:27:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:27:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:27:59 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:00 INFO  time: compiled root in 0.18s[0m
+2024.02.29 17:28:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:00 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:00 INFO  time: compiled root in 0.11s[0m
+2024.02.29 17:28:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:01 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:01 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:03 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:03 INFO  time: compiled root in 0.12s[0m
+2024.02.29 17:28:03 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:03 INFO  time: compiled root in 65ms[0m
+2024.02.29 17:28:04 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:04 INFO  time: compiled root in 0.18s[0m
+2024.02.29 17:28:04 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:28:04 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:04 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:04 INFO  time: compiled root in 62ms[0m
+2024.02.29 17:28:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:09 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:09 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:10 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:10 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:11 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:11 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:28:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:28:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:32 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:32 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:32 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:32 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:45 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:45 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:48 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:48 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:48 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:48 INFO  time: compiled root in 0.48s[0m
+2024.02.29 17:29:48 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:48 INFO  time: compiled root in 0.32s[0m
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 889
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 891
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:50 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:50 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 894
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 898
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 901
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 903
+2024.02.29 17:29:51 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:51 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 905
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 907
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:52 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:52 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:53 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 908
+2024.02.29 17:29:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:53 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 917
+2024.02.29 17:29:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:53 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 919
+2024.02.29 17:29:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:53 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 920
+2024.02.29 17:29:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:54 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 922
+2024.02.29 17:29:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:54 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:29:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 924
+2024.02.29 17:29:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:56 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:56 INFO  time: compiled root in 0.38s[0m
+2024.02.29 17:29:56 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:56 INFO  time: compiled root in 0.31s[0m
+2024.02.29 17:29:56 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:57 INFO  time: compiled root in 0.3s[0m
+2024.02.29 17:29:57 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:29:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:57 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:57 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:57 INFO  time: compiled root in 0.29s[0m
+2024.02.29 17:29:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:29:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:29:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:01 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:00 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:00 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:01 INFO  time: compiled root in 0.37s[0m
+2024.02.29 17:30:01 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:01 INFO  time: compiled root in 0.3s[0m
+2024.02.29 17:30:01 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:02 INFO  time: compiled root in 0.32s[0m
+2024.02.29 17:30:02 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:02 INFO  time: compiled root in 0.31s[0m
+2024.02.29 17:30:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:07 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:07 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:08 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:08 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:12 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:12 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:13 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:13 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 964
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 967
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 968
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 969
+2024.02.29 17:30:14 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:14 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 972
+2024.02.29 17:30:16 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:16 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 974
+2024.02.29 17:30:16 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:16 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:30:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 976
+2024.02.29 17:30:16 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:16 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:18 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:30:18 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:30:18 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:18 INFO  time: compiled root in 0.18s[0m
+2024.02.29 17:30:18 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:30:18 INFO  time: compiled root in 0.12s[0m
+2024.02.29 17:33:20 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 985
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 995
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:20 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:20 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 996
+2024.02.29 17:33:21 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:21 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 999
+2024.02.29 17:33:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:22 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:22 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:22 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1001
+2024.02.29 17:33:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:22 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1006
+2024.02.29 17:33:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:23 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1008
+2024.02.29 17:33:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:23 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1010
+2024.02.29 17:33:23 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:23 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1013
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1017
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1019
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:25 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:25 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  time: compiled root in 0.37s[0m
+2024.02.29 17:33:26 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:26 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:26 INFO  time: compiled root in 0.33s[0m
+2024.02.29 17:33:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1037
+2024.02.29 17:33:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1040
+2024.02.29 17:33:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1042
+2024.02.29 17:33:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1047
+2024.02.29 17:33:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:40 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:33:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1048
+2024.02.29 17:33:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:42 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:42 INFO  time: compiled root in 0.13s[0m
+2024.02.29 17:33:42 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:42 INFO  time: compiled root in 66ms[0m
+2024.02.29 17:33:42 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:42 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:42 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:42 INFO  time: compiled root in 0.19s[0m
+2024.02.29 17:33:43 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:43 INFO  time: compiled root in 73ms[0m
+2024.02.29 17:33:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:43 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:43 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:53 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:53 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:54 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:54 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:56 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:56 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:58 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:58 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:33:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:00 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:33:59 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:33:59 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:00 INFO  time: compiled root in 0.14s[0m
+2024.02.29 17:34:00 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:00 INFO  time: compiled root in 65ms[0m
+2024.02.29 17:34:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:03 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:03 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:05 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:05 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:06 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:06 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:07 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:07 INFO  time: compiled root in 0.11s[0m
+2024.02.29 17:34:07 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:07 INFO  time: compiled root in 59ms[0m
+2024.02.29 17:34:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:27 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:27 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:27 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:27 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:27 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:27 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:29 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:29 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:31 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:31 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1099
+2024.02.29 17:34:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:31 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1100
+2024.02.29 17:34:31 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:31 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1101
+2024.02.29 17:34:32 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:32 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1102
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1105
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1107
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:33 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:33 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1110
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1113
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1114
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:35 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:35 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1117
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1122
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1125
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:36 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:36 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  time: compiled root in 0.37s[0m
+2024.02.29 17:34:36 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:36 INFO  time: compiled root in 0.29s[0m
+2024.02.29 17:34:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:37 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:37 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:38 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:38 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:38 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1142
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1145
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1147
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1152
+2024.02.29 17:34:39 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:39 WARN  unsupported Scala 3.3.1[0m
+Feb 29, 2024 5:34:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1154
+2024.02.29 17:34:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:41 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:41 INFO  time: compiled root in 0.12s[0m
+2024.02.29 17:34:41 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:41 INFO  time: compiled root in 59ms[0m
+2024.02.29 17:34:41 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:40 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:40 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:41 INFO  time: compiled root in 0.14s[0m
+2024.02.29 17:34:41 INFO  compiling root (1 scala source)[0m
+2024.02.29 17:34:41 INFO  time: compiled root in 66ms[0m
+2024.02.29 17:34:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:34:41 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:34:41 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:36:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:36:22 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:36:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:36:22 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:36:22 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:36:22 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:37:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:37:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:37:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:37:02 WARN  unsupported Scala 3.3.1[0m
+2024.02.29 17:37:02 INFO  No mtags for 3.3.1.[0m
+2024.02.29 17:37:02 WARN  unsupported Scala 3.3.1[0m
+2024.03.01 07:47:17 INFO  compiling root (1 scala source)[0m
+2024.03.01 07:47:17 INFO  time: compiled root in 93ms[0m
+2024.03.01 07:47:17 INFO  compiling root (1 scala source)[0m
+2024.03.01 07:47:17 INFO  time: compiled root in 67ms[0m
+2024.03.01 07:47:19 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.03.01 07:47:19 WARN  unsupported Scala 3.3.1[0m
+2024.03.02 00:04:36 INFO  Shutting down server[0m
+2024.03.02 00:04:36 INFO  shutting down Metals[0m
+2024.03.02 00:04:36 INFO  Shut down connection with build server.[0m
+2024.03.02 00:04:36 INFO  Shut down connection with build server.[0m
+2024.03.02 00:04:36 INFO  Shut down connection with build server.[0m
+Mar 02, 2024 12:04:36 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint notify
+INFO: Failed to send notification message.
+org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.nio.channels.AsynchronousCloseException
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.notify(RemoteEndpoint.java:126)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.sendCancelNotification(RemoteEndpoint.java:180)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint$1.cancel(RemoteEndpoint.java:150)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$register$2(BuildServerConnection.scala:348)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.scala:17)
+	at scala.util.Try$.apply(Try.scala:210)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$register$1(BuildServerConnection.scala:348)
+	at scala.meta.internal.metals.Cancelable$$anon$1.cancel(Cancelable.scala:18)
+	at scala.meta.internal.metals.Cancelable$.$anonfun$cancelAll$1(Cancelable.scala:29)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at scala.meta.internal.metals.Cancelable$.cancelAll(Cancelable.scala:28)
+	at scala.meta.internal.metals.MutableCancelable.cancel(MutableCancelable.scala:25)
+	at scala.meta.internal.metals.BuildServerConnection.cancel(BuildServerConnection.scala:285)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1(BuildServerConnection.scala:121)
+	at scala.meta.internal.metals.BuildServerConnection.$anonfun$shutdown$1$adapted(BuildServerConnection.scala:114)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at java.base/sun.nio.ch.SinkChannelImpl.endWrite(SinkChannelImpl.java:241)
+	at java.base/sun.nio.ch.SinkChannelImpl.write(SinkChannelImpl.java:259)
+	at java.base/java.nio.channels.Channels.writeFullyImpl(Channels.java:74)
+	at java.base/java.nio.channels.Channels.writeFully(Channels.java:94)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:172)
+	at java.base/java.io.OutputStream.write(OutputStream.java:122)
+	at java.base/java.nio.channels.Channels$1.write(Channels.java:152)
+	at scala.meta.internal.metals.ClosableOutputStream.write(ClosableOutputStream.scala:26)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:137)
+	at java.base/java.io.FilterOutputStream.write(FilterOutputStream.java:108)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:67)
+	... 19 more
+
+2024.03.02 00:04:36 INFO  Cancelling compilation on Bloop server[0m
+Mar 02, 2024 12:04:37 AM io.undertow.Undertow stop
+INFO: stopping server: Undertow - 2.2.20.Final
