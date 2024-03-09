@@ -10,6 +10,15 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
   
   def apply(tree: S.Tree): H.Tree =
     transform(tree)(_ => H.Halt(IntLit(L3Int(0))))
+  
+  def curryContext(trees: Seq[S.Tree], accContext: Seq[H.Atom])(ctx: Seq[H.Atom] => H.Tree): H.Tree =
+    trees match {
+      case Seq() => ctx(accContext)
+      case Seq(e, es @ _*) => 
+        transform(e)(a => curryContext(es,accContext :+ a)(ctx))
+    }
+
+
 
   private def transform(tree : S.Tree)(ctx: H.Atom => H.Tree): H.Tree = {
     given Position = tree.pos
@@ -25,10 +34,22 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
         transform(e1)(a1 => H.LetP(n1, L3Id, Seq(a1), transform(S.Let(niei, e))(ctx)))
       case S.LetRec(fs, e) =>
         val cps_fs = fs map {
-          val ret_c = H.Name.fresh("ret_c")
-          H.Fun(_.name, ret_c, _.args, transform(_.body)(a => H.AppC(ret_c, Seq(a))))
+          val retC = H.Name.fresh("ret_c")
+          H.Fun(_.name, retC, _.args, transform(_.body)(a => H.AppC(retC, Seq(a))))
         }
         H.LetF(cps_fs, transform(e)(ctx))
+      case S.App(f, args) =>
+        
+        val retCntName = H.Name.fresh("ret_c")
+        val retCntArgName = H.Name.fresh("v")
+        val appF = (as: Seq[Atom]) => H.AppF(f, retCntName, as)
+
+        val initCtx = (as : Seq[H.Atom]) => {
+          val retCnt = H.Cnt(retCntName, Seq(retCntArgName), ctx(retCntArgName))
+          H.LetC(Seq(retCnt), appF(as))
+        }
+        curryContext(args, Seq())(as => initCtx(as)) //Do we need to reverse the args?
+       
       case S.If(e1, e2, e3) =>
         transform(
           S.If(S.Prim(L3Eq, Seq(e1, l3false)), e3, e2)
@@ -40,9 +61,9 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
         )
         (ctx)
       
-      case _@ S.Prim(p:L3ValuePrimitive, args) =>
-        transform(args.head)(a => H.AppF(p, H.Name.fresh("ret_c"), Seq(a)))
+      case _ @ S.Prim(p:L3ValuePrimitive, args) =>
 
+        
 
 
 
