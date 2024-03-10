@@ -2492,3 +2492,730 @@ Caused by: java.nio.channels.AsynchronousCloseException
 2024.03.02 00:04:36 INFO  Cancelling compilation on Bloop server[0m
 Mar 02, 2024 12:04:37 AM io.undertow.Undertow stop
 INFO: stopping server: Undertow - 2.2.20.Final
+2024.03.10 12:40:56 INFO  Started: Metals version 1.2.2 in folders '/home/boukha/Desktop/compiler-construction/compiler' for client Visual Studio Code 1.86.2.[0m
+Downloading https://repo1.maven.org/maven2/com/h2database/h2/2.1.214/h2-2.1.214.jar
+Downloaded 98305 bytes
+Downloaded 245761 bytes
+Downloaded 425985 bytes
+Downloaded 540673 bytes
+Downloaded 683009 bytes
+Downloaded 945153 bytes
+Downloaded 1316865 bytes
+Downloaded 1660929 bytes
+Downloaded 1983489 bytes
+Downloaded 2355201 bytes
+2024.03.10 12:41:12 INFO  Upgraded H2 database.[0m
+12:41:12.362 [pool-1-thread-4] INFO org.flywaydb.core.internal.license.VersionPrinter -- Flyway Community Edition 9.22.3 by Redgate
+12:41:12.364 [pool-1-thread-4] INFO org.flywaydb.core.internal.license.VersionPrinter -- See release notes here: https://rd.gt/416ObMi
+12:41:12.364 [pool-1-thread-4] INFO org.flywaydb.core.internal.license.VersionPrinter -- 
+12:41:12.366 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/callback' ...
+12:41:12.366 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/callback using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+12:41:12.366 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Unable to resolve location classpath:db/callback.
+12:41:12.366 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/migration' ...
+12:41:12.366 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/migration using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+12:41:12.367 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning URL: jar:file:/home/boukha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scalameta/metals_2.13/1.2.2/metals_2.13-1.2.2.jar!/db/migration
+12:41:12.369 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/
+12:41:12.370 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V1__Create_tables.sql
+12:41:12.370 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V2__Server_discovery.sql
+12:41:12.370 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V3__Jar_symbols.sql
+12:41:12.370 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V4__Fingerprints.sql
+12:41:12.370 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classes at classpath:db/migration
+12:41:12.373 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+12:41:12.374 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V4__Fingerprints.sql
+12:41:12.374 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V1__Create_tables.sql
+12:41:12.375 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V2__Server_discovery.sql
+12:41:12.375 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V3__Jar_symbols.sql
+12:41:12.433 [pool-1-thread-4] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:h2:file:/home/boukha/Desktop/compiler-construction/compiler/.metals/metals (H2 2.2)
+12:41:12.434 [pool-1-thread-4] DEBUG org.flywaydb.core.FlywayExecutor -- Driver: H2 JDBC Driver 2.2.224 (2023-09-17)
+12:41:12.434 [pool-1-thread-4] DEBUG org.flywaydb.core.FlywayExecutor -- DDL Transactions Supported: false
+12:41:12.434 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Schemas: 
+12:41:12.434 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Default schema: null
+12:41:12.437 [pool-1-thread-4] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+12:41:12.438 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.callback.SqlScriptCallbackFactory -- Scanning for SQL callbacks ...
+12:41:12.438 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+12:41:12.443 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.command.DbValidate -- Validating migrations ...
+12:41:12.446 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+12:41:12.452 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+12:41:12.452 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+12:41:12.452 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+12:41:12.452 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+12:41:12.452 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+12:41:12.453 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+12:41:12.453 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+12:41:12.453 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+12:41:12.453 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+12:41:12.453 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+12:41:12.461 [pool-1-thread-4] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 4 migrations (execution time 00:00.016s)
+12:41:12.462 [pool-1-thread-4] DEBUG org.flywaydb.core.internal.command.DbSchemas -- Skipping creation of existing schema: "PUBLIC"
+12:41:12.466 [pool-1-thread-4] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema "PUBLIC": 4
+12:41:12.468 [pool-1-thread-4] INFO org.flywaydb.core.internal.command.DbMigrate -- Schema "PUBLIC" is up to date. No migration necessary.
+12:41:12.473 [pool-1-thread-4] DEBUG org.flywaydb.core.FlywayExecutor -- Memory usage: 63 of 201M
+2024.03.10 12:41:12 INFO  Attempting to connect to the build server...[0m
+2024.03.10 12:41:12 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.10 12:41:12 ERROR Starting the bsp launcher for bloop...[0m
+2024.03.10 12:41:12 ERROR Opening a bsp server connection with 'bsp --protocol local --socket /tmp/bsp-launcher6735113928166588678/bsp.socket'...[0m
+2024.03.10 12:41:12 ERROR Waiting for the bsp connection to come up...[0m
+2024.03.10 12:41:12 ERROR error: The command bsp --protocol local --socket /tmp/bsp-launcher6735113928166588678/bsp.socket returned with an error[0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.3.1/scala3-compiler_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.3.1/scala3-compiler_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.3.1/scala3-interfaces-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.3.1/scala3-interfaces-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.3.1/tasty-core_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.3.1/tasty-core_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.5.0-scala-1/scala-asm-9.5.0-scala-1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.5.0-scala-1/scala-asm-9.5.0-scala-1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.5/compiler-interface-1.3.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.5/compiler-interface-1.3.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-reader/3.19.0/jline-reader-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-reader/3.19.0/jline-reader-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.19.0/jline-terminal-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.19.0/jline-terminal-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal-jna/3.19.0/jline-terminal-jna-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal-jna/3.19.0/jline-terminal-jna-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.0/util-interface-1.3.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.0/util-interface-1.3.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scaladoc_3/3.3.1/scaladoc_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scaladoc_3/3.3.1/scaladoc_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-tasty-inspector_3/3.3.1/scala3-tasty-inspector_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-tasty-inspector_3/3.3.1/scala3-tasty-inspector_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-anchorlink/0.62.2/flexmark-ext-anchorlink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-anchorlink/0.62.2/flexmark-ext-anchorlink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-autolink/0.62.2/flexmark-ext-autolink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-autolink/0.62.2/flexmark-ext-autolink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-emoji/0.62.2/flexmark-ext-emoji-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-emoji/0.62.2/flexmark-ext-emoji-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-strikethrough/0.62.2/flexmark-ext-gfm-strikethrough-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-strikethrough/0.62.2/flexmark-ext-gfm-strikethrough-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tasklist/0.62.2/flexmark-ext-gfm-tasklist-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tasklist/0.62.2/flexmark-ext-gfm-tasklist-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-wikilink/0.62.2/flexmark-ext-wikilink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-wikilink/0.62.2/flexmark-ext-wikilink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-yaml-front-matter/0.62.2/flexmark-ext-yaml-front-matter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/nl/big-o/liqp/0.8.2/liqp-0.8.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-yaml-front-matter/0.62.2/flexmark-ext-yaml-front-matter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jsoup/jsoup/1.14.3/jsoup-1.14.3.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/nl/big-o/liqp/0.8.2/liqp-0.8.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.1/jackson-dataformat-yaml-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jsoup/jsoup/1.14.3/jsoup-1.14.3.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.1/jackson-dataformat-yaml-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/15.0/annotations-15.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/15.0/annotations-15.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/nibor/autolink/autolink/0.6.0/autolink-0.6.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-jira-converter/0.62.2/flexmark-jira-converter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/nibor/autolink/autolink/0.6.0/autolink-0.6.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-jira-converter/0.62.2/flexmark-jira-converter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.15.1/jackson-annotations-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.15.1/jackson-core-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.1/jackson-databind-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.15.1/jackson-annotations-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.15.1/jackson-core-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.1/jackson-databind-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/ua/co/k/strftime4j/1.0.5/strftime4j-1.0.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-ins/0.62.2/flexmark-ext-ins-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-superscript/0.62.2/flexmark-ext-superscript-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/ua/co/k/strftime4j/1.0.5/strftime4j-1.0.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-ins/0.62.2/flexmark-ext-ins-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-superscript/0.62.2/flexmark-ext-superscript-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[31m[E][0m Failed to load project from /home/boukha/Desktop/compiler-construction/compiler/.bloop/root.json[0m
+2024.03.10 12:41:12 ERROR error: Trying a tcp-based connection to the server instead...[0m
+2024.03.10 12:41:12 ERROR Opening a bsp server connection with 'bsp --protocol tcp --port 27084'...[0m
+2024.03.10 12:41:12 ERROR Waiting for the bsp connection to come up...[0m
+2024.03.10 12:41:12 ERROR error: The command bsp --protocol tcp --port 27084 returned with an error[0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.3.1/scala3-compiler_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.3.1/scala3-compiler_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.3.1/scala3-interfaces-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.3.1/tasty-core_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.3.1/scala3-interfaces-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.5.0-scala-1/scala-asm-9.5.0-scala-1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.3.1/tasty-core_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.5/compiler-interface-1.3.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-reader/3.19.0/jline-reader-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.5.0-scala-1/scala-asm-9.5.0-scala-1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.19.0/jline-terminal-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.5/compiler-interface-1.3.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal-jna/3.19.0/jline-terminal-jna-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-reader/3.19.0/jline-reader-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.19.0/jline-terminal-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.0/util-interface-1.3.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal-jna/3.19.0/jline-terminal-jna-3.19.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scaladoc_3/3.3.1/scaladoc_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.0/util-interface-1.3.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-tasty-inspector_3/3.3.1/scala3-tasty-inspector_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scaladoc_3/3.3.1/scaladoc_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-tasty-inspector_3/3.3.1/scala3-tasty-inspector_3-3.3.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-anchorlink/0.62.2/flexmark-ext-anchorlink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-autolink/0.62.2/flexmark-ext-autolink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-emoji/0.62.2/flexmark-ext-emoji-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-anchorlink/0.62.2/flexmark-ext-anchorlink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-strikethrough/0.62.2/flexmark-ext-gfm-strikethrough-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-autolink/0.62.2/flexmark-ext-autolink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tasklist/0.62.2/flexmark-ext-gfm-tasklist-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-emoji/0.62.2/flexmark-ext-emoji-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-wikilink/0.62.2/flexmark-ext-wikilink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-strikethrough/0.62.2/flexmark-ext-gfm-strikethrough-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tasklist/0.62.2/flexmark-ext-gfm-tasklist-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-yaml-front-matter/0.62.2/flexmark-ext-yaml-front-matter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-wikilink/0.62.2/flexmark-ext-wikilink-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/nl/big-o/liqp/0.8.2/liqp-0.8.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jsoup/jsoup/1.14.3/jsoup-1.14.3.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.1/jackson-dataformat-yaml-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-yaml-front-matter/0.62.2/flexmark-ext-yaml-front-matter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/nl/big-o/liqp/0.8.2/liqp-0.8.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jsoup/jsoup/1.14.3/jsoup-1.14.3.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.1/jackson-dataformat-yaml-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/15.0/annotations-15.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/nibor/autolink/autolink/0.6.0/autolink-0.6.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-jira-converter/0.62.2/flexmark-jira-converter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jetbrains/annotations/15.0/annotations-15.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.15.1/jackson-annotations-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.15.1/jackson-core-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.1/jackson-databind-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/nibor/autolink/autolink/0.6.0/autolink-0.6.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-jira-converter/0.62.2/flexmark-jira-converter-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/ua/co/k/strftime4j/1.0.5/strftime4j-1.0.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.15.1/jackson-annotations-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.15.1/jackson-core-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-ins/0.62.2/flexmark-ext-ins-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.1/jackson-databind-2.15.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-superscript/0.62.2/flexmark-ext-superscript-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/ua/co/k/strftime4j/1.0.5/strftime4j-1.0.5.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-ins/0.62.2/flexmark-ext-ins-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[33m[W][0m Scala instance jar /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-superscript/0.62.2/flexmark-ext-superscript-0.62.2.jar doesn't exist![0m
+2024.03.10 12:41:12 ERROR > [0m[31m[E][0m Failed to load project from /home/boukha/Desktop/compiler-construction/compiler/.bloop/root.json[0m
+2024.03.10 12:41:12 ERROR error: The launcher failed to establish a bsp connection, aborting...[0m
+2024.03.10 12:41:12 ERROR Failed to connect with build server, no functionality will work.
+java.lang.RuntimeException: The server did not start, got FailedToOpenBspConnection
+	at bloop.launcher.LauncherMain.failPromise$1(Launcher.scala:92)
+	at bloop.launcher.LauncherMain.runLauncher(Launcher.scala:119)
+	at scala.meta.internal.metals.BloopServers$$anon$2.run(BloopServers.scala:502)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.10 12:41:16 INFO  running '/home/boukha/.local/share/coursier/bin/sbt -Dbloop.export-jar-classifiers=sources bloopInstall'[0m
+2024.03.10 12:41:16 WARN  no build target for: /home/boukha/Desktop/compiler-construction/compiler/project/metals.sbt[0m
+2024.03.10 12:41:16 WARN  no build target for: /home/boukha/Desktop/compiler-construction/compiler/project/project/metals.sbt[0m
+2024.03.10 12:41:16 INFO  skipping build import with status 'Started'[0m
+2024.03.10 12:41:17 INFO  [info] welcome to sbt 1.9.8 (Ubuntu Java 11.0.22)[0m
+2024.03.10 12:41:20 INFO  no build target found for /home/boukha/Desktop/compiler-construction/compiler/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.1[0m
+2024.03.10 12:41:22 INFO  [info] loading settings for project compiler-build-build-build from metals.sbt ...[0m
+2024.03.10 12:41:23 INFO  [info] loading project definition from /home/boukha/Desktop/compiler-construction/compiler/project/project/project[0m
+2024.03.10 12:41:25 INFO  [info] loading settings for project compiler-build-build from metals.sbt ...[0m
+2024.03.10 12:41:25 INFO  [info] loading project definition from /home/boukha/Desktop/compiler-construction/compiler/project/project[0m
+2024.03.10 12:41:27 INFO  skipping build import with status 'Started'[0m
+2024.03.10 12:41:28 INFO  [success] Generated .bloop/compiler-build-build.json[0m
+2024.03.10 12:41:28 INFO  [success] Total time: 2 s, completed Mar 10, 2024, 12:41:28 PM[0m
+2024.03.10 12:41:28 INFO  [info] loading settings for project compiler-build from metals.sbt,plugins.sbt ...[0m
+2024.03.10 12:41:29 INFO  [info] loading project definition from /home/boukha/Desktop/compiler-construction/compiler/project[0m
+2024.03.10 12:41:30 INFO  [success] Generated .bloop/compiler-build.json[0m
+2024.03.10 12:41:30 INFO  [success] Total time: 1 s, completed Mar 10, 2024, 12:41:30 PM[0m
+2024.03.10 12:41:32 INFO  [info] loading settings for project root from build.sbt ...[0m
+2024.03.10 12:41:32 INFO  [info] set current project to l3c (in build file:/home/boukha/Desktop/compiler-construction/compiler/)[0m
+2024.03.10 12:41:32 INFO  [success] Generated .bloop/root.json[0m
+2024.03.10 12:41:32 INFO  [success] Generated .bloop/root-test.json[0m
+2024.03.10 12:41:32 INFO  [success] Total time: 1 s, completed Mar 10, 2024, 12:41:33 PM[0m
+2024.03.10 12:41:33 INFO  time: ran 'sbt bloopInstall' in 17s[0m
+2024.03.10 12:41:33 INFO  Attempting to connect to the build server...[0m
+2024.03.10 12:41:33 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.10 12:41:33 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.10 12:41:33 INFO  Attempting to connect to the build server...[0m
+2024.03.10 12:41:33 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.10 12:41:33 INFO  Attempting to connect to the build server...[0m
+2024.03.10 12:41:33 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.10 12:41:33 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.10 12:41:34 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.10 12:41:34 INFO  time: Connected to build server in 0.35s[0m
+2024.03.10 12:41:34 INFO  Connected to Build server: Bloop v1.5.15[0m
+2024.03.10 12:41:35 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.10 12:41:38 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.10 12:41:38 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.10 12:41:38 INFO  time: indexed workspace in 3.82s[0m
+2024.03.10 12:41:43 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:41:49 INFO  time: compiled root in 6.54s[0m
+2024.03.10 12:42:03 WARN  Using indexes to guess the definition of BooleanLit[0m
+Mar 10, 2024 12:43:32 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: A severe compiler error occurred, full details of the error can be found in the error report /home/boukha/Desktop/compiler-construction/compiler/.metals/.reports/metals-full/2024-03-10/r_compiler-error_(root)_12-43-32-943.md
+2024.03.10 12:44:01 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:44:03 INFO  time: compiled root in 1.96s[0m
+2024.03.10 12:44:31 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:44:33 INFO  time: compiled root in 1.29s[0m
+Mar 10, 2024 12:45:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 294
+2024.03.10 12:48:27 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:48:27 INFO  time: compiled root in 0.9s[0m
+Mar 10, 2024 12:52:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 435
+2024.03.10 12:52:34 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:52:34 INFO  time: compiled root in 0.77s[0m
+2024.03.10 12:53:05 INFO  compiling root (21 scala sources)[0m
+2024.03.10 12:53:05 INFO  time: compiled root in 0.64s[0m
+2024.03.10 13:00:05 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:00:05 INFO  time: compiled root in 0.66s[0m
+2024.03.10 13:00:49 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:00:49 INFO  time: compiled root in 0.63s[0m
+Mar 10, 2024 1:00:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 715
+2024.03.10 13:00:57 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:00:57 INFO  time: compiled root in 0.59s[0m
+2024.03.10 13:01:04 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:01:04 INFO  time: compiled root in 0.56s[0m
+2024.03.10 13:03:32 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:03:32 INFO  time: compiled root in 0.53s[0m
+2024.03.10 13:03:37 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:03:37 INFO  time: compiled root in 0.56s[0m
+2024.03.10 13:03:48 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:03:48 INFO  time: compiled root in 0.52s[0m
+2024.03.10 13:04:00 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:04:00 INFO  time: compiled root in 0.5s[0m
+2024.03.10 13:04:06 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:04:06 INFO  time: compiled root in 0.45s[0m
+2024.03.10 13:04:12 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:04:12 INFO  time: compiled root in 0.44s[0m
+2024.03.10 13:04:21 WARN  Using indexes to guess the definition of Atom[0m
+2024.03.10 13:05:12 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:05:12 INFO  time: compiled root in 0.47s[0m
+2024.03.10 13:05:47 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:05:47 INFO  time: compiled root in 0.44s[0m
+2024.03.10 13:05:57 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:05:57 INFO  time: compiled root in 0.47s[0m
+2024.03.10 13:06:40 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:06:40 INFO  time: compiled root in 0.47s[0m
+2024.03.10 13:06:48 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:06:48 INFO  time: compiled root in 0.46s[0m
+2024.03.10 13:09:30 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:09:30 INFO  time: compiled root in 0.47s[0m
+2024.03.10 13:10:56 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:10:56 INFO  time: compiled root in 0.73s[0m
+2024.03.10 13:11:12 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:11:12 INFO  time: compiled root in 0.55s[0m
+2024.03.10 13:11:16 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:11:16 INFO  time: compiled root in 0.55s[0m
+2024.03.10 13:11:30 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:11:30 INFO  time: compiled root in 0.43s[0m
+2024.03.10 13:19:27 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:19:27 INFO  time: compiled root in 0.39s[0m
+Mar 10, 2024 1:20:51 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: A severe compiler error occurred, full details of the error can be found in the error report /home/boukha/Desktop/compiler-construction/compiler/.metals/.reports/metals-full/2024-03-10/r_compiler-error_(root)_13-20-51-286.md
+2024.03.10 13:21:07 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:21:07 INFO  time: compiled root in 0.39s[0m
+2024.03.10 13:21:22 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:21:22 INFO  time: compiled root in 0.36s[0m
+2024.03.10 13:21:33 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:21:33 INFO  time: compiled root in 0.39s[0m
+2024.03.10 13:21:42 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:21:42 INFO  time: compiled root in 0.38s[0m
+Mar 10, 2024 1:22:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2134
+2024.03.10 13:29:34 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:29:34 INFO  time: compiled root in 0.41s[0m
+Mar 10, 2024 1:29:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2224
+2024.03.10 13:29:40 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:29:40 INFO  time: compiled root in 0.39s[0m
+2024.03.10 13:29:46 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:29:46 INFO  time: compiled root in 0.57s[0m
+2024.03.10 13:32:10 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:32:10 INFO  time: compiled root in 0.35s[0m
+2024.03.10 13:32:13 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:32:13 INFO  time: compiled root in 0.41s[0m
+2024.03.10 13:33:41 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:33:41 INFO  time: compiled root in 0.35s[0m
+2024.03.10 13:33:53 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:33:53 INFO  time: compiled root in 0.47s[0m
+2024.03.10 13:34:08 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:34:08 INFO  time: compiled root in 0.38s[0m
+2024.03.10 13:36:30 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:36:30 INFO  time: compiled root in 0.37s[0m
+2024.03.10 13:37:19 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:37:19 INFO  time: compiled root in 0.37s[0m
+2024.03.10 13:37:35 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:37:35 INFO  time: compiled root in 0.34s[0m
+2024.03.10 13:37:51 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:37:51 INFO  time: compiled root in 0.32s[0m
+2024.03.10 13:38:22 INFO  compiling root (21 scala sources)[0m
+2024.03.10 13:38:29 INFO  time: compiled root in 7.22s[0m
+2024.03.10 13:38:58 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:38:58 INFO  time: compiled root in 0.27s[0m
+2024.03.10 13:39:39 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:39:39 INFO  time: compiled root in 0.22s[0m
+2024.03.10 13:42:18 ERROR /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 10, 2024 1:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+java.util.concurrent.CompletionException: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.10 13:42:18 ERROR /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 10, 2024 1:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+java.util.concurrent.CompletionException: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol}
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.10 13:42:20 ERROR /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol
+                 ^
+scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 10, 2024 1:42:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol
+                 ^
+java.util.concurrent.CompletionException: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol
+                 ^
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol => Symbol
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.10 13:42:20 ERROR /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol =>
+                 ^
+scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol =>
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 10, 2024 1:42:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol =>
+                 ^
+java.util.concurrent.CompletionException: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol =>
+                 ^
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:6: error: ; expected but => found
+import l3.Symbol =>
+                 ^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+Mar 10, 2024 1:42:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2798
+2024.03.10 13:42:23 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:42:23 INFO  time: compiled root in 0.23s[0m
+2024.03.10 13:42:32 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:42:32 INFO  time: compiled root in 0.19s[0m
+2024.03.10 13:42:55 ERROR /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:10: error: . expected but \n\n found
+
+^
+scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:10: error: . expected but \n\n found
+
+^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 10, 2024 1:42:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:10: error: . expected but \n\n found
+
+^
+java.util.concurrent.CompletionException: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:10: error: . expected but \n\n found
+
+^
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1(CancelTokens.scala:40)
+	at scala.meta.internal.metals.CancelTokens$.$anonfun$future$1$adapted(CancelTokens.scala:38)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.ScalafixProvider$ScalafixRunException: /home/boukha/Desktop/compiler-construction/compiler/.metals/.tmp/src/l3/CL3ToCPSTranslator.scala:10: error: . expected but \n\n found
+
+^
+	at scala.meta.internal.metals.ScalafixProvider.$anonfun$runScalafixRules$1(ScalafixProvider.scala:163)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.10 13:42:56 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:42:56 INFO  time: compiled root in 63ms[0m
+2024.03.10 13:43:50 INFO  compiling root (1 scala source)[0m
+2024.03.10 13:43:50 INFO  time: compiled root in 0.19s[0m
+Mar 10, 2024 2:06:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3138
+Mar 10, 2024 2:07:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3170
+Mar 10, 2024 2:07:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3273
+2024.03.10 14:08:25 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:08:25 INFO  time: compiled root in 0.16s[0m
+2024.03.10 14:16:32 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:16:32 INFO  time: compiled root in 0.23s[0m
+2024.03.10 14:22:09 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:22:09 INFO  time: compiled root in 0.2s[0m
+2024.03.10 14:22:31 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:22:31 INFO  time: compiled root in 0.17s[0m
+2024.03.10 14:25:05 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:25:05 INFO  time: compiled root in 0.26s[0m
+java.lang.AssertionError: assertion failed while typechecking /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala
+Mar 10, 2024 2:25:05 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: A severe compiler error occurred, full details of the error can be found in the error report /home/boukha/Desktop/compiler-construction/compiler/.metals/.reports/metals-full/2024-03-10/r_compiler-error_(root)_14-25-05-740.md
+2024.03.10 14:25:05 WARN  Could not find semantic tokens for: file:///home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala[0m
+2024.03.10 14:26:12 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:26:12 INFO  time: compiled root in 0.27s[0m
+java.lang.AssertionError: assertion failed while typechecking /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala
+Mar 10, 2024 2:26:12 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: A severe compiler error occurred, full details of the error can be found in the error report /home/boukha/Desktop/compiler-construction/compiler/.metals/.reports/metals-full/2024-03-10/r_compiler-error_(root)_14-26-12-493.md
+2024.03.10 14:26:12 WARN  Could not find semantic tokens for: file:///home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala[0m
+2024.03.10 14:40:07 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:40:07 INFO  time: compiled root in 0.17s[0m
+2024.03.10 14:40:33 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:40:33 INFO  time: compiled root in 0.15s[0m
+2024.03.10 14:40:39 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:40:39 INFO  time: compiled root in 0.29s[0m
+2024.03.10 14:41:30 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:41:30 INFO  time: compiled root in 0.25s[0m
+2024.03.10 14:44:22 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:44:22 INFO  time: compiled root in 0.14s[0m
+2024.03.10 14:44:32 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:44:32 INFO  time: compiled root in 0.22s[0m
+2024.03.10 14:45:20 ERROR Failed to tokenize input for semantic tokens for /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala
+scala.meta.tokenizers.TokenizeException: <input>:15: error: unclosed comment
+/*
+^
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError(Reporter.scala:27)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError$(Reporter.scala:26)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.incompleteInputError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError(Reporter.scala:29)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError$(Reporter.scala:29)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.incompleteInputError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.LegacyScanner.skipNestedComments(LegacyScanner.scala:52)
+	at scala.meta.internal.tokenizers.LegacyScanner.skipToCommentEnd(LegacyScanner.scala:71)
+	at scala.meta.internal.tokenizers.LegacyScanner.fetchToken(LegacyScanner.scala:313)
+	at scala.meta.internal.tokenizers.LegacyScanner.nextToken(LegacyScanner.scala:211)
+	at scala.meta.internal.tokenizers.LegacyScanner.foreach(LegacyScanner.scala:1011)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.uncachedTokenize(ScalametaTokenizer.scala:24)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.$anonfun$tokenize$1(ScalametaTokenizer.scala:17)
+	at scala.collection.concurrent.TrieMap.getOrElseUpdate(TrieMap.scala:962)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.tokenize(ScalametaTokenizer.scala:17)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer$$anon$2.apply(ScalametaTokenizer.scala:332)
+	at scala.meta.tokenizers.Api$XtensionTokenizeDialectInput.tokenize(Api.scala:25)
+	at scala.meta.tokenizers.Api$XtensionTokenizeInputLike.tokenize(Api.scala:14)
+	at scala.meta.internal.metals.SemanticTokensProvider$.getTokens(SemanticTokensProvider.scala:28)
+	at scala.meta.internal.metals.SemanticTokensProvider$.provide(SemanticTokensProvider.scala:89)
+	at scala.meta.internal.metals.Compilers.$anonfun$semanticTokens$3(Compilers.scala:541)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.10 14:45:20 ERROR Failed to tokenize input for semantic tokens for /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala
+scala.meta.tokenizers.TokenizeException: <input>:15: error: unclosed comment
+/**
+^
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError(Reporter.scala:27)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError$(Reporter.scala:26)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.incompleteInputError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError(Reporter.scala:29)
+	at scala.meta.internal.tokenizers.Reporter.incompleteInputError$(Reporter.scala:29)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.incompleteInputError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.LegacyScanner.skipNestedComments(LegacyScanner.scala:52)
+	at scala.meta.internal.tokenizers.LegacyScanner.skipToCommentEnd(LegacyScanner.scala:70)
+	at scala.meta.internal.tokenizers.LegacyScanner.fetchToken(LegacyScanner.scala:313)
+	at scala.meta.internal.tokenizers.LegacyScanner.nextToken(LegacyScanner.scala:211)
+	at scala.meta.internal.tokenizers.LegacyScanner.foreach(LegacyScanner.scala:1011)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.uncachedTokenize(ScalametaTokenizer.scala:24)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.$anonfun$tokenize$1(ScalametaTokenizer.scala:17)
+	at scala.collection.concurrent.TrieMap.getOrElseUpdate(TrieMap.scala:962)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.tokenize(ScalametaTokenizer.scala:17)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer$$anon$2.apply(ScalametaTokenizer.scala:332)
+	at scala.meta.tokenizers.Api$XtensionTokenizeDialectInput.tokenize(Api.scala:25)
+	at scala.meta.tokenizers.Api$XtensionTokenizeInputLike.tokenize(Api.scala:14)
+	at scala.meta.internal.metals.SemanticTokensProvider$.getTokens(SemanticTokensProvider.scala:28)
+	at scala.meta.internal.metals.SemanticTokensProvider$.provide(SemanticTokensProvider.scala:89)
+	at scala.meta.internal.metals.Compilers.$anonfun$semanticTokens$3(Compilers.scala:541)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.10 14:46:45 INFO  compiling root (1 scala source)[0m
+2024.03.10 14:46:45 INFO  time: compiled root in 0.22s[0m
