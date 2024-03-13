@@ -3219,3 +3219,225 @@ scala.meta.tokenizers.TokenizeException: <input>:15: error: unclosed comment
 [0m
 2024.03.10 14:46:45 INFO  compiling root (1 scala source)[0m
 2024.03.10 14:46:45 INFO  time: compiled root in 0.22s[0m
+2024.03.10 18:01:08 INFO  compiling root (1 scala source)[0m
+2024.03.10 18:01:08 INFO  time: compiled root in 72ms[0m
+2024.03.10 18:01:24 INFO  compiling root (1 scala source)[0m
+2024.03.10 18:01:24 INFO  time: compiled root in 0.21s[0m
+2024.03.10 18:01:45 INFO  compiling root (1 scala source)[0m
+2024.03.10 18:01:45 INFO  time: compiled root in 0.39s[0m
+2024.03.10 18:05:55 INFO  compiling root (1 scala source)[0m
+2024.03.10 18:05:55 INFO  time: compiled root in 0.22s[0m
+2024.03.10 18:06:23 INFO  compiling root (1 scala source)[0m
+2024.03.10 18:06:23 INFO  time: compiled root in 0.28s[0m
+2024.03.10 18:14:21 INFO  Shutting down server[0m
+2024.03.10 18:14:21 INFO  shutting down Metals[0m
+2024.03.10 18:14:21 INFO  Shut down connection with build server.[0m
+2024.03.10 18:14:21 INFO  Shut down connection with build server.[0m
+2024.03.10 18:14:21 INFO  Shut down connection with build server.[0m
+2024.03.10 18:14:21 INFO  Exiting server[0m
+2024.03.13 18:42:11 INFO  Started: Metals version 1.2.2 in folders '/home/boukha/Desktop/compiler-construction/compiler' for client Visual Studio Code 1.87.2.[0m
+18:42:11.803 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- Flyway Community Edition 9.22.3 by Redgate
+18:42:11.805 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- See release notes here: https://rd.gt/416ObMi
+18:42:11.805 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- 
+18:42:11.808 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/callback' ...
+18:42:11.808 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/callback using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+18:42:11.808 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Unable to resolve location classpath:db/callback.
+18:42:11.808 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/migration' ...
+18:42:11.808 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/migration using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+18:42:11.809 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning URL: jar:file:/home/boukha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scalameta/metals_2.13/1.2.2/metals_2.13-1.2.2.jar!/db/migration
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V1__Create_tables.sql
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V2__Server_discovery.sql
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V3__Jar_symbols.sql
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V4__Fingerprints.sql
+18:42:11.812 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classes at classpath:db/migration
+18:42:11.816 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+18:42:11.816 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V4__Fingerprints.sql
+18:42:11.817 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V1__Create_tables.sql
+18:42:11.817 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V2__Server_discovery.sql
+18:42:11.817 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V3__Jar_symbols.sql
+18:42:11.907 [pool-1-thread-1] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:h2:file:/home/boukha/Desktop/compiler-construction/compiler/.metals/metals (H2 2.2)
+18:42:11.907 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- Driver: H2 JDBC Driver 2.2.224 (2023-09-17)
+18:42:11.907 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- DDL Transactions Supported: false
+18:42:11.908 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Schemas: 
+18:42:11.908 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Default schema: null
+18:42:11.914 [pool-1-thread-1] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+18:42:11.915 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.callback.SqlScriptCallbackFactory -- Scanning for SQL callbacks ...
+18:42:11.916 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+18:42:11.925 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.command.DbValidate -- Validating migrations ...
+18:42:11.930 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+18:42:11.941 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+18:42:11.942 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+18:42:11.942 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+18:42:11.942 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+18:42:11.942 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+18:42:11.943 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+18:42:11.943 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+18:42:11.943 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+18:42:11.943 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+18:42:11.943 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+18:42:11.958 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 4 migrations (execution time 00:00.031s)
+18:42:11.961 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.command.DbSchemas -- Skipping creation of existing schema: "PUBLIC"
+18:42:11.969 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema "PUBLIC": 4
+18:42:11.975 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbMigrate -- Schema "PUBLIC" is up to date. No migration necessary.
+18:42:11.988 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- Memory usage: 47 of 102M
+2024.03.13 18:42:12 INFO  skipping build import with status 'Installed'[0m
+2024.03.13 18:42:12 INFO  Attempting to connect to the build server...[0m
+2024.03.13 18:42:12 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.13 18:42:17 INFO  skipping build import with status 'Installed'[0m
+2024.03.13 18:42:17 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.13 18:42:17 INFO  Attempting to connect to the build server...[0m
+2024.03.13 18:42:17 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.13 18:42:17 INFO  Attempting to connect to the build server...[0m
+2024.03.13 18:42:17 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.13 18:42:17 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.13 18:42:18 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.13 18:42:18 INFO  time: Connected to build server in 5.87s[0m
+2024.03.13 18:42:18 INFO  Connected to Build server: Bloop v1.5.15[0m
+2024.03.13 18:42:18 INFO  time: Imported build in 0.1s[0m
+Mar 13, 2024 6:42:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 19
+Mar 13, 2024 6:42:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20
+2024.03.13 18:42:20 INFO  no build target found for /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala. Using presentation compiler with project's scala-library version: 3.3.1[0m
+2024.03.13 18:42:22 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.13 18:42:22 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.13 18:42:22 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.13 18:42:22 INFO  time: indexed workspace in 1.91s[0m
+2024.03.13 18:42:25 INFO  compiling root-test (3 scala sources)[0m
+2024.03.13 18:42:30 INFO  time: compiled root-test in 4.62s[0m
+2024.03.13 20:00:54 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:00:54 WARN  Could not find semantic tokens for: file:///home/boukha/Desktop/compiler-construction/compiler/src/l3/Dummy.scala[0m
+2024.03.13 20:00:54 INFO  time: compiled root in 0.17s[0m
+2024.03.13 20:07:55 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:07:55 INFO  time: compiled root in 0.31s[0m
+2024.03.13 20:08:08 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:08:08 INFO  time: compiled root in 0.22s[0m
+2024.03.13 20:08:34 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:08:34 INFO  time: compiled root in 0.2s[0m
+2024.03.13 20:08:43 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:08:43 INFO  time: compiled root in 0.21s[0m
+2024.03.13 20:08:51 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:08:51 INFO  time: compiled root in 0.17s[0m
+2024.03.13 20:09:02 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:09:02 INFO  time: compiled root in 0.18s[0m
+Mar 13, 2024 8:11:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 749
+Mar 13, 2024 8:11:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 753
+2024.03.13 20:13:35 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:13:35 INFO  time: compiled root in 0.17s[0m
+2024.03.13 20:24:08 INFO  compiling root (1 scala source)[0m
+2024.03.13 20:24:08 INFO  time: compiled root in 0.17s[0m
+Mar 13, 2024 10:19:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1225
+2024.03.13 22:22:30 INFO  compiling root (1 scala source)[0m
+2024.03.13 22:22:30 INFO  time: compiled root in 0.44s[0m
+Mar 13, 2024 10:25:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1376
+Mar 13, 2024 10:29:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1429
+2024.03.13 22:30:10 INFO  compiling root (1 scala source)[0m
+2024.03.13 22:30:10 INFO  time: compiled root in 0.34s[0m
+Mar 13, 2024 10:30:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1462
+2024.03.13 22:31:58 INFO  compiling root (1 scala source)[0m
+2024.03.13 22:31:58 INFO  time: compiled root in 0.36s[0m
+Mar 13, 2024 10:36:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1522
+Mar 13, 2024 10:39:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1777
+Mar 13, 2024 10:45:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2277
+2024.03.13 22:45:52 WARN  Using indexes to guess the definition of Tree[0m
+2024.03.13 22:46:32 INFO  compiling root (1 scala source)[0m
+2024.03.13 22:46:32 INFO  time: compiled root in 0.31s[0m
+2024.03.13 23:10:37 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:10:37 INFO  time: compiled root in 0.3s[0m
+2024.03.13 23:10:57 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:10:57 INFO  time: compiled root in 0.24s[0m
+2024.03.13 23:11:30 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:11:30 INFO  time: compiled root in 0.22s[0m
+2024.03.13 23:25:21 ERROR Failed to tokenize input for semantic tokens for /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala
+scala.meta.tokenizers.TokenizeException: <input>:171: error: unclosed string literal
+      case S.Lit(b "CL3Lit.BooleanLit(_)) => H.AppC(if (value == l3true) cThen else cElse, Seq(value))
+                   ^
+	at scala.meta.internal.tokenizers.Reporter.syntaxError(Reporter.scala:23)
+	at scala.meta.internal.tokenizers.Reporter.syntaxError$(Reporter.scala:23)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.syntaxError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.Reporter.syntaxError(Reporter.scala:25)
+	at scala.meta.internal.tokenizers.Reporter.syntaxError$(Reporter.scala:25)
+	at scala.meta.internal.tokenizers.Reporter$$anon$1.syntaxError(Reporter.scala:33)
+	at scala.meta.internal.tokenizers.LegacyScanner.getStringLit(LegacyScanner.scala:553)
+	at scala.meta.internal.tokenizers.LegacyScanner.fetchDoubleQuote$1(LegacyScanner.scala:372)
+	at scala.meta.internal.tokenizers.LegacyScanner.fetchToken(LegacyScanner.scala:376)
+	at scala.meta.internal.tokenizers.LegacyScanner.nextToken(LegacyScanner.scala:211)
+	at scala.meta.internal.tokenizers.LegacyScanner.foreach(LegacyScanner.scala:1011)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.uncachedTokenize(ScalametaTokenizer.scala:24)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.$anonfun$tokenize$1(ScalametaTokenizer.scala:17)
+	at scala.collection.concurrent.TrieMap.getOrElseUpdate(TrieMap.scala:962)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer.tokenize(ScalametaTokenizer.scala:17)
+	at scala.meta.internal.tokenizers.ScalametaTokenizer$$anon$2.apply(ScalametaTokenizer.scala:332)
+	at scala.meta.tokenizers.Api$XtensionTokenizeDialectInput.tokenize(Api.scala:25)
+	at scala.meta.tokenizers.Api$XtensionTokenizeInputLike.tokenize(Api.scala:14)
+	at scala.meta.internal.metals.SemanticTokensProvider$.getTokens(SemanticTokensProvider.scala:28)
+	at scala.meta.internal.metals.SemanticTokensProvider$.provide(SemanticTokensProvider.scala:89)
+	at scala.meta.internal.metals.Compilers.$anonfun$semanticTokens$3(Compilers.scala:541)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.13 23:25:25 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:25:25 INFO  time: compiled root in 0.22s[0m
+2024.03.13 23:26:13 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:26:13 INFO  time: compiled root in 0.24s[0m
+2024.03.13 23:27:33 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:27:33 INFO  time: compiled root in 0.2s[0m
+2024.03.13 23:43:20 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:43:20 INFO  time: compiled root in 0.21s[0m
+2024.03.13 23:43:56 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:43:56 INFO  time: compiled root in 0.18s[0m
+2024.03.13 23:44:07 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:44:07 INFO  time: compiled root in 0.2s[0m
+2024.03.13 23:45:02 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:45:02 INFO  time: compiled root in 0.15s[0m
+2024.03.13 23:45:10 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:45:10 INFO  time: compiled root in 0.16s[0m
+2024.03.13 23:45:16 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:45:16 INFO  time: compiled root in 0.15s[0m
+Mar 13, 2024 11:49:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5149
+2024.03.13 23:56:32 WARN  Using indexes to guess the definition of BooleanLit[0m
+2024.03.13 23:56:58 WARN  Using indexes to guess the definition of BooleanLit[0m
+2024.03.13 23:57:01 WARN  Using indexes to guess the definition of S[0m
+2024.03.13 23:57:46 INFO  compiling root (1 scala source)[0m
+2024.03.13 23:57:46 INFO  time: compiled root in 0.11s[0m
+Mar 14, 2024 12:03:17 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5727
+2024.03.14 00:03:53 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:03:53 INFO  time: compiled root in 0.1s[0m
+2024.03.14 00:04:08 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:04:08 INFO  time: compiled root in 0.6s[0m
+2024.03.14 00:04:28 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:04:28 INFO  time: compiled root in 0.51s[0m
+2024.03.14 00:06:46 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:06:46 INFO  time: compiled root in 0.44s[0m
+Mar 14, 2024 12:08:51 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6127
+Mar 14, 2024 12:10:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6160
+2024.03.14 00:12:45 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:12:46 INFO  time: compiled root in 1.22s[0m
+2024.03.14 00:12:46 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:12:46 INFO  time: compiled root in 0.67s[0m
+2024.03.14 00:13:12 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:13:12 INFO  time: compiled root in 0.81s[0m
+2024.03.14 00:13:30 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:13:30 INFO  time: compiled root in 0.73s[0m
+2024.03.14 00:14:11 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:14:11 INFO  time: compiled root in 0.58s[0m
+2024.03.14 00:14:33 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:14:33 INFO  time: compiled root in 0.56s[0m
+2024.03.14 00:15:00 INFO  compiling root (1 scala source)[0m
+2024.03.14 00:15:00 INFO  time: compiled root in 0.6s[0m
