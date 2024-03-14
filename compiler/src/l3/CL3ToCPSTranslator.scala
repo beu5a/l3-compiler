@@ -11,15 +11,6 @@ import l3.{SymbolicCL3TreeModule => S}
 
 
  
-
-/**
-  * TODO : refractor name generation
-  * TODO : refractor some variable namings
-  * TODO : rename context curry to transform curry maybe ? add reverse args
-  * 
-  */
-
-
 object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
 
 
@@ -43,11 +34,9 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
   private def nonTail(tree : S.Tree)(ctx: H.Atom => H.Tree): H.Tree = {
     given Position = tree.pos
 
-    //define here, literals need implicit position
     val l3true = S.Lit(CL3Lit.BooleanLit(true))
     val l3false = S.Lit(CL3Lit.BooleanLit(false))
     val l3Id = L3Prim.Id
-    val l3Eq = L3Prim.Eq
 
     tree match {
       case S.Lit(value) => 
@@ -61,7 +50,7 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
       case S.LetRec(fs, e) =>
         val cps_fs = fs map (f => 
           val retC = Symbol.fresh("ret_c")
-          H.Fun(f.name, retC, f.args, nonTail(f.body)(a => H.AppC(retC, Seq(a))))
+          H.Fun(f.name, retC, f.args, tail(f.body,retC))
       )
         H.LetF(cps_fs, nonTail(e)(ctx))
 
@@ -74,28 +63,20 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
         val initCtx = (as : Seq[H.Atom]) => 
           H.LetC(Seq(retCnt), nonTail(f)(a => appF(a, as)))
       
-        curryContext(args, Seq())(as => initCtx(as)) //Do we need to reverse the args?
+        curryContext(args, Seq())(as => initCtx(as)) 
 
-      
-      case S.If(S.Prim(p:L3TestPrimitive, args), e2, e3) =>
-        val ifCntName = Symbol.fresh("if_c")
-        val ifCntArgName = Symbol.fresh("r")
-        val thenCntName = Symbol.fresh("then_c")
-        val elseCntName = Symbol.fresh("else_c")
+      case S.If(e1,e2,e3) => {
+        val fC = Symbol.fresh("c")
+        val fR = Symbol.fresh("r")
+        val fThen = Symbol.fresh("then_c")
+        val fElse = Symbol.fresh("else_c")
 
-        val ifCnt = H.Cnt(ifCntName, Seq(ifCntArgName), ctx(ifCntArgName))
-        val thenCnt = H.Cnt(thenCntName, Seq(), nonTail(e2)(a2 => H.AppC(ifCntName, Seq(a2))))
-        val elseCnt = H.Cnt(elseCntName, Seq(), nonTail(e3)(a3 => H.AppC(ifCntName, Seq(a3))))
+        val letC = H.Cnt(fC, Seq(fR), ctx(fR))
+        val letT = H.Cnt(fThen,Seq(), tail(e2,fC))
+        val letE = H.Cnt(fElse,Seq(), tail(e3,fC))
 
-        val letCBody = curryContext(args, Seq())(as => H.If(p, as, thenCntName, elseCntName))
-        H.LetC(Seq(ifCnt, thenCnt, elseCnt), letCBody)
-       
-      case S.If(e1, e2, e3) =>
-        nonTail(
-          S.If(
-            S.Prim(l3Eq, Seq(e1, l3false)), e3, e2)
-          )
-          (ctx)
+        H.LetC(Seq(letC,letT,letE), cond(e1,fThen,fElse))
+      }
 
       case tprim @ S.Prim(p:L3TestPrimitive , ei) =>
         nonTail(S.If(tprim,l3true,l3false))(ctx)
@@ -163,35 +144,40 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
   def cond(tree: S.Tree, cThen:Symbol, cElse: Symbol): H.Tree = {
     given Position = tree.pos
 
-    val l3true = S.Lit(CL3Lit.BooleanLit(true))
     val l3false = S.Lit(CL3Lit.BooleanLit(false))
     val l3Id = L3Prim.Id
     val l3Eq = L3Prim.Eq
 
     tree match {
-      case id @ S.Ident(_) => cond(S.Prim(l3Eq, Seq(id, l3true)), cThen, cElse)
-      case S.Lit(b @ CL3Lit.BooleanLit(_)) => H.AppC(if (b == l3true) cThen else cElse, Seq())
+      case id @ S.Ident(_) => cond(S.Prim(l3Eq, Seq(id, l3false)), cElse, cThen)
+      case S.Lit(b @ CL3Lit.BooleanLit(x)) => H.AppC(if (x) cThen else cElse, Seq())
       case S.Lit(_) => H.AppC(cThen, Seq())
-      case S.If(e1, e2 @ S.Lit(CL3Lit.BooleanLit(_)), e3 @ S.Lit(CL3Lit.BooleanLit(_))) =>
-        cond(e1, if (e2 == l3true) cThen else cElse, if (e3 == l3true) cThen else cElse)
-      case S.If(e1, e2, e3 @ S.Lit(CL3Lit.BooleanLit(_))) =>
+      case S.If(e1, e2 @ S.Lit(CL3Lit.BooleanLit(a)), e3 @ S.Lit(CL3Lit.BooleanLit(b))) =>
+        cond(e1, if (a) cThen else cElse, if (b) cThen else cElse)
+      case S.If(e1, e2, e3 @ S.Lit(CL3Lit.BooleanLit(x))) =>
         val acName = Symbol.fresh("ac")
-        val (ctn,cen) = if (e3 == l3false) (cThen,cElse) else (cElse,cThen)
+        val (ctn,cen) = if (!x) (cThen,cElse) else (cElse,cThen)
         val cnt = H.Cnt(acName, Seq(), cond(e2,ctn,cen))
         H.LetC(Seq(cnt),cond(e1,acName, cElse))
       case S.If(e1, e2 @ S.Lit(CL3Lit.BooleanLit(_)), e3) =>
-        cond(S.If(e1,e3,e2),cThen,cElse)
+        cond(S.If(e1,e3,e2),cElse,cThen)
       case S.Let(Seq(),body) => cond(body,cThen,cElse)
       case S.Let(Seq((n1, e1), niei @_*), e) =>
         nonTail(e1)(a1 => 
             H.LetP(n1,l3Id, Seq(a1), cond(S.Let(niei,e),cThen,cElse))
         )
+      case S.LetRec(fs, e) =>
+        val cps_fs = fs map (f => 
+          val retC = Symbol.fresh("ret_c")
+          H.Fun(f.name, retC, f.args, tail(f.body, retC))
+        )
+        H.LetF(cps_fs, cond(e, cThen,cElse))
+
       case S.Prim(p:L3TestPrimitive, args) =>
         curryContext(args, Seq())(as => H.If(p, as, cThen, cElse))
       
       case t => nonTail(t)(a => H.If(l3Eq, Seq(a, CL3Lit.BooleanLit(false)), cElse, cThen))
-      case _ => throw new Exception("Cond : Not implemented !")
+    }
   }
-}
 
 }
