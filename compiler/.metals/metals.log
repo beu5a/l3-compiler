@@ -3441,3 +3441,115 @@ WARNING: Unmatched cancel notification for request id 6160
 2024.03.14 00:14:33 INFO  time: compiled root in 0.56s[0m
 2024.03.14 00:15:00 INFO  compiling root (1 scala source)[0m
 2024.03.14 00:15:00 INFO  time: compiled root in 0.6s[0m
+2024.03.14 08:51:05 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 08:51:05 INFO  time: compiled root-test in 23ms[0m
+2024.03.14 08:51:05 WARN  Could not find semantic tokens for: file:///home/boukha/Desktop/compiler-construction/compiler/test/l3/CL3toCPSTranslatorTests.scala[0m
+2024.03.14 08:56:47 INFO  compiling root (1 scala source)[0m
+2024.03.14 08:56:47 INFO  time: compiled root in 0.28s[0m
+2024.03.14 08:59:36 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 08:59:36 INFO  time: compiled root-test in 34ms[0m
+2024.03.14 09:00:02 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:00:02 INFO  time: compiled root-test in 80ms[0m
+2024.03.14 09:12:15 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:12:16 INFO  time: compiled root-test in 1.04s[0m
+2024.03.14 09:12:32 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:12:32 INFO  time: compiled root-test in 0.96s[0m
+2024.03.14 09:12:34 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:12:34 INFO  time: compiled root-test in 0.73s[0m
+2024.03.14 09:16:15 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:16:15 INFO  time: compiled root-test in 46ms[0m
+Mar 14, 2024 9:16:39 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7980
+2024.03.14 09:16:42 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:16:42 INFO  time: compiled root-test in 52ms[0m
+Mar 14, 2024 9:17:26 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8012
+2024.03.14 09:18:25 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:18:25 INFO  time: compiled root-test in 0.22s[0m
+2024.03.14 09:18:53 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:18:53 INFO  time: compiled root-test in 0.18s[0m
+2024.03.14 09:20:48 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:20:48 INFO  time: compiled root-test in 0.22s[0m
+2024.03.14 09:22:17 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:22:17 INFO  time: compiled root-test in 0.18s[0m
+2024.03.14 09:22:35 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:22:35 INFO  time: compiled root-test in 0.36s[0m
+2024.03.14 09:23:04 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:23:04 INFO  time: compiled root-test in 0.22s[0m
+Mar 14, 2024 9:23:11 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8346
+Mar 14, 2024 9:23:20 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8360
+2024.03.14 09:23:45 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:23:45 INFO  time: compiled root-test in 0.2s[0m
+2024.03.14 09:23:59 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:23:59 INFO  time: compiled root-test in 72ms[0m
+2024.03.14 09:24:34 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:24:34 INFO  time: compiled root-test in 92ms[0m
+2024.03.14 09:25:09 INFO  compiling root-test (2 scala sources)[0m
+2024.03.14 09:25:09 INFO  time: compiled root-test in 0.19s[0m
+2024.03.14 09:28:41 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:28:41 INFO  time: compiled root-test in 78ms[0m
+2024.03.14 09:28:54 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:28:54 INFO  time: compiled root-test in 63ms[0m
+2024.03.14 09:29:00 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:29:00 INFO  time: compiled root-test in 0.18s[0m
+2024.03.14 09:29:02 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:29:02 INFO  time: compiled root-test in 0.17s[0m
+Mar 14, 2024 9:30:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "vscode-chat-code-block:02dc0f9f-bf2c-4cbe-97fb-79f0abe6dd64"
+  ]
+}
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:152)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:187)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.nio.file.FileSystemNotFoundException: Provider "vscode-chat-code-block" not installed
+	at java.base/java.nio.file.Path.of(Path.java:212)
+	at java.base/java.nio.file.Paths.get(Paths.java:97)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionURIMtags.toAbsolutePath(MtagsEnrichments.scala:131)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:187)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:706)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:703)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:627)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:43)
+	... 15 more
+
+2024.03.14 09:30:55 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:30:55 INFO  time: compiled root-test in 0.2s[0m
+2024.03.14 09:31:06 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:31:06 INFO  time: compiled root-test in 0.23s[0m
+Mar 14, 2024 9:34:47 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9197
+2024.03.14 09:34:59 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:34:59 INFO  time: compiled root-test in 0.19s[0m
+Mar 14, 2024 9:35:03 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9233
+2024.03.14 09:35:30 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 09:35:30 INFO  time: compiled root-test in 0.24s[0m
+2024.03.14 09:35:37 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/.metals/dap-server.trace.json or /home/boukha/.cache/metals/dap-server.trace.json[0m
+2024.03.14 09:35:37 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/.metals/dap-client.trace.json or /home/boukha/.cache/metals/dap-client.trace.json[0m
+2024.03.14 09:35:37 INFO  Starting debug proxy for [l3.CL3toCPSTranslatorTests1()][0m
+2024.03.14 09:35:39 INFO  Trying to attach to remote debuggee VM localhost:51879 .[0m
+2024.03.14 09:35:39 INFO  Attaching to debuggee VM succeeded.[0m
+2024.03.14 09:35:39 INFO  Canceling debug proxy for [l3.CL3toCPSTranslatorTests1()][0m
+2024.03.14 09:35:39 INFO  Closing debug server tcp://0.0.0.0:37855[0m

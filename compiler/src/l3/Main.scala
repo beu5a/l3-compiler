@@ -15,6 +15,7 @@ object Main {
         andThen HighCPSInterpreter
     )
 
+
     val basePath = Path.of(System.getProperty("user.dir"))
     Either.cond(! args.isEmpty, args.toIndexedSeq, "no input file given")
       .flatMap(L3FileReader.readFilesExpandingModules(basePath, _))
