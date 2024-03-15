@@ -3553,3 +3553,228 @@ WARNING: Unmatched cancel notification for request id 9233
 2024.03.14 09:35:39 INFO  Attaching to debuggee VM succeeded.[0m
 2024.03.14 09:35:39 INFO  Canceling debug proxy for [l3.CL3toCPSTranslatorTests1()][0m
 2024.03.14 09:35:39 INFO  Closing debug server tcp://0.0.0.0:37855[0m
+Mar 14, 2024 10:17:17 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9374
+2024.03.14 10:17:46 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:17:46 INFO  time: compiled root-test in 0.35s[0m
+2024.03.14 10:18:06 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:18:06 INFO  time: compiled root-test in 0.14s[0m
+Mar 14, 2024 10:18:06 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:29)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:26)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:285)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:504)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$.<clinit>(DebugProvider.scala:1012)
+	at scala.meta.internal.metals.debug.DebugProvider.ensureNoWorkspaceErrors(DebugProvider.scala:493)
+	at scala.meta.internal.metals.debug.DebugProvider.$anonfun$startTestSuite$4(DebugProvider.scala:781)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.14 10:18:28 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:18:28 INFO  time: compiled root-test in 0.38s[0m
+Mar 14, 2024 10:18:28 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:29)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:26)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:285)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:504)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$.<clinit>(DebugProvider.scala:1012)
+	at scala.meta.internal.metals.debug.DebugProvider.ensureNoWorkspaceErrors(DebugProvider.scala:493)
+	at scala.meta.internal.metals.debug.DebugProvider.$anonfun$startTestSuite$4(DebugProvider.scala:781)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.14 10:18:37 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:18:37 INFO  time: compiled root-test in 0.42s[0m
+Mar 14, 2024 10:18:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:704)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2094)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:29)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:26)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:484)
+	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:429)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:338)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:285)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:504)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$: Cannot run class, since the workspace has errors.
+	at scala.meta.internal.metals.debug.DebugProvider$WorkspaceErrorsException$.<clinit>(DebugProvider.scala:1012)
+	at scala.meta.internal.metals.debug.DebugProvider.ensureNoWorkspaceErrors(DebugProvider.scala:493)
+	at scala.meta.internal.metals.debug.DebugProvider.$anonfun$startTestSuite$4(DebugProvider.scala:781)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	... 3 more
+
+2024.03.14 10:18:55 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:18:55 INFO  time: compiled root-test in 0.42s[0m
+2024.03.14 10:19:11 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:19:11 INFO  time: compiled root-test in 0.41s[0m
+Mar 14, 2024 10:19:55 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9624
+2024.03.14 10:27:55 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:27:56 INFO  time: compiled root-test in 1.21s[0m
+2024.03.14 10:29:51 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:29:51 INFO  time: compiled root-test in 0.69s[0m
+2024.03.14 10:30:02 WARN  Using indexes to guess the definition of Ident[0m
+2024.03.14 10:30:02 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 10:30:03 WARN  Using indexes to guess the definition of Ident[0m
+2024.03.14 10:30:02 INFO  time: compiled root-test in 0.76s[0m
+2024.03.14 11:35:38 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:35:38 INFO  time: compiled root-test in 0.82s[0m
+2024.03.14 11:36:01 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:36:01 INFO  time: compiled root-test in 0.66s[0m
+2024.03.14 11:36:20 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:36:20 INFO  time: compiled root-test in 0.63s[0m
+Mar 14, 2024 11:36:53 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10512
+2024.03.14 11:37:18 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:37:18 INFO  time: compiled root-test in 0.75s[0m
+2024.03.14 11:37:32 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:37:32 INFO  time: compiled root-test in 0.61s[0m
+2024.03.14 11:37:42 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:37:42 INFO  time: compiled root-test in 0.65s[0m
+2024.03.14 11:37:49 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:37:49 INFO  time: compiled root-test in 0.63s[0m
+Mar 14, 2024 11:48:09 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10729
+2024.03.14 11:48:19 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:48:19 INFO  time: compiled root-test in 0.67s[0m
+2024.03.14 11:48:48 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:48:48 INFO  time: compiled root-test in 0.81s[0m
+Mar 14, 2024 11:48:49 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10786
+2024.03.14 11:48:58 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:48:58 INFO  time: compiled root-test in 0.61s[0m
+2024.03.14 11:49:14 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:49:14 INFO  time: compiled root-test in 0.75s[0m
+2024.03.14 11:49:27 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:49:27 INFO  time: compiled root-test in 0.59s[0m
+Mar 14, 2024 11:51:51 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10927
+2024.03.14 11:51:51 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:51:51 INFO  time: compiled root-test in 0.53s[0m
+2024.03.14 11:52:39 INFO  compiling root-test (1 scala source)[0m
+2024.03.14 11:52:39 INFO  time: compiled root-test in 0.56s[0m
+2024.03.14 17:57:57 INFO  Shutting down server[0m
+2024.03.14 17:57:57 INFO  shutting down Metals[0m
+2024.03.14 17:57:57 INFO  Shut down connection with build server.[0m
+2024.03.14 17:57:57 INFO  Shut down connection with build server.[0m
+2024.03.14 17:57:57 INFO  Shut down connection with build server.[0m
+2024.03.14 17:57:57 INFO  Exiting server[0m
+2024.03.15 13:23:54 INFO  Started: Metals version 1.2.2 in folders '/home/boukha/Desktop/compiler-construction/compiler' for client Visual Studio Code 1.87.2.[0m
+13:23:55.087 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- Flyway Community Edition 9.22.3 by Redgate
+13:23:55.092 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- See release notes here: https://rd.gt/416ObMi
+13:23:55.092 [pool-1-thread-1] INFO org.flywaydb.core.internal.license.VersionPrinter -- 
+13:23:55.096 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/callback' ...
+13:23:55.096 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/callback using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+13:23:55.096 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Unable to resolve location classpath:db/callback.
+13:23:55.097 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classpath resources at 'classpath:db/migration' ...
+13:23:55.097 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Determining location urls for classpath:db/migration using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 ...
+13:23:55.097 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning URL: jar:file:/home/boukha/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scalameta/metals_2.13/1.2.2/metals_2.13-1.2.2.jar!/db/migration
+13:23:55.101 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/
+13:23:55.101 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V1__Create_tables.sql
+13:23:55.102 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V2__Server_discovery.sql
+13:23:55.102 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V3__Jar_symbols.sql
+13:23:55.102 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Found resource: db/migration/V4__Fingerprints.sql
+13:23:55.102 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner -- Scanning for classes at classpath:db/migration
+13:23:55.107 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+13:23:55.108 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V4__Fingerprints.sql
+13:23:55.109 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V1__Create_tables.sql
+13:23:55.109 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V2__Server_discovery.sql
+13:23:55.109 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator -- Validating V3__Jar_symbols.sql
+13:23:55.203 [pool-1-thread-1] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:h2:file:/home/boukha/Desktop/compiler-construction/compiler/.metals/metals (H2 2.2)
+13:23:55.203 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- Driver: H2 JDBC Driver 2.2.224 (2023-09-17)
+13:23:55.203 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- DDL Transactions Supported: false
+13:23:55.205 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Schemas: 
+13:23:55.205 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory -- Default schema: null
+13:23:55.211 [pool-1-thread-1] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+13:23:55.212 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.callback.SqlScriptCallbackFactory -- Scanning for SQL callbacks ...
+13:23:55.213 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+13:23:55.221 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.command.DbValidate -- Validating migrations ...
+13:23:55.226 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+13:23:55.234 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+13:23:55.234 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+13:23:55.234 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+13:23:55.234 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+13:23:55.235 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+13:23:55.235 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V4__Fingerprints.sql (filename: V4__Fingerprints.sql)
+13:23:55.235 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V1__Create_tables.sql (filename: V1__Create_tables.sql)
+13:23:55.236 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V2__Server_discovery.sql (filename: V2__Server_discovery.sql)
+13:23:55.236 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/V3__Jar_symbols.sql (filename: V3__Jar_symbols.sql)
+13:23:55.236 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.scanner.Scanner -- Filtering out resource: db/migration/ (filename: )
+13:23:55.247 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 4 migrations (execution time 00:00.025s)
+13:23:55.250 [pool-1-thread-1] DEBUG org.flywaydb.core.internal.command.DbSchemas -- Skipping creation of existing schema: "PUBLIC"
+13:23:55.256 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema "PUBLIC": 4
+13:23:55.260 [pool-1-thread-1] INFO org.flywaydb.core.internal.command.DbMigrate -- Schema "PUBLIC" is up to date. No migration necessary.
+13:23:55.269 [pool-1-thread-1] DEBUG org.flywaydb.core.FlywayExecutor -- Memory usage: 46 of 102M
+2024.03.15 13:23:55 INFO  skipping build import with status 'Installed'[0m
+2024.03.15 13:23:55 INFO  Attempting to connect to the build server...[0m
+2024.03.15 13:23:55 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.15 13:24:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.15 13:24:00 INFO  no build target found for /home/boukha/Desktop/compiler-construction/compiler/src/l3/CL3Tree.scala. Using presentation compiler with project's scala-library version: 3.3.1[0m
+2024.03.15 13:24:00 INFO  Attempting to connect to the build server...[0m
+2024.03.15 13:24:00 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.15 13:24:00 INFO  Attempting to connect to the build server...[0m
+2024.03.15 13:24:00 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk-amd64 defined at /home/boukha/.bloop/bloop.json[0m
+2024.03.15 13:24:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.15 13:24:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/boukha/Desktop/compiler-construction/compiler/project/.metals/bsp.trace.json or /home/boukha/.cache/metals/bsp.trace.json[0m
+2024.03.15 13:24:01 INFO  time: Connected to build server in 5.33s[0m
+2024.03.15 13:24:01 INFO  Connected to Build server: Bloop v1.5.15[0m
+2024.03.15 13:24:01 INFO  time: Imported build in 0.17s[0m
+Mar 15, 2024 1:24:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4
+2024.03.15 13:24:02 INFO  skipping build import with status 'Started'[0m
+Mar 15, 2024 1:24:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16
+2024.03.15 13:24:03 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.15 13:24:03 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.15 13:24:03 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip, /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/src.zip, /usr/lib/jvm/java-11-openjdk-amd64/lib/src.zip. Java symbols will not be available.[0m
+2024.03.15 13:24:03 INFO  time: indexed workspace in 2.83s[0m
+2024.03.15 13:24:04 INFO  compiling root (1 scala source)[0m
+2024.03.15 13:24:10 INFO  compiling root-test (1 scala source)[0m
+2024.03.15 13:24:10 INFO  time: compiled root in 5.95s[0m
+2024.03.15 13:24:12 INFO  time: compiled root-test in 1.97s[0m
+2024.03.15 13:24:42 INFO  compiling root (1 scala source)[0m
+2024.03.15 13:24:42 INFO  time: compiled root in 0.9s[0m
+2024.03.15 13:25:51 INFO  compiling root (1 scala source)[0m
+2024.03.15 13:25:51 INFO  time: compiled root in 0.24s[0m
+2024.03.15 13:27:01 INFO  compiling root-test (1 scala source)[0m
+2024.03.15 13:27:02 INFO  time: compiled root-test in 1.2s[0m
+2024.03.15 13:27:34 INFO  compiling root-test (1 scala source)[0m
+2024.03.15 13:27:34 INFO  time: compiled root-test in 0.92s[0m

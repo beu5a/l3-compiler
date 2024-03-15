@@ -48,11 +48,11 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
       case S.Let(Seq((n1, e1), niei @_*), e) =>
         nonTail(e1)(a1 => H.LetP(n1, l3Id, Seq(a1), nonTail(S.Let(niei, e))(ctx)))
       case S.LetRec(fs, e) =>
-        val cps_fs = fs map (f => 
+        val cpsFs = fs map (f => 
           val retC = Symbol.fresh("ret_c")
           H.Fun(f.name, retC, f.args, tail(f.body,retC))
       )
-        H.LetF(cps_fs, nonTail(e)(ctx))
+        H.LetF(cpsFs, nonTail(e)(ctx))
 
       case S.App(f, args) =>
         val retCntName = Symbol.fresh("ret_c")
@@ -108,11 +108,11 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
         nonTail(e1)(a1 => H.LetP(n1, l3Id, Seq(a1), tail(S.Let(niei, e), c)))
 
       case S.LetRec(fs, e) =>
-        val cps_fs = fs map (f => 
+        val cpsFs = fs map (f => 
           val retC = Symbol.fresh("ret_c")
           H.Fun(f.name, retC, f.args, tail(f.body, retC))
         )
-        H.LetF(cps_fs, tail(e, c))
+        H.LetF(cpsFs, tail(e, c))
 
       case S.If(e1,e2,e3) =>
         val thenCntName = Symbol.fresh("then_c")
@@ -167,11 +167,11 @@ object CL3ToCPSTranslator extends (S.Tree => H.Tree) {
             H.LetP(n1,l3Id, Seq(a1), cond(S.Let(niei,e),cThen,cElse))
         )
       case S.LetRec(fs, e) =>
-        val cps_fs = fs map (f => 
+        val cpsFs = fs map (f => 
           val retC = Symbol.fresh("ret_c")
           H.Fun(f.name, retC, f.args, tail(f.body, retC))
         )
-        H.LetF(cps_fs, cond(e, cThen,cElse))
+        H.LetF(cpsFs, cond(e, cThen,cElse))
 
       case S.Prim(p:L3TestPrimitive, args) =>
         curryContext(args, Seq())(as => H.If(p, as, cThen, cElse))
