@@ -10,11 +10,9 @@ object Main {
   def main(args: Array[String]): Unit = {
     val backEnd: Tree => TerminalPhaseResult = (
       CL3ToCPSTranslator
-        andThen treePrinter("---------- After translation to CPS")
-        andThen treeChecker
-        andThen HighCPSInterpreter
+        andThen CPSValueRepresenter
+        andThen LowCPSInterpreter
     )
-
 
     val basePath = Path.of(System.getProperty("user.dir"))
     Either.cond(! args.isEmpty, args.toIndexedSeq, "no input file given")
