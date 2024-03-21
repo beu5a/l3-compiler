@@ -115,11 +115,11 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         bitWiseLetP(n,L3.IntShiftLeft, x, y, body)
       case H.LetP(n,L3.IntShiftRight ,Seq(x ,y), body) => 
         bitWiseLetP(n,L3.IntShiftRight, x, y, body)
-      case H.LetP(n,L3.IntBitwiseAnd ,Seq(x ,y), body) => ???  
+      case H.LetP(n,L3.IntBitwiseAnd ,Seq(x ,y), body) => 
         bitWiseLetP(n,L3.IntBitwiseAnd, x, y, body)
-      case H.LetP(n,L3.IntBitwiseOr  ,Seq(x ,y), body) => ???
+      case H.LetP(n,L3.IntBitwiseOr  ,Seq(x ,y), body) => 
         bitWiseLetP(n,L3.IntBitwiseOr, x, y, body)
-      case H.LetP(n,L3.IntBitwiseXOr ,Seq(x ,y), body) => ???
+      case H.LetP(n,L3.IntBitwiseXOr ,Seq(x ,y), body) => 
         bitWiseLetP(n,L3.IntBitwiseXOr, x, y, body)
 
       // Byte operations
