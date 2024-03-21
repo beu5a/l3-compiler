@@ -143,9 +143,11 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       case H.LetP(n,L3.CharToInt, Seq(x), body) => ???
 
       // Id
-      case H.LetP(n,L3.Id, Seq(x), body) => ???
+      case H.LetP(n,L3.Id, Seq(x), body) => 
+        L.LetP(n, CPS.Id, Seq(rewrite(x)), apply(body)) 
  
-      case _ => ???
+      case H.Halt(x) => unboxInt(rewrite(x)) { x1 => L.Halt(x1) }
+      case _ => throw new Exception("Not implemented yet")
 
     }
   }
