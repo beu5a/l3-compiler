@@ -137,6 +137,36 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
           L.LetP(n, CPS.ByteWrite, Seq(x1), apply(body))
         }
 
+      // Block operations
+
+      //we can use boxint and unboxint for args and ret value 
+      case H.LetP(n,L3.BlockAlloc, Seq(x, y), body) => 
+        tempLetP(CPS.ShiftRight, Seq(rewrite(x),1)){ t1 => 
+          tempLetP(CPS.ShiftRight, Seq(rewrite(y),1)){ t2 => 
+            L.LetP(n, CPS.BlockAlloc, Seq(t1,t2), apply(body))
+          }
+        }
+      
+    
+      case H.LetP(n,L3.BlockTag, Seq(x), body) =>
+        tempLetP(CPS.BlockTag, Seq(rewrite(x))){ t1 => 
+          boxInt(t1,n){_ => apply(body)}
+        }
+      
+      case H.LetP(n,L3.BlockLength, Seq(x), body) =>
+        tempLetP(CPS.BlockLength, Seq(rewrite(x))){ t1 => 
+          boxInt(t1,n){_ => apply(body)}
+        }
+      
+      case H.LetP(n,L3.BlockGet, Seq(x, y), body) =>
+        tempLetP(CPS.ShiftRight, Seq(rewrite(y),1)){ t1 => 
+          L.LetP(n, CPS.BlockGet, Seq(rewrite(x),t1), apply(body))
+        }
+
+      case H.LetP(n,L3.BlockSet, Seq(x, y, z), body) => 
+        tempLetP(CPS.ShiftRight, Seq(rewrite(y),1)){ t1 => 
+          L.LetP(n, CPS.BlockSet, Seq(rewrite(x),t1,rewrite(z)), apply(body))
+        }
 
       // Conversions
       case H.LetP(n,L3.IntToChar, Seq(x), body) => ???
@@ -144,7 +174,7 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
       // Id
       case H.LetP(n,L3.Id, Seq(x), body) => 
-        L.LetP(n, CPS.Id, Seq(rewrite(x)), apply(body)) 
+        L.LetP(n, CPS.Id, Seq(rewrite(x)), apply(body))
  
       case H.Halt(x) => unboxInt(rewrite(x)) { x1 => L.Halt(x1) }
       case _ => throw new Exception("Not implemented yet")
@@ -184,6 +214,7 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
   }
 
+  // can't we remove the sub from unbox ? I think the one in lsb is gonna be removed by the shiftRight
   private def unboxInt(x: L.Atom)(body: L.Name => L.Tree): L.Tree = {
     tempLetP(CPS.Sub, Seq(x,1)) { x1 => 
       tempLetP(CPS.ShiftRight, Seq(x1,1)) { x2 => 
