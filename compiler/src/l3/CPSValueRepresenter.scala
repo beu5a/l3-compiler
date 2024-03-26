@@ -169,12 +169,55 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         }
 
       // Conversions
-      case H.LetP(n,L3.IntToChar, Seq(x), body) => ???
-      case H.LetP(n,L3.CharToInt, Seq(x), body) => ???
+      case H.LetP(n,L3.IntToChar, Seq(x), body) => {
+          tempLetP(CPS.ShiftLeft, Seq(rewrite(x),2)){ t1 => 
+            L.LetP(n, CPS.Add, Seq(t1,2), apply(body))
+          }
+      } 
+      case H.LetP(n,L3.CharToInt, Seq(x), body) => { 
+        L.LetP(n, CPS.ShiftRight, Seq(rewrite(x),2), apply(body))
+      }
 
       // Id
       case H.LetP(n,L3.Id, Seq(x), body) => 
         L.LetP(n, CPS.Id, Seq(rewrite(x)), apply(body))
+
+      // Test primitive
+      case H.If(L3.IntP, Seq(x), e1, e2) =>{ 
+        tempLetP(CPS.And, Seq(rewrite(x),1)){ t1 => 
+          L.If(CPST.Eq, Seq(t1,1), e1, e2)
+        }
+      }
+
+      //case H.If(L3.BlockP  ,Seq(x),e1,e2) => {
+
+      //}
+      case H.If(L3.CharP ,Seq(x),e1,e2) => {
+        tempLetP(CPS.And, Seq(rewrite(x),7)){ t1 => 
+          L.If(CPST.Eq, Seq(t1,6), e1, e2)
+        }
+      }
+      case H.If(L3.BoolP ,Seq(x),e1,e2) => {
+        tempLetP(CPS.And, Seq(rewrite(x),15)){ t1 => 
+          L.If(CPST.Eq, Seq(t1,10), e1, e2)
+        }
+      }
+      case H.If(L3.UnitP ,Seq(x),e1,e2) => {
+        tempLetP(CPS.And, Seq(rewrite(x),15)){ t1 => 
+          L.If(CPST.Eq, Seq(t1,2), e1, e2)
+        }
+      }
+
+
+      case H.If(L3.IntLt,Seq(x,y),e1,e2) => {
+        L.If(CPST.Lt, Seq(rewrite(x),rewrite(y)), e1, e2)
+      }
+      case H.If(L3.IntLe,Seq(x,y),e1,e2) => {
+        L.If(CPST.Le, Seq(rewrite(x),rewrite(y)), e1, e2)
+      }
+      case H.If(L3.Eq ,Seq(x,y),e1,e2) => {
+        L.If(CPST.Eq, Seq(rewrite(x),rewrite(y)), e1, e2)
+      }
  
       case H.Halt(x) => unboxInt(rewrite(x)) { x1 => L.Halt(x1) }
       case _ => throw new Exception("Not implemented yet")
