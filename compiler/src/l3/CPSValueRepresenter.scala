@@ -31,37 +31,14 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       
       // Integers
       case H.LetP(n,L3.IntAdd, Seq(x, y), body) =>  
-        // use xor for substraction ? why not use sub
         tempLetP(CPS.XOr, Seq(rewrite(x), 1)) { x1 => 
           L.LetP(n, CPS.Add, Seq(x1,rewrite(y)), apply(body))
         }
       case H.LetP(n,L3.IntSub, Seq(x, y), body) =>
-        // use or for addition
         tempLetP(CPS.Sub, Seq(rewrite(x), rewrite(y))) { x1 => 
           L.LetP(n, CPS.Or, Seq(x1,1), apply(body))
         }
       case H.LetP(n,L3.IntMul, Seq(x, y), body) => 
-        // n = (rewrite(x) -1 )* (rewrite(y) >> 1) + 1
-        // n = t + 1
-        // t = a*b
-        // a = (rewrite(x) - 1)
-        // b = (rewrite(y) >> 1)
-
-        //first without the usage of tempLetP
-
-        //val a = Symbol.fresh("a")
-        //val b = Symbol.fresh("b")
-        //val t = Symbol.fresh("t")
-        //L.LetP(a, CPS.Sub, Seq(rewrite(x),1),
-        //  L.LetP(b, CPS.ShiftRight, Seq(rewrite(y),1),
-        //    L.LetP(t, CPS.Mul, Seq(a,b),
-        //      L.LetP(n, CPS.Add, Seq(t,1), apply(body))
-        //    )
-        //  )
-        //)
-
-        // by using tempLetP
-
         tempLetP(CPS.ShiftRight, Seq(rewrite(y),1)) { b => 
           tempLetP(CPS.Sub, Seq(rewrite(x),1)) { a => 
             tempLetP(CPS.Mul, Seq(a,b)) { t => 
@@ -70,12 +47,6 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
           }
         }
       case H.LetP(n,L3.IntDiv, Seq(x, y), body) => 
-        // n = ((x-1)/(y-1) << 1) + 1
-        // n = d + 1
-        // d = c << 1
-        // c = a / b
-        // a = (rewrite(x) - 1) 
-        // b = (rewrite(y) - 1)
         tempLetP(CPS.Sub, Seq(rewrite(x),1)) { a => 
           tempLetP(CPS.Sub, Seq(rewrite(y),1)) { b => 
             tempLetP(CPS.Div, Seq(a,b)) { c => 
@@ -85,17 +56,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
             }
           }
         }
+
       case H.LetP(n,L3.IntMod, Seq(x, y), body) =>
-        // x mod y = 2( (x-1)/2 mod (y-1)/2 ) + 1
-        // n = f + 1
-        // f = 2*e
-        // e = c mod d
-        // c = a/2
-        // d = b/2
-        // a = (rewrite(x) - 1)
-        // b = (rewrite(y) - 1)
-        // d can be rewritten as unboxInt(replace(y)) 
-        // c can be rewritten as unboxInt(replace(x))
         unboxInt(rewrite(x)) { c =>
           unboxInt(rewrite(y)) { d =>
             tempLetP(CPS.Mod, Seq(c,d)) { e => 
@@ -107,46 +69,57 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         }
           
 
-        // Bitwise operations
-        // They are all in the form [a op b] = 2( ([a]-1)/2 op ([b]-1)/2 ) + 1
-        // which is rewritten as box(unbox([a]) op unbox([b]))
-
+      // Bitwise operations
       case H.LetP(n,L3.IntShiftLeft  ,Seq(x ,y), body) => 
-        bitWiseLetP(n,L3.IntShiftLeft, x, y, body)
+        unboxInt(rewrite(y)) { y1 => 
+          tempLetP(CPS.Sub, Seq(rewrite(x),1)) { x1 => 
+            tempLetP(CPS.ShiftLeft, Seq(x1,y1)) { t => 
+              L.LetP(n, CPS.Add, Seq(t,1), apply(body))
+            }
+          }
+        }
+
       case H.LetP(n,L3.IntShiftRight ,Seq(x ,y), body) => 
-        bitWiseLetP(n,L3.IntShiftRight, x, y, body)
+        unboxInt(rewrite(y)) { y1 => 
+          unboxInt(rewrite(x)) { x1 => 
+            tempLetP(CPS.ShiftRight, Seq(x1,y1)) { t => 
+              boxInt(t,n) { n => 
+                apply(body)
+              }
+            }
+          }
+        }
+
       case H.LetP(n,L3.IntBitwiseAnd ,Seq(x ,y), body) => 
-        bitWiseLetP(n,L3.IntBitwiseAnd, x, y, body)
+          L.LetP(n, CPS.And, Seq(rewrite(x),rewrite(y)), apply(body))
+
       case H.LetP(n,L3.IntBitwiseOr  ,Seq(x ,y), body) => 
-        bitWiseLetP(n,L3.IntBitwiseOr, x, y, body)
+          L.LetP(n, CPS.Or, Seq(rewrite(x),rewrite(y)), apply(body))
+
       case H.LetP(n,L3.IntBitwiseXOr ,Seq(x ,y), body) => 
-        bitWiseLetP(n,L3.IntBitwiseXOr, x, y, body)
+          tempLetP(CPS.XOr, Seq(rewrite(x),rewrite(y))) { t => 
+            L.LetP(n, CPS.Add, Seq(t,1), apply(body))
+          }
 
       // Byte operations
       case H.LetP(n,L3.ByteRead  , Seq(),body) => 
-        //TODO : simplify
         val t1 = Symbol.fresh("t1")
-        val t2 = Symbol.fresh("t2")
         L.LetP(t1, CPS.ByteRead, Seq(),  
-          L.LetP(t2, CPS.ShiftLeft, Seq(t1, 1),
-            L.LetP(n, CPS.Add, Seq(t2, 1), apply(body))
+          boxInt(t1,n){_ => apply(body)}
           )
-         )
+         
       case H.LetP(n,L3.ByteWrite , Seq(x), body) => 
         unboxInt(rewrite(x)) { x1 => 
           L.LetP(n, CPS.ByteWrite, Seq(x1), apply(body))
         }
 
       // Block operations
-
-      //we can use boxint and unboxint for args and ret value 
       case H.LetP(n,L3.BlockAlloc, Seq(x, y), body) => 
         tempLetP(CPS.ShiftRight, Seq(rewrite(x),1)){ t1 => 
           tempLetP(CPS.ShiftRight, Seq(rewrite(y),1)){ t2 => 
             L.LetP(n, CPS.BlockAlloc, Seq(t1,t2), apply(body))
           }
         }
-      
     
       case H.LetP(n,L3.BlockTag, Seq(x), body) =>
         tempLetP(CPS.BlockTag, Seq(rewrite(x))){ t1 => 
@@ -174,6 +147,7 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
             L.LetP(n, CPS.Add, Seq(t1,2), apply(body))
           }
       } 
+
       case H.LetP(n,L3.CharToInt, Seq(x), body) => { 
         L.LetP(n, CPS.ShiftRight, Seq(rewrite(x),2), apply(body))
       }
@@ -189,19 +163,18 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         }
       }
 
-      //case H.If(L3.BlockP  ,Seq(x),e1,e2) => {
-
-      //}
       case H.If(L3.CharP ,Seq(x),e1,e2) => {
         tempLetP(CPS.And, Seq(rewrite(x),7)){ t1 => 
           L.If(CPST.Eq, Seq(t1,6), e1, e2)
         }
       }
+
       case H.If(L3.BoolP ,Seq(x),e1,e2) => {
         tempLetP(CPS.And, Seq(rewrite(x),15)){ t1 => 
           L.If(CPST.Eq, Seq(t1,10), e1, e2)
         }
       }
+
       case H.If(L3.UnitP ,Seq(x),e1,e2) => {
         tempLetP(CPS.And, Seq(rewrite(x),15)){ t1 => 
           L.If(CPST.Eq, Seq(t1,2), e1, e2)
@@ -232,45 +205,18 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
   }
 
 
-  private def bitWiseLetP(n: L.Name, p: L3Primitive,x: H.Atom,y:H.Atom, body: H.Body): L.Tree = {
-        unboxInt(rewrite(x)) { x1 => 
-          unboxInt(rewrite(y)) { y1 => 
-            tempLetP(l3toCPSbitWise(p), Seq(x1,y1)) { t => 
-              boxInt(t,n) { n => 
-                apply(body)
-              }
-            }
-          }
-        }
-  }
-
-  private def l3toCPSbitWise(bitwise: L3Primitive): CPSValuePrimitive = bitwise match {
-    case L3.IntShiftLeft => CPS.ShiftLeft
-    case L3.IntShiftRight => CPS.ShiftRight
-    case L3.IntBitwiseAnd => CPS.And
-    case L3.IntBitwiseOr => CPS.Or
-    case L3.IntBitwiseXOr => CPS.XOr
-    case _ => throw new Exception("Not a bitwise operation")
-  }
 
   private def boxInt(v: L.Name, n: L.Name)(body: L.Name => L.Tree): L.Tree = {
-    // n = (v << 1) + 1
-    // n = t + 1
-    // t = v << 1
     tempLetP(CPS.ShiftLeft, Seq(v,1)) { t => 
       L.LetP(n, CPS.Add, Seq(t,1), body(v))
     }
-
   }
 
-  // can't we remove the sub from unbox ? I think the one in lsb is gonna be removed by the shiftRight
   private def unboxInt(x: L.Atom)(body: L.Name => L.Tree): L.Tree = {
-    tempLetP(CPS.Sub, Seq(x,1)) { x1 => 
-      tempLetP(CPS.ShiftRight, Seq(x1,1)) { x2 => 
-        body(x2)
-      }
-    }
-  }
+   tempLetP(CPS.ShiftRight, Seq(x,1)) { x2 => 
+     body(x2)
+   }
+ }
 
   private def rewrite(a:H.Atom):L.Atom = {
     // Atom = Name | Literal
