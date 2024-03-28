@@ -37,8 +37,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         }
       case H.LetP(n,L3.IntSub, Seq(x, y), body) =>
         // use or for addition
-        tempLetP(CPS.Or, Seq(rewrite(x), 1)) { x1 => 
-          L.LetP(n, CPS.Sub, Seq(x1,rewrite(y)), apply(body))
+        tempLetP(CPS.Sub, Seq(rewrite(x), rewrite(y))) { x1 => 
+          L.LetP(n, CPS.Or, Seq(x1,1), apply(body))
         }
       case H.LetP(n,L3.IntMul, Seq(x, y), body) => 
         // n = (rewrite(x) -1 )* (rewrite(y) >> 1) + 1
@@ -99,8 +99,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         unboxInt(rewrite(x)) { c =>
           unboxInt(rewrite(y)) { d =>
             tempLetP(CPS.Mod, Seq(c,d)) { e => 
-              tempLetP(CPS.ShiftRight, Seq(e,1)) { f => 
-                L.LetP(n, CPS.Add, Seq(f,1), apply(body))
+              boxInt(e,n) { f => 
+                apply(body)
               }
             }
           }
@@ -217,6 +217,12 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       }
       case H.If(L3.Eq ,Seq(x,y),e1,e2) => {
         L.If(CPST.Eq, Seq(rewrite(x),rewrite(y)), e1, e2)
+      }
+
+      case H.If(L3.BlockP, Seq(x), e1, e2) => {
+        tempLetP(CPS.And, Seq(rewrite(x),3)){ t1 => 
+          L.If(CPST.Eq, Seq(t1,0), e1, e2)
+        }
       }
  
       case H.Halt(x) => unboxInt(rewrite(x)) { x1 => L.Halt(x1) }

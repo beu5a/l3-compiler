@@ -4217,3 +4217,804 @@ Mar 21, 2024 12:06:44 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancella
 WARNING: Unmatched cancel notification for request id 3571
 2024.03.21 00:06:48 INFO  compiling root (1 scala source)[0m
 2024.03.21 00:06:48 INFO  time: compiled root in 0.28s[0m
+2024.03.28 10:29:52 INFO  Started: Metals version 0.11.12 in workspace '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler' for client Neovim 0.9.5.[0m
+Mar 28, 2024 10:29:53 AM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+Mar 28, 2024 10:29:53 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+Mar 28, 2024 10:29:53 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+2024.03.28 10:29:54 WARN  resetting database: /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.h2.db[0m
+2024.03.28 10:29:54 ERROR org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database (jdbc:h2:file:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals;AUTO_SERVER=TRUE) for user 'sa': Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL State  : 90048
+Error Code : 90048
+Message    : Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:81)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:161)
+	at org.h2.mvstore.db.Store.<init>(Store.java:145)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnectionFromDriver(DriverDataSource.java:258)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnection(DriverDataSource.java:223)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:81)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.mvstore.MVStoreException: The write format 3 is larger than the supported format 2 [2.1.214/5]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.MVStore.getUnsupportedWriteFormatException(MVStore.java:1066)
+	at org.h2.mvstore.MVStore.readStoreHeader(MVStore.java:883)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:463)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnectionFromDriver(DriverDataSource.java:258)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnection(DriverDataSource.java:223)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:81)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.28 10:29:54 WARN  resetting database: /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.h2.db[0m
+2024.03.28 10:29:54 ERROR unable to setup persistent H2 database with AUTO_SERVER=false, falling back to in-memory database. This means you may be redundantly asked to execute 'Import build', even if it's not needed. Also, code navigation will not work for existing files in the .metals/readonly/ directory. To fix this problem, make sure you only have one running Metals server in the directory '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler'.
+org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database (jdbc:h2:file:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals;AUTO_SERVER=TRUE) for user 'sa': Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL State  : 90048
+Error Code : 90048
+Message    : Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryNoAutoServer(Tables.scala:98)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:92)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Unsupported database file version or invalid file header in file "/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/metals.mv.db" [90048-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:161)
+	at org.h2.mvstore.db.Store.<init>(Store.java:145)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnectionFromDriver(DriverDataSource.java:258)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnection(DriverDataSource.java:223)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryNoAutoServer(Tables.scala:98)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:92)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.mvstore.MVStoreException: The write format 3 is larger than the supported format 2 [2.1.214/5]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.MVStore.getUnsupportedWriteFormatException(MVStore.java:1066)
+	at org.h2.mvstore.MVStore.readStoreHeader(MVStore.java:883)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:463)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnectionFromDriver(DriverDataSource.java:258)
+	at org.flywaydb.core.internal.jdbc.DriverDataSource.getConnection(DriverDataSource.java:223)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:140)
+	at org.flywaydb.core.Flyway.clean(Flyway.java:234)
+	at scala.meta.internal.metals.Tables.migrateOrRestart(Tables.scala:156)
+	at scala.meta.internal.metals.Tables.tryUrl(Tables.scala:144)
+	at scala.meta.internal.metals.Tables.persistentConnection(Tables.scala:138)
+	at scala.meta.internal.metals.Tables.tryNoAutoServer(Tables.scala:98)
+	at scala.meta.internal.metals.Tables.tryAutoServer(Tables.scala:92)
+	at scala.meta.internal.metals.Tables.connect(Tables.scala:48)
+	at scala.meta.internal.metals.Tables.connection(Tables.scala:74)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:39)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$initialize$2(MetalsLspService.scala:876)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+Mar 28, 2024 10:29:54 AM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:mem:metals (H2 2.1)
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.052s)
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": << Empty Schema >>
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "1 - Create tables"
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "2 - Server discovery"
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+Mar 28, 2024 10:29:55 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.174s)
+2024.03.28 10:29:55 INFO  time: initialize in 2.57s[0m
+2024.03.28 10:29:55 INFO  Attempting to connect to the build server...[0m
+2024.03.28 10:29:55 INFO  Selected port 5031[0m
+2024.03.28 10:29:55 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+Mar 28, 2024 10:29:56 AM io.undertow.Undertow start
+INFO: starting server: Undertow - 2.2.20.Final
+Mar 28, 2024 10:29:56 AM org.xnio.Xnio <clinit>
+INFO: XNIO version 3.8.9.Final
+Mar 28, 2024 10:29:56 AM org.xnio.nio.NioXnio <clinit>
+INFO: XNIO NIO Implementation Version 3.8.9.Final
+Mar 28, 2024 10:29:57 AM org.jboss.threads.Version <clinit>
+INFO: JBoss Threads version 3.1.0.Final
+2024.03.28 10:29:57 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Started Metals http server at http://127.0.0.1:5031[0m
+2024.03.28 10:29:57 INFO  Writing workspace settings to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading 0 projects from '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop'...[0m
+2024.03.28 10:29:57 INFO  Configured Java SemanticDB in projects 'root-test', 'root'[0m
+2024.03.28 10:29:57 INFO  Attempting to connect to the build server...[0m
+2024.03.28 10:29:57 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+2024.03.28 10:29:57 INFO  Attempting to connect to the build server...[0m
+2024.03.28 10:29:57 INFO  Bloop uses /usr/lib/jvm/java-11-openjdk defined at /home/habib/.bloop/bloop.json[0m
+2024.03.28 10:29:57 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.03.28 10:29:57 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.metals/bsp.trace.json or /home/habib/.cache/metals/bsp.trace.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Writing workspace settings to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop/bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading 1 projects from '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop'...[0m
+2024.03.28 10:29:57 INFO  Loading project from '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop/compiler-build.json'[0m
+2024.03.28 10:29:57 INFO  Writing workspace settings to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop/bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading 1 projects from '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop'...[0m
+2024.03.28 10:29:57 INFO  Loading project from '/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop/compiler-build-build.json'[0m
+2024.03.28 10:29:57 INFO  Cache miss for scala instance org.scala-lang:scala-compiler:2.12.18.[0m
+2024.03.28 10:29:57 INFO    => /home/habib/.sbt/boot/scala-2.12.18/lib/scala-compiler.jar[0m
+2024.03.28 10:29:57 INFO    => /home/habib/.sbt/boot/scala-2.12.18/lib/scala-library.jar[0m
+2024.03.28 10:29:57 INFO    => /home/habib/.sbt/boot/scala-2.12.18/lib/scala-reflect.jar[0m
+2024.03.28 10:29:57 INFO    => /home/habib/.sbt/boot/scala-2.12.18/lib/scala-xml_2.12-2.1.0.jar[0m
+2024.03.28 10:29:57 INFO  Configured Java SemanticDB in projects 'compiler-build-build'[0m
+2024.03.28 10:29:57 INFO  Configured Java SemanticDB in projects 'compiler-build'[0m
+2024.03.28 10:29:57 INFO  Configured Scala SemanticDB in projects 'compiler-build-build'[0m
+2024.03.28 10:29:57 INFO  Configured Scala SemanticDB in projects 'compiler-build'[0m
+2024.03.28 10:29:57 INFO  Missing analysis file for project 'compiler-build-build'[0m
+2024.03.28 10:29:57 INFO  Missing analysis file for project 'compiler-build'[0m
+2024.03.28 10:29:57 INFO  time: Connected to build server in 2.28s[0m
+2024.03.28 10:29:57 INFO  Connected to Build server: Bloop v1.5.15[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:29:57 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:29:57 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:29:58 INFO  time: Imported build in 0.2s[0m
+2024.03.28 10:30:03 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.03.28 10:30:03 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:04 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.03.28 10:30:04 ERROR Failed to fetch mtags for 3.3.1
+Error downloading org.scalameta:mtags_3.3.1:0.11.12
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: /home/habib/.ivy2/local/org.scalameta/mtags_3.3.1/0.11.12/ivys/ivy.xml
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_3.3.1/0.11.12/mtags_3.3.1-0.11.12.pom[0m
+2024.03.28 10:30:04 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:04 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:04 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:04 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:13 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:13 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:13 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:13 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:13 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ==[0m
+2024.03.28 10:30:13 INFO  Increasing counter for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ== to 1[0m
+2024.03.28 10:30:13 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:13 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:13 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ==[0m
+2024.03.28 10:30:13 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:13 INFO  Classpath hash changed![0m
+2024.03.28 10:30:13 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:13 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_3/3.0.2/fastparse_3-3.0.2.jar' because could not find class fastparse.ParserInputSource on the classpath.[0m
+2024.03.28 10:30:13 INFO  Classpath hash changed![0m
+2024.03.28 10:30:13 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:13 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.3.0/sourcecode_3-0.3.0.jar' because could not find class sourcecode.Name on the classpath.[0m
+2024.03.28 10:30:13 INFO  Classpath hash changed![0m
+2024.03.28 10:30:13 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:13 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar' because could not find class scala.Int on the classpath.[0m
+2024.03.28 10:30:13 INFO  Classpath hash changed![0m
+2024.03.28 10:30:13 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:13 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar' because could not find class scala.annotation.internal.Repeated on the classpath.[0m
+2024.03.28 10:30:13 INFO  Classpath hash changed![0m
+2024.03.28 10:30:13 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:13 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/paiges-core_3/0.4.3/paiges-core_3-0.4.3.jar' because could not find class org.typelevel.paiges.Doc on the classpath.[0m
+2024.03.28 10:30:13 INFO  
+Initial source changes:
+	removed: Set()
+	added: Set()
+	modified: Set()
+Invalidated products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.3.0/sourcecode_3-0.3.0.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_3/3.0.2/fastparse_3-3.0.2.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/paiges-core_3/0.4.3/paiges-core_3-0.4.3.jar)
+Initial directly invalidated classes: Set()
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/Main.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3Tree.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3TreeFormatter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/BlockTag.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3ToCPSTranslator.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSTreeFormatter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/IO.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3Interpreter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSTreeChecker.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/Formatter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSTree.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/Position.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/package.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/L3Primitive.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/Symbol.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/L3Parser.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3Literal.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSInterpreter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CL3NameAnalyzer.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSValueRepresenter.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/L3FileReader.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/CPSPrimitive.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/src/l3/L3Ints.scala)
+	external source: Set()[0m
+2024.03.28 10:30:13 INFO  All sources are invalidated.[0m
+2024.03.28 10:30:13 INFO  Initial set of included nodes: [0m
+2024.03.28 10:30:13 INFO  Recompiling all sources: number of invalidated sources > 50.0 percent of all sources[0m
+2024.03.28 10:30:13 INFO  compiling root (23 scala sources)[0m
+2024.03.28 10:30:13 INFO  Returning already retrieved and compiled bridge: /home/habib/.cache/bloop/components/org.scala-lang-scala3-sbt-bridge-3.3.1-bin_3.3.1__55.0/scala3-sbt-bridge-3.3.1.jar.[0m
+2024.03.28 10:30:13 INFO  [zinc] Running cached compiler 628111bf for Scala Compiler version 3.3.1[0m
+2024.03.28 10:30:14 INFO  [zinc] The Scala compiler is invoked with:
+	-feature
+	-deprecation
+	-unchecked
+	-encoding
+	utf-8
+	-Wunused:all
+	-language:implicitConversions
+	-Xsemanticdb
+	-sourceroot
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler
+	-bootclasspath
+	/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar
+	-classpath
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ==:/home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_3/3.0.2/fastparse_3-3.0.2.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/paiges-core_3/0.4.3/paiges-core_3-0.4.3.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.3.0/sourcecode_3-0.3.0.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_3/1.0.0/geny_3-1.0.0.jar[0m
+2024.03.28 10:30:14 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.03.28 10:30:26 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.03.28 10:30:26 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-11-openjdk/src.zip, /usr/lib/jvm/java-11-openjdk/lib/src.zip. Java symbols will not be available.[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:26 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Cannot find main classes in 'compiler-build-build'. No successful compilation detected.[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Cannot find main classes in 'compiler-build'. No successful compilation detected.[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Cannot find main classes in 'compiler-build-build'. No successful compilation detected.[0m
+2024.03.28 10:30:26 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/project/.bloop[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Cannot find main classes in 'compiler-build'. No successful compilation detected.[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/project/.bloop[0m
+2024.03.28 10:30:26 INFO  time: indexed workspace in 28s[0m
+2024.03.28 10:30:26 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:26 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:26 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:26 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:26 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:26 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:28 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:28 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:28 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:28 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:28 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:28 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:30 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:30 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:30 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:30 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:38 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:38 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:45 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:45 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:45 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:45 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:46 INFO  Writing analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-analysis.bin...[0m
+2024.03.28 10:30:46 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:45 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:45 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:46 INFO  Wrote analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-analysis.bin...[0m
+2024.03.28 10:30:46 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  time: compiled root in 31s[0m
+2024.03.28 10:30:46 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:46 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:46 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:46 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:46 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:46 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:46 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:46 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:46 INFO  Scheduling to delete /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ== superseded by /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:46 INFO  Deleting contents of orphan dir /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-VbZii_daT7Srbov85WKvsQ==-u_0e_sZbSfWc0ZY4kuCmvQ==[0m
+2024.03.28 10:30:46 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:46 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:46 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:46 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:46 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-i1kfjPJgTnCutNlp5yN5wg==[0m
+2024.03.28 10:30:46 INFO  No changes[0m
+2024.03.28 10:30:46 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:46 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:46 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:46 INFO  Triggering background tasks for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  Computing sources and classpath hashes for root-test[0m
+2024.03.28 10:30:46 INFO  Scheduling compilation for root-test...[0m
+2024.03.28 10:30:46 INFO  Using successful result for root-test associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ==[0m
+2024.03.28 10:30:46 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:46 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ==[0m
+2024.03.28 10:30:46 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:46 INFO  Classpath hash changed![0m
+2024.03.28 10:30:46 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:46 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:46 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/utest_3/0.8.2/utest_3-0.8.2.jar' because could not find class utest.Tests$ on the classpath.[0m
+2024.03.28 10:30:46 INFO  Classpath hash changed![0m
+2024.03.28 10:30:46 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:46 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar' because could not find class scala.util.Either on the classpath.[0m
+2024.03.28 10:30:46 INFO  Classpath hash changed![0m
+2024.03.28 10:30:46 INFO  --- 
++++ 
+@@ -1,3 +1,3 @@
+ [33mVector[39m(
+-  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.9.9/semanticdb-javac-0.9.9.jar, hash: 1082571539),
++  FileHash(file: /home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar, hash: 394057498),
+   FileHash(file: /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar, hash: 2050849672),[0m
+2024.03.28 10:30:46 INFO  Invalidating '/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar' because could not find class scala.annotation.internal.Repeated on the classpath.[0m
+2024.03.28 10:30:46 INFO  
+Initial source changes:
+	removed: Set()
+	added: Set()
+	modified: Set()
+Invalidated products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/utest_3/0.8.2/utest_3-0.8.2.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar, /home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar)
+Initial directly invalidated classes: Set()
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/test/l3/ExamplesTests.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/test/l3/SyntheticTests.scala, /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/test/l3/L3Tester.scala)
+	external source: Set()[0m
+2024.03.28 10:30:46 INFO  All sources are invalidated.[0m
+2024.03.28 10:30:46 INFO  Initial set of included nodes: [0m
+2024.03.28 10:30:46 INFO  Recompiling all sources: number of invalidated sources > 50.0 percent of all sources[0m
+2024.03.28 10:30:46 INFO  compiling root-test (3 scala sources)[0m
+2024.03.28 10:30:46 INFO  Returning already retrieved and compiled bridge: /home/habib/.cache/bloop/components/org.scala-lang-scala3-sbt-bridge-3.3.1-bin_3.3.1__55.0/scala3-sbt-bridge-3.3.1.jar.[0m
+2024.03.28 10:30:46 INFO  [zinc] Running cached compiler 17ab9e3c for Scala Compiler version 3.3.1[0m
+2024.03.28 10:30:46 INFO  [zinc] The Scala compiler is invoked with:
+	-feature
+	-deprecation
+	-unchecked
+	-encoding
+	utf-8
+	-Wunused:all
+	-language:implicitConversions
+	-Xsemanticdb
+	-sourceroot
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler
+	-bootclasspath
+	/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar
+	-classpath
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ==:/home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_3/3.0.2/fastparse_3-3.0.2.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/paiges-core_3/0.4.3/paiges-core_3-0.4.3.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/utest_3/0.8.2/utest_3-0.8.2.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.3.0/sourcecode_3-0.3.0.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_3/1.0.0/geny_3-1.0.0.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar[0m
+2024.03.28 10:30:46 INFO  No mtags for 3.3.1.[0m
+2024.03.28 10:30:46 WARN  unsupported Scala 3.3.1[0m
+2024.03.28 10:30:48 INFO  Writing analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-test-analysis.bin...[0m
+2024.03.28 10:30:48 INFO  Recording new last successful request for root-test associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:48 INFO  Skipping delete of /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== associated with no-op result[0m
+2024.03.28 10:30:48 INFO  Wrote analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-test-analysis.bin...[0m
+2024.03.28 10:30:48 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  time: compiled root-test in 1.81s[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Scheduling to delete /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ== superseded by /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:48 INFO  Deleting contents of orphan dir /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-VbZii_daT7Srbov85WKvsQ==-HLI-b1AWR8mQRT301H3ROQ==[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 ERROR Unexpected error initializing server: 
+java.lang.UnsupportedOperationException
+	at org.eclipse.lsp4j.services.LanguageClient.refreshSemanticTokens(LanguageClient.java:193)
+	at scala.meta.internal.metals.clients.language.ConfiguredLanguageClient.refreshSemanticTokens(ConfiguredLanguageClient.scala:101)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$onWorksheetChanged$4(MetalsLspService.scala:2658)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:470)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:48 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:48 INFO  Increasing counter for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to 1[0m
+2024.03.28 10:30:48 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:48 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:48 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-YPVr79nVRwmzd62a9edCmw==[0m
+2024.03.28 10:30:48 INFO  No changes[0m
+2024.03.28 10:30:48 INFO  Triggering background tasks for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:48 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:48 INFO  Skipping delete of /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== associated with no-op result[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:48 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:48 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:48 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:54 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:54 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Increasing counter for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to 1[0m
+2024.03.28 10:30:54 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:54 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-se4Cx7DjThO_QCxBUvHpOw==[0m
+2024.03.28 10:30:54 INFO  No changes[0m
+2024.03.28 10:30:54 INFO  Triggering background tasks for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Skipping delete of /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== associated with no-op result[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:54 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:54 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Increasing counter for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to 1[0m
+2024.03.28 10:30:54 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:54 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-ARuigiFVSlu_PjkJhmjzrw==[0m
+2024.03.28 10:30:54 INFO  No changes[0m
+2024.03.28 10:30:54 INFO  Triggering background tasks for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Skipping delete of /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== associated with no-op result[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:54 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:54 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:54 INFO  Computing sources and classpath hashes for root[0m
+2024.03.28 10:30:54 INFO  Scheduling compilation for root...[0m
+2024.03.28 10:30:54 INFO  Using successful result for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Increasing counter for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to 1[0m
+2024.03.28 10:30:54 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:54 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-JAm9c1yhQc2DXv1TW2lO7g==[0m
+2024.03.28 10:30:54 INFO  No changes[0m
+2024.03.28 10:30:54 INFO  Triggering background tasks for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Recording new last successful request for root associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==[0m
+2024.03.28 10:30:54 INFO  Computing sources and classpath hashes for root-test[0m
+2024.03.28 10:30:54 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Scheduling compilation for root-test...[0m
+2024.03.28 10:30:54 INFO  Using successful result for root-test associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:54 INFO  Disabled compiler plugin classloading, unsupported in 3.[0m
+2024.03.28 10:30:54 INFO  External classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  Read-only classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:54 INFO  New rw classes directory /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-ewRnwievQoCVjxMMgW2hIw==[0m
+2024.03.28 10:30:54 INFO  
+Initial source changes:
+	removed: Set()
+	added: Set()
+	modified: Set(/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/test/l3/L3Tester.scala)
+Invalidated products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated classes: Set(l3.L3Tester)
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()[0m
+2024.03.28 10:30:54 INFO  All initially invalidated classes: Set(l3.L3Tester)
+All initially invalidated sources:Set(/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/test/l3/L3Tester.scala)
+[0m
+2024.03.28 10:30:54 INFO  Initial set of included nodes: l3.L3Tester[0m
+2024.03.28 10:30:54 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:54 INFO  compiling root-test (1 scala source)[0m
+2024.03.28 10:30:54 INFO  Returning already retrieved and compiled bridge: /home/habib/.cache/bloop/components/org.scala-lang-scala3-sbt-bridge-3.3.1-bin_3.3.1__55.0/scala3-sbt-bridge-3.3.1.jar.[0m
+2024.03.28 10:30:54 INFO  [zinc] Running cached compiler 35156b3a for Scala Compiler version 3.3.1[0m
+2024.03.28 10:30:54 INFO  [zinc] The Scala compiler is invoked with:
+	-feature
+	-deprecation
+	-unchecked
+	-encoding
+	utf-8
+	-Wunused:all
+	-language:implicitConversions
+	-Xsemanticdb
+	-sourceroot
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler
+	-bootclasspath
+	/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.1/scala3-library_3-3.3.1.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar
+	-classpath
+	/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-ewRnwievQoCVjxMMgW2hIw==:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==:/home/habib/.cache/bloop/semanticdb/com.sourcegraph.semanticdb-javac.0.8.15/semanticdb-javac-0.8.15.jar:/home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q==:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_3/3.0.2/fastparse_3-3.0.2.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/typelevel/paiges-core_3/0.4.3/paiges-core_3-0.4.3.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/utest_3/0.8.2/utest_3-0.8.2.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_3/0.3.0/sourcecode_3-0.3.0.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_3/1.0.0/geny_3-1.0.0.jar:/home/habib/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar[0m
+2024.03.28 10:30:55 INFO  New invalidations:[0m
+2024.03.28 10:30:55 INFO  Initial set of included nodes: [0m
+2024.03.28 10:30:55 INFO  Previously invalidated, but (transitively) depend on new invalidations:[0m
+2024.03.28 10:30:55 INFO  Final step, transitive dependencies:
+	Set()[0m
+2024.03.28 10:30:55 INFO  No classes were invalidated.[0m
+2024.03.28 10:30:55 INFO  Writing analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-test-analysis.bin...[0m
+2024.03.28 10:30:55 INFO  Recording new last successful request for root-test associated with /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-ewRnwievQoCVjxMMgW2hIw==[0m
+2024.03.28 10:30:55 INFO  Skipping delete of /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-EWI0dv3eTQCRMKvZE8Ni7Q== associated with no-op result[0m
+2024.03.28 10:30:55 INFO  Wrote analysis to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/root-test-analysis.bin...[0m
+2024.03.28 10:30:55 INFO  Updating external classes dir with read only /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:55 INFO  Finished copying classes from /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA== to /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-bsp-clients-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==[0m
+2024.03.28 10:30:55 INFO  time: compiled root-test in 0.46s[0m
+2024.03.28 10:30:55 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Scheduling to delete /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA== superseded by /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-ewRnwievQoCVjxMMgW2hIw==[0m
+2024.03.28 10:30:55 INFO  Deleting contents of orphan dir /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop/root/bloop-internal-classes/test-classes-Metals-QpT6Vwt2TW-e7R4DB5hk8w==-fRvAUy7ERCubHh02GpwjgA==[0m
+2024.03.28 10:30:55 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:55 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:55 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:55 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:55 INFO  Reloading bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Loading workspace settings from bloop.settings.json[0m
+2024.03.28 10:30:55 INFO  Found 0 main classes: .[0m
+2024.03.28 10:30:55 INFO  Found 1 main classes: l3.Main.[0m
+2024.03.28 10:30:55 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
+2024.03.28 10:30:55 INFO  Saving bsp state for /home/habib/Documents/course/MA4/compilerConstruction/compiler-construction/compiler/.bloop[0m
