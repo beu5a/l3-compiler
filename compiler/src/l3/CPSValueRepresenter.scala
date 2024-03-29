@@ -106,8 +106,9 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
       // Byte operations
       case H.LetP(n, L3.ByteRead, Seq(), body) =>
-        val t1 = Symbol.fresh("t1")
-        L.LetP(t1, CPS.ByteRead, Seq(), boxInt(t1, n) { _ => apply(body) })
+        tempLetP(CPS.ByteRead, Seq()) { t1 =>
+          boxInt(t1, n) { _ => apply(body) }
+        }
 
       case H.LetP(n, L3.ByteWrite, Seq(x), body) =>
         unboxInt(rewrite(x)) { x1 =>
