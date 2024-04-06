@@ -239,4 +239,33 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     L.LetP(tempSym, p, args, body(tempSym))
   }
 
+  private def freeVariables(tree: H.Tree): Set[H.Name] = {
+    tree match {
+      case H.LetP(n, _, args, body) =>
+        freeVariables(body) - n ++ args.flatMap(freeAtom)
+      case H.LetC(cs, body) =>
+        val cntFreeVars = cs.flatMap(c => freeVariables(c.body) -- c.args).toSet
+        freeVariables(body) ++ cntFreeVars
+      case H.LetF(fs, body) =>
+        val funFreeVars = fs.flatMap(f => freeVariables(f.body) --  f.args).toSet
+        val funNames = fs.map(_.name).toSet
+        freeVariables(body) ++ funFreeVars -- funNames
+      case H.AppC(_, args) =>
+        args.flatMap(freeAtom).toSet
+      case H.AppF(fun, _, args) =>
+        freeAtom(fun) ++ args.flatMap(freeAtom).toSet
+      case H.If(_, args, _, _) =>
+        args.flatMap(freeAtom).toSet
+      case H.Halt(arg) =>
+        freeAtom(arg)
+
+  }
+}
+
+  private def freeAtom(atom: H.Atom): Set[H.Name] = {
+    atom match {
+      case n: H.Name => Set(n)
+      case _         => Set() // put nothing in case of literals
+    }
+  }
 }
