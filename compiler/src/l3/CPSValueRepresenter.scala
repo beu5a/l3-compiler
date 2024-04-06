@@ -7,6 +7,7 @@ import l3.{L3Primitive as L3}
 import l3.{CPSValuePrimitive as CPS}
 import l3.{CPSTestPrimitive as CPST}
 import CL3Literal._
+import l3.Symbol.fresh
 
 object CPSValueRepresenter extends (H.Tree => L.Tree) {
   def apply(tree: H.Tree): L.Tree = {
@@ -268,4 +269,18 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       case _         => Set() // put nothing in case of literals
     }
   }
+
+  /* TBC
+  private def closure(t : H.LetF) : L.Tree = {
+    val w1 = fresh("w")
+    val FV = freeVariables(t)
+
+    def initAllocClosure(f : H.Fun) : L.Tree = {
+      L.LetP(f.name, CPS.BlockAlloc, Seq(l3.BlockTag.Function, FV.size +1)
+    }
+  }
+  */ 
+
+ 
+
 }
