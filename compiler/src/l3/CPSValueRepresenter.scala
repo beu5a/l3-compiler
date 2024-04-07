@@ -10,6 +10,7 @@ import CL3Literal._
 import l3.Symbol.fresh
 
 object CPSValueRepresenter extends (H.Tree => L.Tree) {
+
   def apply(tree: H.Tree): L.Tree = {
     transform(tree) // transform is for trees , rewrite is for atoms
   }
@@ -26,13 +27,24 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         L.AppC(c, as.map(rewrite))
 
       // Functions, wrong transformation
-      case H.LetF(fs, e) =>
-        L.LetF(
-          fs.map(f => L.Fun(f.name, f.retC, f.args, transform(f.body))),
-          transform(e)
+      //case H.LetF(fs, e) =>
+      //  L.LetF(
+      //    fs.map(f => L.Fun(f.name, f.retC, f.args, transform(f.body))),
+      //    transform(e)
+      //  )
+      //case H.AppF(f, retC, as) =>
+      //  L.AppF(rewrite(f), retC, as.map(rewrite))
+
+      // Functions, correct transformation
+      case H.AppF(a, nc, as) =>
+        val new_f = Symbol.fresh("f")
+        val body = L.AppF(new_f, nc, Seq(rewrite(a))++as.map(rewrite))
+        L.LetP(new_f, CPS.BlockGet, Seq(rewrite(a), 0),
+          body
         )
-      case H.AppF(f, retC, as) =>
-        L.AppF(rewrite(f), retC, as.map(rewrite))
+      
+      case f @ H.LetF(fs, e) =>
+        closure(f)
 
       // Integers
       case H.LetP(n, L3.IntAdd, Seq(x, y), body) =>
@@ -270,16 +282,61 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     }
   }
 
-  /* TBC
-  private def closure(t : H.LetF) : L.Tree = {
-    val w1 = fresh("w")
-    val FV = freeVariables(t)
-
-    def initAllocClosure(f : H.Fun) : L.Tree = {
-      L.LetP(f.name, CPS.BlockAlloc, Seq(l3.BlockTag.Function, FV.size +1)
-    }
+  private def substitute(tree: L.Tree)(implicit s: Subst[Symbol]): L.Tree = {
+    def subst(a: L.Atom): L.Atom = a match
+      case n: L.Name => s.getOrElse(n, n)
+      case _         => a
+    tree match
+      case L.LetF(funs, body) =>
+        def subF(f: L.Fun): L.Fun = {
+          L.Fun(f.name, f.retC, f.args, substitute(f.body))
+        }
+        L.LetF(funs.map(subF), substitute(body))
+      case L.LetC(cnts, body) =>
+        def subC(c: L.Cnt): L.Cnt = {
+          L.Cnt(c.name, c.args, substitute(c.body))
+        }
+        L.LetC(cnts.map(subC), substitute(body))
+      case L.LetP(n, prim, args, body) =>
+        L.LetP(n, prim, args.map(subst), substitute(body))
+      case L.AppF(fun, retC, args) =>
+        L.AppF(subst(fun), s(retC), args.map(subst))
+      case L.AppC(cnt, args) =>
+        L.AppC(s(cnt), args.map(subst))
+      case L.If(cond, args, thenC, elseC) =>
+        L.If(cond, args.map(subst), s(thenC), s(elseC))
+      case L.Halt(arg) =>
+        L.Halt(subst(arg))
+    
+      
+    
   }
-  */ 
+
+  private def closure(t : H.LetF) : L.Tree = {
+    def blockGet(fun:Symbol, env:Symbol, fvi:Seq[(Symbol,Int)], s:Subst[Symbol], body:L.Tree):(L.Tree, Subst[Symbol]) = {
+      fvi match {
+        case Seq() => (substitute(body)(s),s)
+        case Seq((n,i),rest@_*) => {
+          val v = Symbol.fresh("v")
+          val (b,nS) = blockGet(fun,env,rest,s+(n -> v),body)
+          (L.LetP(v,CPS.BlockGet,Seq(env,i),substitute(b)(nS)),nS)
+        }
+      }
+    }
+    def closedFun(fun:H.Fun):L.Fun = {
+      val w1 = Symbol.fresh("w")
+      val env1 = Symbol.fresh("env")
+      val freeV = freeVariables(fun.body).toSeq
+      val freeVIndex = freeV.zipWithIndex.map((n,i) => (n,i+1))
+      val (funBody,s) = blockGet(fun.name, env1, freeVIndex, Map(fun.name -> env1), apply(fun.body)) 
+      L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody)
+    }
+
+    val closedF = t.funs.map(closedFun)
+    val allocatedClosure = ???
+
+    L.LetF(closedF, allocatedClosure)
+  }
 
  
 
