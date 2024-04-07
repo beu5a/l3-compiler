@@ -30,13 +30,14 @@ object CPSHoister extends (F.Tree => F.LetF) {
         F.LetF(funs1,F.LetP(name,prim,args,body1))
       }
 
-      //Put them together
-      case F.AppC(cnt, args) => 
-        F.LetF(Seq(), F.AppC(cnt, args))
-      case F.AppF(fun, retC, args) => 
-        F.LetF(Seq(), F.AppF(fun, retC, args))
-      case F.If(cond, args, thenC, elseC) => 
-        F.LetF(Seq(), F.If(cond, args, thenC, elseC))
-      case F.Halt(arg) => 
-        F.LetF(Seq(), F.Halt(arg))
+      case reste: F.Body => 
+        F.LetF(Seq(),reste)
+      //case F.AppC(cnt, args) => 
+      //  F.LetF(Seq(), F.AppC(cnt, args))
+      //case F.AppF(fun, retC, args) => 
+      //  F.LetF(Seq(), F.AppF(fun, retC, args))
+      //case F.If(cond, args, thenC, elseC) => 
+      //  F.LetF(Seq(), F.If(cond, args, thenC, elseC))
+      //case F.Halt(arg) => 
+      //  F.LetF(Seq(), F.Halt(arg))
     }
