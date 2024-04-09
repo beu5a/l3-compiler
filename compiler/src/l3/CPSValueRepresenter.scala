@@ -312,6 +312,7 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     
   }
 
+  // SYMBOLS VS NAMES 
   private def closure(t : H.LetF) : L.Tree = {
     def blockGet(fun:Symbol, env:Symbol, fvi:Seq[(Symbol,Int)], s:Subst[Symbol], body:L.Tree):(L.Tree, Subst[Symbol]) = {
       fvi match {
@@ -323,21 +324,49 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         }
       }
     }
-    def closedFun(fun:H.Fun):L.Fun = {
+
+    def blockSet(fun:Symbol, fvi:Seq[(Symbol,Int)], body:L.Tree):(L.Tree) = {
+      fvi match {
+        case Seq() => body
+        case Seq((n,i),rest@_*) => {
+          val t = Symbol.fresh("t")
+          L.LetP(t,CPS.BlockSet,Seq(fun,i,n),blockSet(fun,rest,body)) //what about t1 , w1 
+        }
+      }
+    }
+
+    def closedFun(fun:H.Fun): (L.Fun, Seq[(Symbol,Int)]) = {
       val w1 = Symbol.fresh("w")
       val env1 = Symbol.fresh("env")
       val freeV = freeVariables(fun.body).toSeq
       val freeVIndex = freeV.zipWithIndex.map((n,i) => (n,i+1))
       val (funBody,s) = blockGet(fun.name, env1, freeVIndex, Map(fun.name -> env1), apply(fun.body)) 
-      L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody)
+      (L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody) , freeVIndex)
     }
 
-    val closedF = t.funs.map(closedFun)
-    val allocatedClosure = ???
+    def closureAlloc(f: Symbol, fvi: Seq[(Symbol,Int)])(body: L.Tree): L.Tree = {
+      L.LetP(f,CPS.BlockAlloc,Seq(BlockTag.Function,fvi.size + 1),body)
+    }
 
-    L.LetF(closedF, allocatedClosure)
+    def closureInit(f: Symbol, w: Symbol , fvi:  Seq[(Symbol,Int)], body: L.Tree): L.Tree ={
+      val augmentedFvi = (w,0) +: fvi
+      blockSet(f,augmentedFvi,body)
+    }
+
+    
+    
+    val closedF = t.funs.map(f => closedFun(f)._1)
+    val fvs = t.funs.map(f => closedFun(f)._2)
+    val zipped = closedF.zip(fvs)
+    val e = apply(t.body)
+    val initiated = zipped.foldRight(e)((f,acc) => closureInit(f._1.name, f._1.name, f._2, acc))
+    val allocated = zipped.foldRight(initiated)((f,acc) => closureAlloc(f._1.name, f._2)(acc))
+    L.LetF(closedF, allocated)
   }
 
  
 
 }
+
+
+  
