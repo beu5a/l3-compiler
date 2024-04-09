@@ -282,9 +282,11 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
   }
 
   private def substitute(tree: L.Tree)(implicit s: Subst[Symbol]): L.Tree = {
-    def subst(a: L.Atom): L.Atom = a match
+    def subst(a: L.Atom): L.Atom = {
+      a match
       case n: L.Name => s.getOrElse(n, n)
       case _         => a
+    }
     tree match
       case L.LetF(funs, body) =>
         def subF(f: L.Fun): L.Fun = {
@@ -299,11 +301,11 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       case L.LetP(n, prim, args, body) =>
         L.LetP(n, prim, args.map(subst), substitute(body))
       case L.AppF(fun, retC, args) =>
-        L.AppF(subst(fun), s(retC), args.map(subst))
+        L.AppF(subst(fun), retC, args.map(subst))
       case L.AppC(cnt, args) =>
-        L.AppC(s(cnt), args.map(subst))
+        L.AppC(cnt, args.map(subst))
       case L.If(cond, args, thenC, elseC) =>
-        L.If(cond, args.map(subst), s(thenC), s(elseC))
+        L.If(cond, args.map(subst), thenC, elseC)
       case L.Halt(arg) =>
         L.Halt(subst(arg))
     
@@ -336,13 +338,13 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       }
     }
 
-    def closedFun(fun:H.Fun): (L.Fun, Seq[(Symbol,Int)], Symbol) = {
+    def closedFun(fun:H.Fun): (L.Fun, Seq[(Symbol,Int)], Symbol, L.Name) = {
       val w1 = Symbol.fresh("w")
       val env1 = Symbol.fresh("env")
-      val freeV = freeVariables(fun.body).toSeq
+      val freeV = (freeVariables(fun.body) -- Set(fun.name) -- fun.args.toSet).toSeq
       val freeVIndex = freeV.zipWithIndex.map((n,i) => (n,i+1))
       val (funBody,s) = blockGet(fun.name, env1, freeVIndex, Map(fun.name -> env1), apply(fun.body)) 
-      (L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody) , freeVIndex , w1)
+      (L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody) , freeVIndex , w1,fun.name)
     }
 
     def closureAlloc(f: Symbol, fvi: Seq[(Symbol,Int)])(body: L.Tree): L.Tree = {
@@ -359,8 +361,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     val closedF = zipped.map(f => f._1)
 
     val e = apply(t.body)
-    val initiated = zipped.foldRight(e)((f,acc) => closureInit(f._1.name, f._3, f._2, acc))
-    val allocated = zipped.foldRight(initiated)((f,acc) => closureAlloc(f._1.name, f._2)(acc))
+    val initiated = zipped.foldRight(e)((f,acc) => closureInit(f._4, f._3, f._2, acc))
+    val allocated = zipped.foldRight(initiated)((f,acc) => closureAlloc(f._4, f._2)(acc))
     L.LetF(closedF, allocated)
   }
 

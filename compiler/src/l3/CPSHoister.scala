@@ -3,8 +3,8 @@ package l3
 import FlatCPSTreeModule as F
 import LowCPSTreeModule as L
 
-object CPSHoister extends (L.Tree => F.LetF) {
-  def apply(tree: L.Tree): F.LetF =
+object CPSHoister extends (L.Tree => F.Program) {
+  def apply(tree: L.Tree): F.Program =
     tree match
       case L.LetF(funs, body) => {
         val F.LetF(funs1, body1) = apply(body)
@@ -31,7 +31,17 @@ object CPSHoister extends (L.Tree => F.LetF) {
         F.LetF(funs1,F.LetP(name,prim,args,body1))
       }
 
-      //pas sur de ça
-      case reste => 
-        F.LetF(Seq(),reste.asInstanceOf[F.Body])
+      case _ => F.LetF(Seq(), convert(tree))
+
+
+  def convert(tree: L.Tree): F.Body ={
+    tree match
+      case L.AppC(cnt, args) => F.AppC(cnt, args)
+      case L.AppF(fun, retC, args) => F.AppF(fun, retC, args) 
+      case L.Halt(arg) => F.Halt(arg) 
+      case L.If(cond, args, thenC, elseC) => F.If(cond, args, thenC, elseC)
+      //case a @ L.LetF(funs,body) => apply(a)
+      //case a @ L.LetC(cnts,body) => apply(a)
+      //case a @ L.LetP(name,prim,args,body) => apply(a)
     }
+  }
