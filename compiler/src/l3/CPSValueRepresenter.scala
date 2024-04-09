@@ -25,7 +25,6 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         )
       case H.AppC(c, as) =>
         L.AppC(c, as.map(rewrite))
-
       // Functions, wrong transformation
       //case H.LetF(fs, e) =>
       //  L.LetF(
@@ -312,6 +311,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     
   }
 
+
+
   // SYMBOLS VS NAMES 
   private def closure(t : H.LetF) : L.Tree = {
     def blockGet(fun:Symbol, env:Symbol, fvi:Seq[(Symbol,Int)], s:Subst[Symbol], body:L.Tree):(L.Tree, Subst[Symbol]) = {
@@ -335,13 +336,13 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       }
     }
 
-    def closedFun(fun:H.Fun): (L.Fun, Seq[(Symbol,Int)]) = {
+    def closedFun(fun:H.Fun): (L.Fun, Seq[(Symbol,Int)], Symbol) = {
       val w1 = Symbol.fresh("w")
       val env1 = Symbol.fresh("env")
       val freeV = freeVariables(fun.body).toSeq
       val freeVIndex = freeV.zipWithIndex.map((n,i) => (n,i+1))
       val (funBody,s) = blockGet(fun.name, env1, freeVIndex, Map(fun.name -> env1), apply(fun.body)) 
-      (L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody) , freeVIndex)
+      (L.Fun(w1,fun.retC,Seq(env1)++fun.args,funBody) , freeVIndex , w1)
     }
 
     def closureAlloc(f: Symbol, fvi: Seq[(Symbol,Int)])(body: L.Tree): L.Tree = {
@@ -354,12 +355,11 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     }
 
     
-    
-    val closedF = t.funs.map(f => closedFun(f)._1)
-    val fvs = t.funs.map(f => closedFun(f)._2)
-    val zipped = closedF.zip(fvs)
+    val zipped = t.funs.map(f => closedFun(f))
+    val closedF = zipped.map(f => f._1)
+
     val e = apply(t.body)
-    val initiated = zipped.foldRight(e)((f,acc) => closureInit(f._1.name, f._1.name, f._2, acc))
+    val initiated = zipped.foldRight(e)((f,acc) => closureInit(f._1.name, f._3, f._2, acc))
     val allocated = zipped.foldRight(initiated)((f,acc) => closureAlloc(f._1.name, f._2)(acc))
     L.LetF(closedF, allocated)
   }
