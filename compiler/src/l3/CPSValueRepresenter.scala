@@ -12,15 +12,14 @@ import l3.Symbol.fresh
 object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
   type FV = Map[Symbol, Set[Symbol]]
-  private var fv : FV = Map.empty
-  private var knownWorkers : Map [Symbol, Symbol] = Map.empty
-
+  private var fv: FV = Map.empty
+  private var knownWorkers: Map[Symbol, Symbol] = Map.empty
 
   def apply(tree: H.Tree): L.Tree = {
-    transform(tree)// transform is for trees , rewrite is for atoms
+    transform(tree) // transform is for trees , rewrite is for atoms
   }
 
-  private def transform(tree: H.Tree):L.Tree = {
+  private def transform(tree: H.Tree): L.Tree = {
     tree match {
       // Continuations
       case H.LetC(cs, e) =>
@@ -34,19 +33,23 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
       // Functions, correct transformation
       case f @ H.LetF(fs, e) =>
         closure(f)
-      
+
       case H.AppF(fun: H.Name, retC: H.Name, args: Seq[H.Atom]) =>
         // find worker function
         val hasWorker = knownWorkers.get(fun)
-        hasWorker match 
-          case None => 
+        hasWorker match
+          case None =>
             val f = Symbol.fresh("f")
             val aFun = rewrite(fun)
-            L.LetP(f, CPS.BlockGet, Seq(aFun, 0),
-                   L.AppF(f, retC, aFun +: args.map(rewrite(_))))
-          case Some(worker) => 
+            L.LetP(
+              f,
+              CPS.BlockGet,
+              Seq(aFun, 0),
+              L.AppF(f, retC, aFun +: args.map(rewrite(_)))
+            )
+          case Some(worker) =>
             L.AppF(worker, retC, args.map(rewrite(_)) ++ fv(fun))
-      
+
       // Integers
       case H.LetP(n, L3.IntAdd, Seq(x, y), body) =>
         tempLetP(CPS.XOr, Seq(rewrite(x), 1)) { x1 =>
@@ -154,7 +157,12 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
       case H.LetP(n, L3.BlockSet, Seq(x, y, z), body) =>
         tempLetP(CPS.ShiftRight, Seq(rewrite(y), 1)) { t1 =>
-          L.LetP(n, CPS.BlockSet, Seq(rewrite(x), t1, rewrite(z)), transform(body))
+          L.LetP(
+            n,
+            CPS.BlockSet,
+            Seq(rewrite(x), t1, rewrite(z)),
+            transform(body)
+          )
         }
 
       // Conversions
@@ -249,8 +257,8 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
   private def substitute(tree: L.Tree)(implicit s: Subst[Symbol]): L.Tree = {
     def subst(a: L.Atom): L.Atom = {
       a match
-      case n: L.Name => s.getOrElse(n, n)
-      case _         => a
+        case n: L.Name => s.getOrElse(n, n)
+        case _         => a
     }
     tree match
       case L.LetF(funs, body) =>
@@ -273,32 +281,35 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
         L.If(cond, args.map(subst), thenC, elseC)
       case L.Halt(arg) =>
         L.Halt(subst(arg))
-    
-      
-    
+
   }
 // --------------------------------------------- Optimized Closure ------------------------------------------------------------
 
-  private def blockGet(w: Symbol, c: Symbol, ni: Seq[Symbol], env: Symbol, fvNum: Int)(viAcc: Seq[Symbol]): L.Tree = {
+  private def blockGet(
+      w: Symbol,
+      c: Symbol,
+      ni: Seq[Symbol],
+      env: Symbol,
+      fvNum: Int
+  )(viAcc: Seq[Symbol]): L.Tree = {
     val pos = viAcc.size
-      if (pos == fvNum)  L.AppF(w, c, ni ++ viAcc)
-      else
-        val v = Symbol.fresh("v")
-        val l = blockGet(w, c, ni, env,fvNum)(viAcc :+ v)
-        L.LetP(v, CPS.BlockGet, Seq(env, pos + 1), l)
+    if (pos == fvNum) L.AppF(w, c, ni ++ viAcc)
+    else
+      val v = Symbol.fresh("v")
+      val l = blockGet(w, c, ni, env, fvNum)(viAcc :+ v)
+      L.LetP(v, CPS.BlockGet, Seq(env, pos + 1), l)
   }
-  
-  
-  private def worker(f: H.Fun, w:Symbol,  fvi: Set[Symbol]): L.Fun = {
+
+  private def worker(f: H.Fun, w: Symbol, fvi: Set[Symbol]): L.Fun = {
     val freeV = fvi.toSeq
     val ui = freeV.map(_ => Symbol.fresh("ui"))
-    val subTab =  freeV.zip(ui).foldLeft(emptySubst[Symbol])((acc, kv) => acc + kv)
+    val subTab =
+      freeV.zip(ui).foldLeft(emptySubst[Symbol])((acc, kv) => acc + kv)
     val bodyAsTree = transform(f.body)
     val ei = substitute(bodyAsTree)(subTab)
-    L.Fun(w,f.retC,f.args++ui,ei)
+    L.Fun(w, f.retC, f.args ++ ui, ei)
   }
-  
-  
+
   private def wrapper(fun: H.Fun, workerF: L.Fun, fvNum: Int): L.Fun = {
     val s = Symbol.fresh("s")
     val c = Symbol.fresh("c")
@@ -308,27 +319,28 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
     L.Fun(s, c, env +: ni, body)
   }
 
-
-  private def closure(t : H.LetF): L.Tree = {
+  private def closure(t: H.LetF): L.Tree = {
 
     val funToFreeVars = stableFreeVars(t.funs)
-    val funToWorkerNames = t.funs.map(f => (f.name,Symbol.fresh("w"))).toMap
+    val funToWorkerNames = t.funs.map(f => (f.name, Symbol.fresh("w"))).toMap
     knownWorkers = knownWorkers ++ funToWorkerNames
 
+    val (funToWorker, funToWrapper) =
+      t.funs.foldLeft((Map.empty[Symbol, L.Fun], Map.empty[Symbol, L.Fun])) {
+        case ((funToWorker, funToWrapper), f) =>
+          val w = funToWorkerNames(f.name)
+          val workerF = worker(f, w, funToFreeVars(f.name).toSet)
+          val wrapperF = wrapper(f, workerF, funToFreeVars(f.name).size)
+          (
+            funToWorker + (f.name -> workerF),
+            funToWrapper + (f.name -> wrapperF)
+          )
+      }
 
-     
-    
-    val (funToWorker, funToWrapper) = t.funs.foldLeft((Map.empty[Symbol, L.Fun], Map.empty[Symbol, L.Fun])) {
-      case ((funToWorker, funToWrapper), f) =>
-        val w = funToWorkerNames(f.name)
-        val workerF = worker(f, w, funToFreeVars(f.name).toSet)
-        val wrapperF = wrapper(f, workerF, funToFreeVars(f.name).size)
-        (funToWorker + (f.name -> workerF), funToWrapper + (f.name -> wrapperF))
-    }
-    
     val funToWrapperNames = funToWrapper.map(kv => (kv._1, kv._2.name))
-    val wrapIterator = t.funs.map(f => (f.name, funToWrapperNames(f.name), funToFreeVars(f.name).toSeq))
-    
+    val wrapIterator = t.funs.map(f =>
+      (f.name, funToWrapperNames(f.name), funToFreeVars(f.name).toSeq)
+    )
 
     val initialAllocated = transform(t.body)
     val finalAllocated = wrapIterator.foldLeft(initialAllocated) {
@@ -348,39 +360,42 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
 //---------------------------------------------- Free Variables ------------------------------------------------------------
   private def freeVariables(tree: H.Tree, free: FV): Set[Symbol] = {
-      tree match {
-        case H.LetP(n, _, args, body) =>
-          freeVariables(body, free) - n ++ args.flatMap(freeAtom)
-        
-        case H.LetC(cs, body) =>
-          val cntFreeVars = cs.flatMap(c => freeVariables(c.body, free) -- c.args).toSet
-          freeVariables(body, free) ++ cntFreeVars
+    tree match {
+      case H.LetP(n, _, args, body) =>
+        freeVariables(body, free) - n ++ args.flatMap(freeAtom)
 
-        case H.LetF(fs, body) =>
-          val stableFV = stableFreeVars(fs).values.flatten.toSet
-          val funNames = fs.map(_.name).toSet
-          freeVariables(body, free) ++ stableFV -- funNames
+      case H.LetC(cs, body) =>
+        val cntFreeVars =
+          cs.flatMap(c => freeVariables(c.body, free) -- c.args).toSet
+        freeVariables(body, free) ++ cntFreeVars
 
-        case H.AppC(_, args) =>
-          args.flatMap(freeAtom).toSet
+      case H.LetF(fs, body) =>
+        val stableFV = stableFreeVars(fs).values.flatten.toSet
+        val funNames = fs.map(_.name).toSet
+        freeVariables(body, free) ++ stableFV -- funNames
 
-        case H.AppF(fun, _, args) =>
-          val freefun = freeAtom(fun)
-          val funFreeVars = free.get(freefun.head)
-          funFreeVars match
-            case None => freeAtom(fun) ++ args.flatMap(freeAtom).toSet
-            case Some(fvs) => fvs ++ args.flatMap(freeAtom).toSet
+      case H.AppC(_, args) =>
+        args.flatMap(freeAtom).toSet
 
-        case H.If(_, args, _, _) =>
-          args.flatMap(freeAtom).toSet
-        case H.Halt(arg) =>
-          freeAtom(arg)
-      }
+      case H.AppF(fun, _, args) =>
+        val freefun = freeAtom(fun)
+        val funFreeVars = free.get(freefun.head)
+        funFreeVars match
+          case None      => freeAtom(fun) ++ args.flatMap(freeAtom).toSet
+          case Some(fvs) => fvs ++ args.flatMap(freeAtom).toSet
+
+      case H.If(_, args, _, _) =>
+        args.flatMap(freeAtom).toSet
+      case H.Halt(arg) =>
+        freeAtom(arg)
     }
-  
-  
+  }
+
   private def stableFreeVars(funs: Seq[H.Fun]): Map[Symbol, Set[Symbol]] = {
-    def iterate(previous: Map[Symbol, Set[Symbol]], current: Map[Symbol, Set[Symbol]]): Map[Symbol, Set[Symbol]] = {
+    def iterate(
+        previous: Map[Symbol, Set[Symbol]],
+        current: Map[Symbol, Set[Symbol]]
+    ): Map[Symbol, Set[Symbol]] = {
       if (current == previous) {
         current
       } else {
@@ -394,21 +409,22 @@ object CPSValueRepresenter extends (H.Tree => L.Tree) {
 
     val initial = funs.map(fun => (fun.name -> Set.empty[Symbol])).toMap
     val result = iterate(Map.empty[Symbol, Set[Symbol]], initial)
-    
+
     fv ++= result
     result
   }
 
-    
   private def freeAtom(atom: H.Atom): Set[H.Name] = {
-      atom match {
-        case n: H.Name => Set(n)
-        case _         => Set() // put nothing in case of literals
+    atom match {
+      case n: H.Name => Set(n)
+      case _         => Set() // put nothing in case of literals
     }
   }
 
 // ---------------------------------------------- Helper Functions ------------------------------------------------------------
-  private def tempLetP(p: L.ValuePrimitive, args: Seq[L.Atom])(body: L.Name => L.Tree): L.Tree = {
+  private def tempLetP(p: L.ValuePrimitive, args: Seq[L.Atom])(
+      body: L.Name => L.Tree
+  ): L.Tree = {
     val tempSym = Symbol.fresh("t")
     L.LetP(tempSym, p, args, body(tempSym))
   }
