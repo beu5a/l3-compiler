@@ -66,7 +66,34 @@ abstract class CPSOptimizer[T <: SymbolicNames]
   private def shrink(tree: Tree): Tree =
     shrink(tree, State(census(tree)))
 
-  private def shrink(tree: Tree, s: State): Tree = ???
+  //Hassan: Put it on top
+  import CL3Literal._
+
+  private def shrink(tree: Tree, s: State): Tree = {
+      tree match {
+        case LetF(funs, body) => ???
+        case LetC(cnts, body) => ???
+        // constant folding
+        ///---
+        case LetP(name,prim, l@ Seq(IntLit(x), IntLit(y)), body) =>
+          val res = vEvaluator(prim, l)
+          shrink(body, s.withASubst(name, res))
+        case If(cond, args @ Seq(IntLit(x),IntLit(y)), thenC, elseC) =>
+          val res = cEvaluator(cond, args)
+          shrink(AppC(if(res) then thenC else elseC,Seq()), s)
+        case If(cond, args @ Seq(a,b), thenC, elseC) if a == b =>
+          shrink(AppC(if(sameArgReduceC(cond)) then thenC else elseC, Seq()), s)
+
+
+        //-----
+        case LetP(name, prim, args, body) => ???
+        case AppF(fun, retC, args) => ???
+        case AppC(cnt, args) => ???
+        case If(cond, args, thenC, elseC) => ???
+        case Halt(arg) => ???
+        case _ => tree
+      }
+  }
 
   // (Non-shrinking) inlining
 
@@ -210,38 +237,62 @@ object HighCPSOptimizer extends CPSOptimizer(HighCPSTreeModule)
   private[this] given Conversion[Int, Literal] = L3Int.apply
 
   protected val impure: ValuePrimitive => Boolean =
-    ???
+    Set(BlockSet, ByteRead, ByteWrite)
 
   protected val unstable: ValuePrimitive => Boolean =
-    ???
+    Set(BlockAlloc, BlockGet, ByteRead)
 
-  protected val blockAlloc: ValuePrimitive = ???
-  protected val blockTag: ValuePrimitive = ???
-  protected val blockLength: ValuePrimitive = ???
+  protected val blockAlloc: ValuePrimitive = BlockAlloc
+  protected val blockTag: ValuePrimitive = BlockTag
+  protected val blockLength: ValuePrimitive = BlockLength 
 
-  protected val identity: ValuePrimitive = ???
+  protected val identity: ValuePrimitive = Id 
 
   protected val leftNeutral: Set[(Literal, ValuePrimitive)] =
-    ???
+    Set((0, IntAdd), (1, IntMul), (~0, IntBitwiseAnd), (0, IntBitwiseOr), (0, IntBitwiseXOr))
   protected val rightNeutral: Set[(ValuePrimitive, Literal)] =
-    ???
+    Set((IntAdd, 0), (IntSub, 0), (IntMul, 1), (IntDiv, 1),
+        (IntShiftLeft, 0), (IntShiftRight, 0),
+        (IntBitwiseAnd, ~0), (IntBitwiseOr, 0), (IntBitwiseXOr, 0))
 
   protected val leftAbsorbing: Set[(Literal, ValuePrimitive)] =
-    ???
+    Set((0, IntMul), (0, IntDiv),
+        (0, IntShiftLeft), (0, IntShiftRight),
+        (0, IntBitwiseAnd), (~0, IntBitwiseOr))
+
   protected val rightAbsorbing: Set[(ValuePrimitive, Literal)] =
-    ???
+    Set((IntMul, 0), (IntBitwiseAnd, 0), (IntBitwiseOr, ~0))
 
   protected val sameArgReduce: PartialFunction[(ValuePrimitive, Atom), Atom] =
-    ???
+    {
+    case (IntBitwiseAnd | IntBitwiseOr, a) => a
+    case (IntSub | IntMod | IntBitwiseXOr, _) => 0
+    case (IntDiv, _) => 1
+    }
 
   protected val sameArgReduceC: PartialFunction[TestPrimitive, Boolean] =
-    ???
+    case IntLe | Eq => true
+    case IntLt => false
 
   protected val vEvaluator: PartialFunction[(ValuePrimitive, Seq[Atom]),
-                                            Literal] = ???
+                                            Literal] = 
+    case (IntAdd, Seq(IntLit(x), IntLit(y) )) => x + y
+    case (IntSub, Seq(IntLit(x), IntLit(y) )) => x - y
+    case (IntMul, Seq(IntLit(x), IntLit(y) )) => x * y
+    case (IntDiv, Seq(IntLit(x), IntLit(y) )) if y.toInt != 0 => x / y
+    case (IntMod, Seq(IntLit(x), IntLit(y) )) if y.toInt != 0 => x % y
+
+    case (IntShiftLeft,  Seq(IntLit(x), IntLit(y))) => x << y
+    case (IntShiftRight, Seq(IntLit(x), IntLit(y))) => x >> y
+    case (IntBitwiseAnd, Seq(IntLit(x), IntLit(y))) => x & y
+    case (IntBitwiseOr,  Seq(IntLit(x), IntLit(y))) => x | y
+    case (IntBitwiseXOr, Seq(IntLit(x), IntLit(y))) => x ^ y
 
   protected val cEvaluator: PartialFunction[(TestPrimitive, Seq[Atom]),
-                                            Boolean] = ???
+                                            Boolean] = 
+    case (IntLt, Seq(IntLit(x), IntLit(y))) => x < y
+    case (IntLe, Seq(IntLit(x), IntLit(y))) => x <= y
+    case (Eq, Seq(IntLit(x),IntLit(y))) => x == y
 }
 
 object FlatCPSOptimizer extends CPSOptimizer(FlatCPSTreeModule)
