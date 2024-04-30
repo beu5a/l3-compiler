@@ -71,21 +71,25 @@ abstract class CPSOptimizer[T <: SymbolicNames]
 
   private def shrink(tree: Tree, s: State): Tree = {
       tree match {
+
         case LetF(funs, body) =>
-          val (inlineFuns, remainingFuns) = funs.partition(f => !s.dead(f.name) && s.appliedOnce(f.name))
+          val notDeadFuns = funs.filter(f => !s.dead(f.name))
+          val (inlineFuns, remainingFuns) = notDeadFuns.partition(f =>s.appliedOnce(f.name))
           val updatedS = s.withFuns(remainingFuns)
           if (remainingFuns.isEmpty) shrink(body, updatedS)
           else
             val shrunkFuns = remainingFuns.map(f => Fun(f.name, f.retC, f.args, shrink(f.body, updatedS)))
             LetF(shrunkFuns, shrink(body, updatedS))
 
-        case LetC(cnts, body) => 
-          val (inlineCnts, remainingCnts) = cnts.partition(c => !s.dead(c.name) && s.appliedOnce(c.name))
+        case LetC(cnts, body) =>
+          val notDeadCnts = cnts.filter(c => !s.dead(c.name))
+          val (inlineCnts, remainingCnts) = notDeadCnts.partition(c => s.appliedOnce(c.name))
           val updatedS = s.withCnts(remainingCnts)
           if (remainingCnts.isEmpty) shrink(body, updatedS)
           else
             val shrunkCnts = remainingCnts.map(c => Cnt(c.name, c.args, shrink(c.body, updatedS)))
             LetC(shrunkCnts, shrink(body, updatedS))
+
         case LetP(name,prim, l@ Seq(IntLit(x), IntLit(y)), body) =>
           val res = vEvaluator(prim, l)
           shrink(body, s.withASubst(name, res))
