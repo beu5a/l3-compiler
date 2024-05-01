@@ -100,10 +100,21 @@ abstract class CPSOptimizer[T <: SymbolicNames]
           shrink(AppC(if(sameArgReduceC(cond)) then thenC else elseC, Seq()), s)
 
 
-        //-----
         case LetP(name, prim, args, body) => ???
-        case AppF(fun, retC, args) => ???
-        case AppC(cnt, args) => ???
+        case AppC(cnt, args) =>
+          s.cEnv.get(s.cSubst(cnt)) match {
+            case Some(c) => shrink(c.body, s.withASubst(c.args, args))
+            case None => AppC(s.cSubst(cnt), args map s.aSubst)
+        }
+
+        case AppF(fun, retC, args) if s.fEnv.contains(s.aSubst(fun).asInstanceOf[Name]) => 
+          val name = s.aSubst(fun).asInstanceOf[Name]
+          val f = s.fEnv(name)
+          shrink(f.body, s.withASubst(f.args, args).withCSubst(f.retC, retC))
+
+        case AppF(fun, retC, args) => 
+          AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
+
         case If(cond, args, thenC, elseC) => ???
         case Halt(arg) => ???
         case _ => tree
