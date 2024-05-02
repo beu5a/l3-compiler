@@ -68,6 +68,43 @@ abstract class CPSOptimizer[T <: SymbolicNames]
 
   //Hassan: Put it on top
   import CL3Literal._
+  import L3Primitive._
+
+  private def shrinkLetP(tree: Tree, s: State): Tree = {
+    tree match {
+      //dead code elimination
+      case LetP(name, prim, args, body) if s.dead(name) && !impure(prim) => 
+        shrink(body, s)
+
+      //neutral absorbing elim
+      case LetP(name, prim,Seq(x:Literal, y), body) if leftNeutral.contains((x, prim)) => 
+        shrink(body, s.withASubst(name, y))
+      case LetP(name, prim, Seq(x, y:Literal), body) if rightNeutral.contains((prim, y)) => 
+        shrink(body, s.withASubst(name, x))
+      case LetP(name, prim, Seq(x:Literal, y), body) if leftAbsorbing.contains((x, prim)) =>
+        shrink(body, s.withASubst(name, x))
+      case LetP(name, prim, Seq(x, y:Literal), body) if rightAbsorbing.contains((prim, y)) =>
+        shrink(body, s.withASubst(name, y))
+
+        //identity
+      case LetP(name,Id, Seq(a), body) => 
+        shrink(body, s.withASubst(name, a))
+
+      //CSE
+      case LetP(name, prim, args, body) if s.eInvEnv.contains((prim, args)) && !impure(prim) && !unstable(prim) => 
+        shrink(body, s.withASubst(name, s.eInvEnv((prim, args))))
+
+      //constant folding
+      case LetP(name,prim, l@ Seq(x:Literal, y:Literal), body) =>
+          val res = vEvaluator(prim, l)
+          shrink(body, s.withASubst(name, res))
+
+      case LetP(name, prim, args, body) =>
+        val newArgs = args map s.aSubst
+        val updatedS = s.withExp(name, prim, newArgs)
+        LetP(name, prim, newArgs, shrink(body, updatedS))
+    }
+  }
 
   private def shrink(tree: Tree, s: State): Tree = {
       tree match {
@@ -90,17 +127,18 @@ abstract class CPSOptimizer[T <: SymbolicNames]
             val shrunkCnts = remainingCnts.map(c => Cnt(c.name, c.args, shrink(c.body, updatedS)))
             LetC(shrunkCnts, shrink(body, updatedS))
 
-        case LetP(name,prim, l@ Seq(IntLit(x), IntLit(y)), body) =>
-          val res = vEvaluator(prim, l)
-          shrink(body, s.withASubst(name, res))
         case If(cond, args @ Seq(IntLit(x),IntLit(y)), thenC, elseC) =>
           val res = cEvaluator(cond, args)
           shrink(AppC(if(res) then thenC else elseC,Seq()), s)
         case If(cond, args @ Seq(a,b), thenC, elseC) if a == b =>
           shrink(AppC(if(sameArgReduceC(cond)) then thenC else elseC, Seq()), s)
+        case If(cond, Seq(v1,v2), thenC, elseC) if (sameArgReduceC(cond))  =>  { //Boolean ?
+          val ev = if(v1 == v2) thenC else elseC
+          shrink(AppC(ev, Seq()), s)
+        }
 
+        case LetP(name, prim, args, body) => shrinkLetP(tree, s)
 
-        case LetP(name, prim, args, body) => ???
         case AppC(cnt, args) =>
           s.cEnv.get(s.cSubst(cnt)) match {
             case Some(c) => shrink(c.body, s.withASubst(c.args, args))
@@ -115,8 +153,8 @@ abstract class CPSOptimizer[T <: SymbolicNames]
         case AppF(fun, retC, args) => 
           AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
 
-        case If(cond, args, thenC, elseC) => ???
-        case Halt(arg) => ???
+
+        //case Halt(arg) => ???
         case _ => tree
       }
   }
@@ -197,15 +235,29 @@ abstract class CPSOptimizer[T <: SymbolicNames]
             LetC(filteredCnts, inlineT(body)(using newState))
           }
 
-          case AppF(fun, retC, args) => {
-            val funS =  s.fEnv.get(fun)
-            funS match {
-              case Some(Fun(_, ret, argsF, body))  =>
-                  val aS = s.aSubst ++ (argsF zip args).toMap
-                  val cS = s.cSubst + (ret -> retC)
-                  copyT(body, aS, cS)
+          case AppF(fun, retC, args)  => {
+            fun match{
+              case f: Name=> {
+                val funS = s.fEnv.get(f)
+                funS match {
+                  case Some(Fun(_, ret, argsF, bodyf))  =>
+                    val aS = s.aSubst ++ (argsF zip args).toMap
+                    val cS = s.cSubst + (ret -> retC)
+                    copyT(bodyf, aS, cS)
+                  case _ => AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
+                }
+              }
               case _ => AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
+
             }
+
+            //funS match {
+            //  case Some(Fun(_, ret, argsF, bodyf))  =>
+            //      val aS = s.aSubst ++ (argsF zip args).toMap
+            //      val cS = s.cSubst + (ret -> retC)
+            //      copyT(bodyf, aS, cS)
+            //  case _ => AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
+            //}
 
           }
 
