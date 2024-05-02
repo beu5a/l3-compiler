@@ -170,7 +170,58 @@ abstract class CPSOptimizer[T <: SymbolicNames]
       val funLimit = fibonacci(i)
       val cntLimit = i
 
-      def inlineT(tree: Tree)(using s: State): Tree = ???
+      def inlineT(tree: Tree)(using s: State): Tree = {
+        tree match {
+          case LetP(name, prim, args, body) =>
+            LetP(name, prim, args map s.aSubst, inlineT(body))
+
+          case LetF(funs, body) => {
+            val newFuns = funs map { f =>
+              val newBody = inlineT(f.body)
+              Fun(f.name, f.retC, f.args, newBody)
+            }
+            val fiteredFuns = newFuns.filter(f => size(f.body) <= funLimit)
+            val newState = s.withFuns(fiteredFuns)
+
+            LetF(fiteredFuns, inlineT(body)(using newState))
+          }
+
+          case LetC(cnts, body) => {
+            val newCnts = cnts map { c =>
+              val newBody = inlineT(c.body)
+              Cnt(c.name, c.args, newBody)
+            }
+            val filteredCnts = newCnts.filter(c => size(c.body) <= cntLimit)
+            val newState = s.withCnts(filteredCnts)
+
+            LetC(filteredCnts, inlineT(body)(using newState))
+          }
+
+          case AppF(fun, retC, args) => {
+            val funS =  s.fEnv.get(fun)
+            funS match {
+              case Some(Fun(_, ret, argsF, body))  =>
+                  val aS = s.aSubst ++ (argsF zip args).toMap
+                  val cS = s.cSubst + (ret -> retC)
+                  copyT(body, aS, cS)
+              case _ => AppF(s.aSubst(fun), s.cSubst(retC), args map s.aSubst)
+            }
+
+          }
+
+          case AppC(cnt, args) => {
+            val cntS = s.cEnv.get(cnt)
+            cntS match {
+              case Some(Cnt(_, argsC, body)) =>
+                val aS = s.aSubst ++ (argsC zip args).toMap
+                copyT(body, aS, s.cSubst)
+              case _ => AppC(s.cSubst(cnt), args map s.aSubst)
+            }
+          }
+          case If(cond, args, thenC, elseC) => If(cond, args map s.aSubst, s.cSubst(thenC), s.cSubst(elseC))
+          case Halt(arg) => Halt(s.aSubst(arg))
+        }
+      } 
 
       (i + 1, fixedPoint(inlineT(tree)(using State(census(tree))))(shrink))
     }
