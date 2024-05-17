@@ -6,3 +6,4 @@
 # VM
 /vm/c/bin/
 /vm/rust/target/
+vm/rust/src/memory_ignore.rs
