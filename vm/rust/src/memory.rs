@@ -76,20 +76,36 @@ impl Memory {
         // do nothing
         let mut stack = vec![root];
 
-        // TODO add address verification.
+        // READ ROOTS PARAGRAPH IN ASSIGNMENT
+        let top_frame_2 = self[root + 1];
+        if self.is_addr_aligned(top_frame_2){
+            let top_frame_index = self.addr_to_index(top_frame_2);
+            if self.is_index_valid(top_frame_index) && self.block_tag(top_frame_index) == TAG_REGISTER_FRAME {
+                stack.push(top_frame_index);
+            }
+        }
+
 
         // We start with all allocated blocks marked, so we can unmark them (ie set to 0)
         // Assigmnet , Bitmap, Paragraph 4
         while let Some(block) = stack.pop() {
             let block_size = self.block_size(block) as usize;
             for i in 0..block_size {
+
                 let addr = self[block + i];
                 // verify address
+                if ! self.is_addr_aligned(addr) {
+                    continue;
+                }
+
                 let index = self.addr_to_index(addr);
                 // verify index
+                if ! self.is_index_valid(index) {
+                    continue;
+                }
+                
 
                 let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
-
                 //if reachable (and not already unmarked) add to stack
                 if self.is_marked(bmp_addr, bmp_entry_index) {
                     self.unmark_block(bmp_addr, bmp_entry_index);
@@ -113,6 +129,22 @@ impl Memory {
     //NEW
     fn index_to_addr(&mut self, index: usize) -> L3Value {
         (index << LOG2_VALUE_BYTES) as L3Value
+    }
+
+    /* checks if the index is within the bounds of the heap 
+    */
+    fn is_index_valid(&mut self, index: usize) -> bool {
+        self.heap_start < index && index < self.content.len()
+    }
+
+    /* The expression (addr & ((1 << LOG2_VALUE_BYTES) - 1)) == 0 checks if addr is aligned to a 
+        boundary of 2^LOG2_VALUE_BYTES bytes. It does this by creating a bitmask with the lower LOG2_VALUE_BYTES bits set to 1, 
+        then using a bitwise AND operation to see if these bits in addr are all zero. If they are
+    */
+    fn is_addr_aligned(&mut self, addr: L3Value) -> bool {
+        let align_mask = (1 << LOG2_VALUE_BYTES) - 1;
+        let is_aligned = (addr & align_mask) == 0;
+        is_aligned        
     }
     
     //NEW
