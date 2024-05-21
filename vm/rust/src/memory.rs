@@ -2,6 +2,7 @@ use crate::{L3Value, LOG2_VALUE_BITS, LOG2_VALUE_BYTES, TAG_REGISTER_FRAME};
 
 
 const MAX_TAG : L3Value = 0xFF;
+const TAG_NONE : L3Value = 0x1F; //TODO HOW TO CHOSE THE VALUES OF THE TAGS
 
 const HEADER_SIZE : usize = 1;
 const MAX_BLOCK_SIZE : usize = 0xFF_FFFF;
@@ -321,6 +322,60 @@ impl Memory {
 
 
         }    
+    }
+
+    fn sweep(&mut self) {
+        let start = self.heap_start + HEADER_SIZE;
+        let end = self.content.len();
+        let mut current = start;
+        let mut prev : Option<usize> = None;
+
+        //destroy previous free lists
+        for i in 0..SIZE_FREE_LISTS {
+            self.free_lists[i] = 0;
+        }
+
+
+        while current < end {
+            let tag = self.block_tag(current);
+            let size = self.block_size(current) as usize;
+            let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(current);
+
+            if tag != TAG_NONE && !self.is_marked(bmp_addr, bmp_entry_index) {
+                self.mark_block(bmp_addr, bmp_entry_index);
+                
+                if let Some(free_block) = prev {
+                    let free_block_size = self.block_size(free_block) as usize;
+                    // TODO : DO WE NEET TO ZERO THE MEMORY OR NOT ?
+                    self.add_block_to_free_list(free_block,free_block_size);
+                } 
+                prev = None;
+            } else {
+
+                if let Some(free_block) = prev {
+                    // we already have a block to coalesce with
+                    self.coalesce(free_block, current); //TODO :issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
+                } else {
+                    // this is the first block to coalesce with
+                    // we set the block header and free it here
+                    self.set_block_header(current, TAG_NONE, size);
+
+                    prev = Some(current);
+                    
+
+                }
+            }
+            // move to the next block
+            current += size + HEADER_SIZE;
+
+        }
+
+
+
+
+
+
+
     }
 
 
