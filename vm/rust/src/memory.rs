@@ -9,14 +9,14 @@ const MAX_BLOCK_SIZE : usize = 0xFF_FFFF;
 const SIZE_FREE_LISTS : usize = 32; //NEW
 const MIN_BLOCK_SIZE : usize = 2; //NEW - block must be greater than 2 words of the actual size
                                   //      to be split
-                                  
+
 type FreeList = usize; // NEW 
 
 pub struct Memory {
     content: Vec<L3Value>,
     bitmap_start: usize, // NEW
     heap_start: usize, // NEW
-    top_frame_start: usize, // NEW - can be removed ???
+    //top_frame_start: usize, // NEW - can be removed ???
     free_lists: [FreeList; SIZE_FREE_LISTS], // NEW -- free lists is list of 32 lists 
                                              // free_lists[i] contains the index of the first block of the free list of size i+1
                                              // free_lists[0] contains the index of the first block of the free list of size 1
@@ -29,7 +29,7 @@ impl Memory {
             content: vec![0; word_size],
             bitmap_start: 0,
             heap_start: 0, 
-            top_frame_start: 0, 
+            //top_frame_start: 0, 
 
             //NEW
             free_lists: [0; SIZE_FREE_LISTS],
@@ -97,7 +97,7 @@ impl Memory {
         let heap_size = self.content.len() - heap_start_index;
         let block = heap_start_index + HEADER_SIZE;
         // set the heap start
-        self.set_block_header(block, 0, heap_size);
+        self.set_block_header(block, 0, heap_size - HEADER_SIZE);
 
         self.add_block_to_free_list(block, heap_size);
     }
@@ -106,7 +106,8 @@ impl Memory {
     /// NEW
     /// Split the block into two blocks, the first one with size `size` and the second one with the rest
     /// Return true if the block was split, false otherwise
-    fn can_split_block(&mut self, block: usize, size: usize)-> bool {
+    fn can_split_block(&mut self, header: usize, size: usize)-> bool {
+        let block = header + HEADER_SIZE;
         let block_size = self.block_size(block);
         debug_assert!(block_size >= 0);
 
@@ -145,10 +146,11 @@ impl Memory {
                 if block_size >= size {
                     //remove header from the free list
                     if last_header == 0 {
-                        self.free_lists[free_list_index] = self.get_next_free_header(header);
+                        self.free_lists[free_list_index] = self.get_next_free_header(block);
                     } else {
-                        let next_header = self.get_next_free_header(header);
-                        self.set_next_free_block(last_header, next_header);
+                        let next_header = self.get_next_free_header(block);
+                        let last_block = last_header + HEADER_SIZE;
+                        self.set_next_free_block(last_block, next_header);
                     }
 
                     return Some(header);
@@ -163,7 +165,8 @@ impl Memory {
                 return None;
             } else {
                 //remove header from the free list
-                self.free_lists[free_list_index] = self.get_next_free_header(header);
+                let block = header + HEADER_SIZE;
+                self.free_lists[free_list_index] = self.get_next_free_header(block);
                 return Some(header);
             }
         }
@@ -183,10 +186,11 @@ impl Memory {
                 Some(header) => {
                     // if the block can be split, split it
                     if self.can_split_block(header, size) {
-                        return Some((header, size));
+                        return Some((header+HEADER_SIZE, size));
                     } else {
-                        let block_size = self.block_size(header) as usize;
-                        return Some((header, block_size));
+                        let block = header + HEADER_SIZE;
+                        let block_size = self.block_size(block) as usize;
+                        return Some((block, block_size));
                     }
                 },
                 None => {
@@ -199,24 +203,49 @@ impl Memory {
     }
 
     /// allocate a block of size `size` with tag `tag` and return the block index
-    pub fn allocate(&mut self, tag: L3Value, size: L3Value, _root: usize)
-                    -> usize {
-        debug_assert!(0 <= tag && tag <= 0xFF);
-        debug_assert!(0 <= size);
+    pub fn allocate(&mut self, tag: L3Value, size: L3Value, root: usize)
+        -> usize {
+            debug_assert!(0 <= tag && tag <= 0xFF);
+            debug_assert!(0 <= size);
+            let mut attempt = 0;
+            let mut m_block = None;
+            eprintln!("size: {}", size);
 
-        match self.find_next_free_block(size as usize) {
-            Some((block, new_size)) => {
-                self.set_block_header(block, tag, new_size as usize);
-                // set the bitmap bit to 1
-                let index = self.addr_to_index(self[block]); 
-                let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
-                self.mark_block(bmp_addr,bmp_entry_index);  
-                block
-            },
-            None => panic!("no more memory")
+
+            while attempt < 2 && m_block.is_none() {
+                eprintln!("Attempt: {}", attempt);
+
+                m_block = match self.find_next_free_block(size as usize) {
+                    Some((block, new_size)) => {
+                        eprintln!("block: {:?}, new_size: {:?}", block, new_size);
+                        self.set_block_header(block, tag, new_size as usize);
+                        let index = self.addr_to_index(self[block]);
+                        let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
+                        self.mark_block(bmp_addr, bmp_entry_index);
+                        Some(block)
+                    },
+                    None => {
+                        eprintln!("Out of memory");
+                        if attempt == 0 {
+                            self.mark(root);
+                            self.sweep();
+
+                            attempt += 1;
+                        }   
+                        None
+                    }
+                    
+                };
+                eprintln!("m_block: {:?}", m_block);
+
+
+            };
+
+            match m_block {
+                Some(block) => block,
+                None => panic!("Out of memory")
+            }
         }
-
-    }
 
     pub fn copy(&mut self, block: usize, root: usize) -> usize {
         let size = self.block_size(block);
@@ -249,7 +278,7 @@ impl Memory {
     pub fn free(&mut self, block: usize) {
         //TODO: check that the block is valid and allocated
 
-        
+
         //let index = self.addr_to_index(self[block]);
         //let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
         //self.unmark_block(bmp_addr, bmp_entry_index);
@@ -308,7 +337,7 @@ impl Memory {
                 if ! self.is_index_valid(index) {
                     continue;
                 }
-                
+
 
                 let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
                 //if reachable (and not already unmarked) add to stack
@@ -343,25 +372,26 @@ impl Memory {
 
             if tag != TAG_NONE && !self.is_marked(bmp_addr, bmp_entry_index) {
                 self.mark_block(bmp_addr, bmp_entry_index);
-                
+
                 if let Some(free_block) = prev {
-                    let free_block_size = self.block_size(free_block) as usize;
-                    // TODO : DO WE NEET TO ZERO THE MEMORY OR NOT ?
-                    self.add_block_to_free_list(free_block,free_block_size);
+                    //let free_block_size = self.block_size(free_block) as usize;
+                    // DO WE NEET TO ZERO THE MEMORY OR NOT ?
+                    //self.add_block_to_free_list(free_block,free_block_size);
+                    self.free(free_block);
                 } 
                 prev = None;
             } else {
 
                 if let Some(free_block) = prev {
                     // we already have a block to coalesce with
-                    self.coalesce(free_block, current); //TODO :issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
+                    self.coalesce(free_block, current); //issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
                 } else {
                     // this is the first block to coalesce with
                     // we set the block header and free it here
                     self.set_block_header(current, TAG_NONE, size);
 
                     prev = Some(current);
-                    
+
 
                 }
             }
@@ -369,13 +399,6 @@ impl Memory {
             current += size + HEADER_SIZE;
 
         }
-
-
-
-
-
-
-
     }
 
 
@@ -384,7 +407,7 @@ impl Memory {
     fn addr_to_index(&mut self, addr: L3Value) -> usize {
         (addr >> LOG2_VALUE_BYTES) as usize
     }
-    
+
     //NEW
     fn index_to_addr(&mut self, index: usize) -> L3Value {
         (index << LOG2_VALUE_BYTES) as L3Value
@@ -397,15 +420,15 @@ impl Memory {
     }
 
     /* The expression (addr & ((1 << LOG2_VALUE_BYTES) - 1)) == 0 checks if addr is aligned to a 
-        boundary of 2^LOG2_VALUE_BYTES bytes. It does this by creating a bitmask with the lower LOG2_VALUE_BYTES bits set to 1, 
-        then using a bitwise AND operation to see if these bits in addr are all zero. If they are
-    */
+       boundary of 2^LOG2_VALUE_BYTES bytes. It does this by creating a bitmask with the lower LOG2_VALUE_BYTES bits set to 1, 
+       then using a bitwise AND operation to see if these bits in addr are all zero. If they are
+       */
     fn is_addr_aligned(&mut self, addr: L3Value) -> bool {
         let align_mask = (1 << LOG2_VALUE_BYTES) - 1;
         let is_aligned = (addr & align_mask) == 0;
         is_aligned        
     }
-    
+
     //NEW
     fn block_index_to_bitmap_addr(&mut self ,index: usize) -> (usize,usize) {
         let bmp_offset = (index - self.heap_start) >> LOG2_VALUE_BITS;
@@ -437,6 +460,104 @@ impl Memory {
         let mask = !(1 << bmp_entry_index);
         let to_unmark = self[bmp_addr] as usize;
         self[bmp_addr] = (to_unmark & mask) as L3Value;
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+        #[test]
+    fn test_get_index_free_list() {
+        let memory = Memory::new(1024);
+
+        // Test for size 0
+        assert_eq!(memory.get_index_free_list(0), 0);
+
+        // Test for size within range of SIZE_FREE_LISTS
+        assert_eq!(memory.get_index_free_list(1), 0);
+        assert_eq!(memory.get_index_free_list(5), 4);
+        assert_eq!(memory.get_index_free_list(10), 9);
+        assert_eq!(memory.get_index_free_list(SIZE_FREE_LISTS), SIZE_FREE_LISTS - 1);
+
+        // Test for size greater than SIZE_FREE_LISTS
+        assert_eq!(memory.get_index_free_list(SIZE_FREE_LISTS + 1), SIZE_FREE_LISTS - 1);
+        assert_eq!(memory.get_index_free_list(SIZE_FREE_LISTS + 20), SIZE_FREE_LISTS - 1);
+    }
+
+    #[test]
+    fn test_add_block_to_free_list() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(0);
+
+        let block = 2; // Example block index
+        let size = 4; // Example block size
+        memory.add_block_to_free_list(block, size);
+
+        let index = memory.get_index_free_list(size);
+        assert_eq!(memory.free_lists[index], block - HEADER_SIZE);
+    }
+
+    #[test]
+    fn test_free_list_contains_one_block() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+        let first_free_header = memory.free_lists[SIZE_FREE_LISTS-1];
+        let block = first_free_header + HEADER_SIZE;
+
+        let block_size: usize = memory.block_size(block) as usize;
+
+        assert_eq!(block_size, 1024 - 10 - HEADER_SIZE);
+        assert_eq!(block, 10 + HEADER_SIZE);
+    }
+
+
+
+
+     #[test]
+    fn test_find_next_free_block() {
+        let mut memory = Memory::new(1024);
+
+        let heap_start = 10;
+        memory.set_heap_start(heap_start);
+
+        let block_index = heap_start + HEADER_SIZE;
+        memory.set_block_header(block_index, TAG_NONE, 5);
+        memory.add_block_to_free_list(block_index, 5);
+
+        assert_eq!(memory.block_size(block_index), 5);
+
+        let another_block_index = heap_start + HEADER_SIZE + 6; 
+        memory.set_block_header(another_block_index, TAG_NONE, 7);
+        memory.add_block_to_free_list(another_block_index, 7);
+
+        let result = memory.find_next_free_block(5);
+
+        assert_eq!(result, Some((block_index, 5)));
+
+        assert_eq!(memory.free_lists[memory.get_index_free_list(5)], 0);
+
+        let result = memory.find_next_free_block(7);
+
+        assert_eq!(result, Some((another_block_index, 7)));
+
+        assert_eq!(memory.free_lists[memory.get_index_free_list(7)], 0);
+    }
+
+    #[test]
+    fn test_allocation() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+
+        let tag = 0x01;
+        let size = 10;
+        let root = 0;
+        let block = memory.allocate(tag, size, root);
+
+        assert!(block != 0);
+        assert_eq!(memory.block_tag(block), tag);
+        assert_eq!(memory.block_size(block), size);
     }
 }
 
