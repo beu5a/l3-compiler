@@ -16,7 +16,7 @@ pub struct Memory {
     content: Vec<L3Value>,
     bitmap_start: usize, // NEW
     heap_start: usize, // NEW
-    //top_frame_start: usize, // NEW - can be removed ???
+                       //top_frame_start: usize, // NEW - can be removed ???
     free_lists: [FreeList; SIZE_FREE_LISTS], // NEW -- free lists is list of 32 lists 
                                              // free_lists[i] contains the index of the first block of the free list of size i+1
                                              // free_lists[0] contains the index of the first block of the free list of size 1
@@ -205,19 +205,20 @@ impl Memory {
     /// allocate a block of size `size` with tag `tag` and return the block index
     pub fn allocate(&mut self, tag: L3Value, size: L3Value, root: usize)
         -> usize {
-            debug_assert!(0 <= tag && tag <= 0xFF);
+            if 0 > tag || tag > 0xFF {
+                //print tag in hex
+                eprintln!("Tag out of range: {:#x}", tag);
+            }
+            debug_assert!(0 <= tag && tag <= 0xFF,"{} {}", tag, size);
             debug_assert!(0 <= size);
             let mut attempt = 0;
             let mut m_block = None;
-            eprintln!("size: {}", size);
 
 
             while attempt < 2 && m_block.is_none() {
-                eprintln!("Attempt: {}", attempt);
 
                 m_block = match self.find_next_free_block(size as usize) {
                     Some((block, new_size)) => {
-                        eprintln!("block: {:?}, new_size: {:?}", block, new_size);
                         self.set_block_header(block, tag, new_size as usize);
                         let index = self.addr_to_index(self[block]);
                         let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
@@ -225,7 +226,6 @@ impl Memory {
                         Some(block)
                     },
                     None => {
-                        eprintln!("Out of memory");
                         if attempt == 0 {
                             self.mark(root);
                             self.sweep();
@@ -234,9 +234,8 @@ impl Memory {
                         }   
                         None
                     }
-                    
+
                 };
-                eprintln!("m_block: {:?}", m_block);
 
 
             };
@@ -261,17 +260,16 @@ impl Memory {
     /// must check beforehand that the two blocks must be freed
     /// must call coalesce in loop until no more coalescing is possible
     /// and then free the initial block
-    fn coalesce(&mut self, block0:usize, block1:usize) -> bool {
+    fn coalesce(&mut self, block0:usize, block1:usize) -> usize {
         let block0_size = self.block_size(block0);
         let block1_size = self.block_size(block1);
         debug_assert!(block0_size >= 0 && block1_size >= 0);
         let block0_end = (block0)+ (block0_size as usize) + HEADER_SIZE;
-        if block0_end == block1 {
-            let new_size = (block0_size as usize) + (block1_size as usize) + HEADER_SIZE;
-            self.set_block_header(block0, self.block_tag(block0), new_size as usize);
-            return true;
-        }
-        false
+        //assert that the two blocks are adjacent
+        debug_assert!(block0_end == block1, "block non adjacent");
+        let new_size = (block0_size as usize) + (block1_size as usize) + HEADER_SIZE;
+        self.set_block_header(block0, self.block_tag(block0), new_size as usize);
+        block0
     }
 
 
@@ -345,11 +343,7 @@ impl Memory {
                     self.unmark_block(bmp_addr, bmp_entry_index);
                     stack.push(index);
                 }
-
-
             }
-
-
         }    
     }
 
@@ -384,7 +378,7 @@ impl Memory {
 
                 if let Some(free_block) = prev {
                     // we already have a block to coalesce with
-                    self.coalesce(free_block, current); //issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
+                    current = self.coalesce(free_block, current); //issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
                 } else {
                     // this is the first block to coalesce with
                     // we set the block header and free it here
@@ -468,7 +462,7 @@ impl Memory {
 mod tests {
     use super::*;
 
-        #[test]
+    #[test]
     fn test_get_index_free_list() {
         let memory = Memory::new(1024);
 
@@ -515,7 +509,7 @@ mod tests {
 
 
 
-     #[test]
+    #[test]
     fn test_find_next_free_block() {
         let mut memory = Memory::new(1024);
 
@@ -558,6 +552,75 @@ mod tests {
         assert!(block != 0);
         assert_eq!(memory.block_tag(block), tag);
         assert_eq!(memory.block_size(block), size);
+    }
+
+    #[test]
+    fn test_coalesce_adjacent_blocks() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+
+        // Allocate two adjacent blocks
+        let block0 = 10 + HEADER_SIZE;
+        memory.set_block_header(block0, TAG_NONE, 10);
+
+        let block1 = block0 + 10 + HEADER_SIZE;
+        memory.set_block_header(block1, TAG_NONE, 15);
+
+        // Coalesce the two blocks
+        let coalesced_block = memory.coalesce(block0, block1);
+
+        // The coalesced block should have the combined size of the two blocks
+        let block_size = memory.block_size(coalesced_block) as usize;
+        assert_eq!(block_size, 10 + 15 + HEADER_SIZE);
+    }
+
+    #[test]
+    #[should_panic(expected = "block non adjacent")]
+    fn test_coalesce_non_adjacent_blocks() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+
+        // Allocate two non-adjacent blocks
+        let block0 = 10 + HEADER_SIZE;
+        memory.set_block_header(block0, TAG_NONE, 10);
+
+        let block1 = block0 + 20 + HEADER_SIZE; // Leaving a gap
+        memory.set_block_header(block1, TAG_NONE, 15);
+
+        // Attempt to coalesce the two blocks should not be successful
+        let block0_size_before = memory.block_size(block0);
+        let block1_size_before = memory.block_size(block1);
+
+        memory.coalesce(block0, block1);
+
+        assert_eq!(memory.block_size(block0), block0_size_before);
+        assert_eq!(memory.block_size(block1), block1_size_before);
+    }
+
+    #[test]
+    fn test_coalesce_with_three_blocks() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+
+        // Allocate three adjacent blocks
+        let block0 = 10 + HEADER_SIZE;
+        memory.set_block_header(block0, TAG_NONE, 10);
+
+        let block1 = block0 + 10 + HEADER_SIZE;
+        memory.set_block_header(block1, TAG_NONE, 15);
+
+        let block2 = block1 + 15 + HEADER_SIZE;
+        memory.set_block_header(block2, TAG_NONE, 20);
+
+        // Coalesce the first two blocks
+        let coalesced_block_1_2 = memory.coalesce(block0, block1);
+
+        // Coalesce the resulting block with the third block
+        let coalesced_block_1_2_3 = memory.coalesce(coalesced_block_1_2, block2);
+
+        // The coalesced block should have the combined size of the three blocks
+        let block_size = memory.block_size(coalesced_block_1_2_3) as usize;
+        assert_eq!(block_size, 10 + 15 + 20 + 2 * HEADER_SIZE);
     }
 }
 
