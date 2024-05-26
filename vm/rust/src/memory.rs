@@ -16,7 +16,6 @@ pub struct Memory {
     content: Vec<L3Value>,
     bitmap_start: usize, // NEW
     heap_start: usize, // NEW
-                       //top_frame_start: usize, // NEW - can be removed ???
     free_lists: [FreeList; SIZE_FREE_LISTS], // NEW -- free lists is list of 32 lists 
                                              // free_lists[i] contains the index of the first block of the free list of size i+1
                                              // free_lists[0] contains the index of the first block of the free list of size 1
@@ -97,7 +96,7 @@ impl Memory {
         let heap_size = self.content.len() - heap_start_index;
         let block = heap_start_index + HEADER_SIZE;
         // set the heap start
-        self.set_block_header(block, 0, heap_size - HEADER_SIZE);
+        self.set_block_header(block, TAG_NONE, heap_size - HEADER_SIZE); // which TAG
 
         self.add_block_to_free_list(block, heap_size);
     }
@@ -116,7 +115,8 @@ impl Memory {
         let new_size = block_size - size;
         if (new_size as usize) > MIN_BLOCK_SIZE  {
             let new_block = (block + size + HEADER_SIZE) as usize;
-            self.set_block_header(new_block, self.block_tag(block), new_size as usize);
+            debug_assert!(new_size > 0);
+            self.set_block_header(new_block, self.block_tag(block), (new_size - HEADER_SIZE) as usize);
             self.add_block_to_free_list(new_block, new_size);
             true
         }else { 
@@ -351,13 +351,12 @@ impl Memory {
         let start = self.heap_start + HEADER_SIZE;
         let end = self.content.len();
         let mut current = start;
-        let mut prev : Option<usize> = None;
+        let mut prev: Option<usize> = None;
 
-        //destroy previous free lists
+        // Clear previous free lists
         for i in 0..SIZE_FREE_LISTS {
             self.free_lists[i] = 0;
         }
-
 
         while current < end {
             let tag = self.block_tag(current);
@@ -368,32 +367,27 @@ impl Memory {
                 self.mark_block(bmp_addr, bmp_entry_index);
 
                 if let Some(free_block) = prev {
-                    //let free_block_size = self.block_size(free_block) as usize;
-                    // DO WE NEET TO ZERO THE MEMORY OR NOT ?
-                    //self.add_block_to_free_list(free_block,free_block_size);
                     self.free(free_block);
-                } 
+                }
                 prev = None;
             } else {
-
                 if let Some(free_block) = prev {
-                    // we already have a block to coalesce with
-                    current = self.coalesce(free_block, current); //issue1: what to do if the block is too big ? issue 2 : Coalse should update the block size
+                    current = self.coalesce(free_block, current);
+
                 } else {
-                    // this is the first block to coalesce with
-                    // we set the block header and free it here
                     self.set_block_header(current, TAG_NONE, size);
-
-                    prev = Some(current);
-
-
                 }
+                prev = Some(current);
             }
-            // move to the next block
-            current += size + HEADER_SIZE;
 
+            current += size + HEADER_SIZE;
+        }
+
+        if let Some(free_block) = prev {
+            self.free(free_block);
         }
     }
+
 
 
     // Helper functions
@@ -538,6 +532,44 @@ mod tests {
 
         assert_eq!(memory.free_lists[memory.get_index_free_list(7)], 0);
     }
+
+
+    #[test]
+    fn test_find_next_free_block_with_split() {
+        let mut memory = Memory::new(1024);
+        memory.set_heap_start(10);
+
+        // The entire heap is initially free.
+        let initial_free_block = 10 + HEADER_SIZE;
+        let initial_free_size = 1024 - HEADER_SIZE - 10;
+        //memory.set_block_header(initial_free_block, TAG_FREE, initial_free_size);
+
+        // Call find_next_free_block for a block of size 5.
+        let required_size = 5;
+        let found_block = memory.find_next_free_block(required_size);
+
+        // Check that the block found is of the correct size.
+        assert!(found_block.is_some());
+        let (found_block_address, block_size) = found_block.unwrap();
+        assert_eq!(block_size, required_size);
+        assert_eq!(found_block_address, initial_free_block);
+
+        // Check that the remaining part of the initial block is correctly split and still free.
+        let expected_remaining_size = initial_free_size - required_size - HEADER_SIZE;
+        let remaining_block_address = found_block_address + required_size + HEADER_SIZE;
+        assert_eq!(memory.block_size(remaining_block_address) as usize, expected_remaining_size);
+        assert_eq!(memory.free_lists[SIZE_FREE_LISTS-1], remaining_block_address - HEADER_SIZE);
+
+        //free_list empty for all size < SIZE_FREE_LISTS-1
+        let mut sum = 0;
+        for i in 0..SIZE_FREE_LISTS-1 {
+            sum += memory.free_lists[i];
+        }
+
+        assert_eq!(sum, 0);
+    }
+
+
 
     #[test]
     fn test_allocation() {
