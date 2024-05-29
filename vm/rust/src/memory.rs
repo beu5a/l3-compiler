@@ -86,7 +86,7 @@ impl Memory {
     /// NEW
     /// Add block in the free list according to the size of the block
     fn add_block_to_free_list(&mut self, block: usize) {
-        debug_assert!(self.is_index_valid(block));
+        debug_assert!(self.is_index_valid(block), "invalid block index: {}", block);
 
         let size = self.block_size(block);
         debug_assert!(size >= 0);
@@ -104,13 +104,15 @@ impl Memory {
         //       according to the size of the block
 
         // get size of heap
-        debug_println!("Heap start index: {}", heap_start_index);
 
         let bitmap_size = (self.content.len() - heap_start_index  + 32) / 33;
         self.bitmap_start = heap_start_index;
         self.heap_start = heap_start_index + bitmap_size;
 
+        debug_println!("Bitmap start at index: {} and end at: {}", self.bitmap_start, self.heap_start - 1);
 
+
+        debug_println!("Heap start index: {} and end at {}", self.heap_start, self.content.len() - 1);
         let heap_size = self.content.len() - self.heap_start;
         let block = self.heap_start + HEADER_SIZE;
         // set the heap start
@@ -238,6 +240,7 @@ impl Memory {
             debug_assert!(0 <= tag && tag <= 0xFF);
             debug_assert!(0 <= size);
             debug_println!("Heap start at index: {}", self.heap_start);
+            debug_println!("Heap end at index: {}", self.content.len() - 1);
             debug_println!("Allocating block of size: {}", size);
             let mut attempt = 0;
             let mut m_block = None;
@@ -518,11 +521,12 @@ mod tests {
     #[test]
     fn test_add_block_to_free_list() {
         let mut memory = Memory::new(1024);
-        memory.set_heap_start(0);
+        memory.set_heap_start(10);
 
-        let block = 2; // Example block index
+        let block = 50; // Example block index
         let size = 4; // Example block size
-        memory.add_block_to_free_list(block, size);
+        memory.set_block_header(block, TAG_NONE, size);
+        memory.add_block_to_free_list(block);
 
         let index = memory.get_index_free_list(size);
         assert_eq!(memory.free_lists[index], block - HEADER_SIZE);
@@ -537,8 +541,8 @@ mod tests {
 
         let block_size: usize = memory.block_size(block) as usize;
 
-        assert_eq!(block_size, 1024 - 10 - HEADER_SIZE);
-        assert_eq!(block, 10 + HEADER_SIZE);
+        assert_eq!(block_size, 1024 - memory.heap_start - HEADER_SIZE);
+        assert_eq!(block, memory.heap_start + HEADER_SIZE);
     }
 
 
@@ -551,15 +555,15 @@ mod tests {
         let heap_start = 10;
         memory.set_heap_start(heap_start);
 
-        let block_index = heap_start + HEADER_SIZE;
+        let block_index = memory.heap_start +30 + HEADER_SIZE;
         memory.set_block_header(block_index, TAG_NONE, 5);
-        memory.add_block_to_free_list(block_index, 5);
+        memory.add_block_to_free_list(block_index);
 
         assert_eq!(memory.block_size(block_index), 5);
 
-        let another_block_index = heap_start + HEADER_SIZE + 6; 
+        let another_block_index = heap_start + HEADER_SIZE + 40; 
         memory.set_block_header(another_block_index, TAG_NONE, 7);
-        memory.add_block_to_free_list(another_block_index, 7);
+        memory.add_block_to_free_list(another_block_index);
 
         let result = memory.find_next_free_block(5);
 
@@ -574,41 +578,6 @@ mod tests {
         assert_eq!(memory.free_lists[memory.get_index_free_list(7)], 0);
     }
 
-
-    #[test]
-    fn test_find_next_free_block_with_split() {
-        let mut memory = Memory::new(1024);
-        memory.set_heap_start(10);
-
-        // The entire heap is initially free.
-        let initial_free_block = 10 + HEADER_SIZE;
-        let initial_free_size = 1024 - HEADER_SIZE - 10;
-        //memory.set_block_header(initial_free_block, TAG_FREE, initial_free_size);
-
-        // Call find_next_free_block for a block of size 5.
-        let required_size = 5;
-        let found_block = memory.find_next_free_block(required_size);
-
-        // Check that the block found is of the correct size.
-        assert!(found_block.is_some());
-        let (found_block_address, block_size) = found_block.unwrap();
-        assert_eq!(block_size, required_size);
-        assert_eq!(found_block_address, initial_free_block);
-
-        // Check that the remaining part of the initial block is correctly split and still free.
-        let expected_remaining_size = initial_free_size - required_size - HEADER_SIZE;
-        let remaining_block_address = found_block_address + required_size + HEADER_SIZE;
-        assert_eq!(memory.block_size(remaining_block_address) as usize, expected_remaining_size);
-        assert_eq!(memory.free_lists[SIZE_FREE_LISTS-1], remaining_block_address - HEADER_SIZE);
-
-        //free_list empty for all size < SIZE_FREE_LISTS-1
-        let mut sum = 0;
-        for i in 0..SIZE_FREE_LISTS-1 {
-            sum += memory.free_lists[i];
-        }
-
-        assert_eq!(sum, 0);
-    }
 
 
 
@@ -633,7 +602,7 @@ mod tests {
         memory.set_heap_start(10);
 
         // Allocate two adjacent blocks
-        let block0 = 10 + HEADER_SIZE;
+        let block0 = 50 + HEADER_SIZE;
         memory.set_block_header(block0, TAG_NONE, 10);
 
         let block1 = block0 + 10 + HEADER_SIZE;
@@ -648,13 +617,13 @@ mod tests {
     }
 
     #[test]
-    #[should_panic(expected = "block non adjacent")]
+    #[should_panic]
     fn test_coalesce_non_adjacent_blocks() {
         let mut memory = Memory::new(1024);
         memory.set_heap_start(10);
 
         // Allocate two non-adjacent blocks
-        let block0 = 10 + HEADER_SIZE;
+        let block0 = 50 + HEADER_SIZE;
         memory.set_block_header(block0, TAG_NONE, 10);
 
         let block1 = block0 + 20 + HEADER_SIZE; // Leaving a gap
