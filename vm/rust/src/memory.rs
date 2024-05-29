@@ -1,5 +1,15 @@
 use crate::{L3Value, LOG2_VALUE_BITS, LOG2_VALUE_BYTES, TAG_REGISTER_FRAME};
 
+#[macro_export]
+macro_rules! debug_println {
+    ($($arg:tt)*) => {
+        #[cfg(debug_assertions)]
+        {
+            println!($($arg)*);
+        }
+    };
+}
+
 
 const MAX_TAG : L3Value = 0xFF;
 const TAG_NONE : L3Value = 0x1F; //TODO HOW TO CHOSE THE VALUES OF THE TAGS
@@ -70,16 +80,17 @@ impl Memory {
                 size - 1
             }
         }
-
     }
 
 
     /// NEW
     /// Add block in the free list according to the size of the block
-    fn add_block_to_free_list(&mut self, block: usize, size: usize) {
-        debug_assert!(block < self.content.len() && (size)  < MAX_BLOCK_SIZE);
+    fn add_block_to_free_list(&mut self, block: usize) {
+        debug_assert!(self.is_index_valid(block));
 
-        let free_list_index = self.get_index_free_list(size);
+        let size = self.block_size(block);
+        debug_assert!(size >= 0);
+        let free_list_index = self.get_index_free_list(size as usize);
 
         let next_header = self.free_lists[free_list_index];
         self.set_next_free_block(block, next_header);
@@ -93,12 +104,21 @@ impl Memory {
         //       according to the size of the block
 
         // get size of heap
-        let heap_size = self.content.len() - heap_start_index;
-        let block = heap_start_index + HEADER_SIZE;
+        debug_println!("Heap start index: {}", heap_start_index);
+
+        let bitmap_size = (self.content.len() - heap_start_index  + 32) / 33;
+        self.bitmap_start = heap_start_index;
+        self.heap_start = heap_start_index + bitmap_size;
+
+
+        let heap_size = self.content.len() - self.heap_start;
+        let block = self.heap_start + HEADER_SIZE;
         // set the heap start
         self.set_block_header(block, TAG_NONE, heap_size - HEADER_SIZE); // which TAG
 
-        self.add_block_to_free_list(block, heap_size);
+        //self.add_block_to_free_list(block, heap_size);
+        self.add_block_to_free_list(block);
+
     }
 
 
@@ -107,17 +127,18 @@ impl Memory {
     /// Return true if the block was split, false otherwise
     fn can_split_block(&mut self, header: usize, size: usize)-> bool {
         let block = header + HEADER_SIZE;
+        debug_assert!(self.is_index_valid(block) && size < MAX_BLOCK_SIZE);
         let block_size = self.block_size(block);
         debug_assert!(block_size >= 0);
 
         let block_size = block_size as usize;
-        debug_assert!(block_size >= size);
+        debug_assert!(block_size >= size, "block size: {}, size: {}", block_size, size);
         let new_size = block_size - size;
         if (new_size as usize) > MIN_BLOCK_SIZE  {
             let new_block = (block + size + HEADER_SIZE) as usize;
             debug_assert!(new_size > 0);
             self.set_block_header(new_block, self.block_tag(block), (new_size - HEADER_SIZE) as usize);
-            self.add_block_to_free_list(new_block, new_size);
+            self.add_block_to_free_list(new_block);
             true
         }else { 
             false
@@ -138,6 +159,7 @@ impl Memory {
             let mut last_header = 0;
             while header != 0 {
                 let block = header + HEADER_SIZE;
+                debug_assert!(self.is_index_valid(block));
                 let block_size = self.block_size(block);
                 debug_assert!(block_size >= 0);
                 let block_size = block_size as usize;
@@ -153,6 +175,7 @@ impl Memory {
                         self.set_next_free_block(last_block, next_header);
                     }
 
+                    debug_println!("Found block of size: {} in end of freelists", block_size);
                     return Some(header);
                 }
                 last_header = header;
@@ -166,6 +189,8 @@ impl Memory {
             } else {
                 //remove header from the free list
                 let block = header + HEADER_SIZE;
+                debug_println!("Found block of size: {} in free list {}", self.block_size(block), free_list_index);
+                debug_assert!(self.is_index_valid(block));
                 self.free_lists[free_list_index] = self.get_next_free_header(block);
                 return Some(header);
             }
@@ -184,9 +209,10 @@ impl Memory {
             let header = self.get_header_from_free_list(free_list_index, size);
             match header {
                 Some(header) => {
+                    let block = header + HEADER_SIZE;
                     // if the block can be split, split it
                     if self.can_split_block(header, size) {
-                        return Some((header+HEADER_SIZE, size));
+                        return Some((block, size));
                     } else {
                         let block = header + HEADER_SIZE;
                         let block_size = self.block_size(block) as usize;
@@ -207,10 +233,12 @@ impl Memory {
         -> usize {
             if 0 > tag || tag > 0xFF {
                 //print tag in hex
-                eprintln!("Tag out of range: {:#x}", tag);
+                debug_println!("Tag out of range: {:#x}", tag);
             }
-            debug_assert!(0 <= tag && tag <= 0xFF,"{} {}", tag, size);
+            debug_assert!(0 <= tag && tag <= 0xFF);
             debug_assert!(0 <= size);
+            debug_println!("Heap start at index: {}", self.heap_start);
+            debug_println!("Allocating block of size: {}", size);
             let mut attempt = 0;
             let mut m_block = None;
 
@@ -220,9 +248,10 @@ impl Memory {
                 m_block = match self.find_next_free_block(size as usize) {
                     Some((block, new_size)) => {
                         self.set_block_header(block, tag, new_size as usize);
-                        let index = self.addr_to_index(self[block]);
-                        let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
+                        //let index = self.addr_to_index(block);
+                        let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(block);
                         self.mark_block(bmp_addr, bmp_entry_index);
+                        debug_println!("Allocated block at index: {} of size {}", block, new_size);
                         Some(block)
                     },
                     None => {
@@ -232,24 +261,32 @@ impl Memory {
 
                             attempt += 1;
                         }   
+                        //None
+                        debug_println!("Memory full for the first time");
                         None
+
                     }
 
                 };
-
-
             };
 
             match m_block {
-                Some(block) => block,
+                Some(block) => {
+                    let size = self.block_size(block) as usize;
+                    //not out of bounds
+                    debug_assert!(size+block < self.content.len());
+                    block
+                },
                 None => panic!("Out of memory")
             }
         }
 
     pub fn copy(&mut self, block: usize, root: usize) -> usize {
+        debug_println!("Method copy is called");
         let size = self.block_size(block);
         let copy = self.allocate(self.block_tag(block), size, root);
         for i in 0..(size as usize) { self[copy + i] = self[block + i] };
+        debug_println!("block copied from index {} to index {}", copy, copy +(size as usize)-1);
         copy
     }
 
@@ -266,7 +303,7 @@ impl Memory {
         debug_assert!(block0_size >= 0 && block1_size >= 0);
         let block0_end = (block0)+ (block0_size as usize) + HEADER_SIZE;
         //assert that the two blocks are adjacent
-        debug_assert!(block0_end == block1, "block non adjacent");
+        debug_assert!(block0_end == block1);
         let new_size = (block0_size as usize) + (block1_size as usize) + HEADER_SIZE;
         self.set_block_header(block0, self.block_tag(block0), new_size as usize);
         block0
@@ -274,15 +311,10 @@ impl Memory {
 
 
     pub fn free(&mut self, block: usize) {
-        //TODO: check that the block is valid and allocated
-
-
-        //let index = self.addr_to_index(self[block]);
-        //let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
-        //self.unmark_block(bmp_addr, bmp_entry_index);
-
+        debug_assert!(self.is_index_valid(block));
+        
         // add the block to the free list
-        self.add_block_to_free_list(block, self.block_size(block) as usize);
+        self.add_block_to_free_list(block);
     }
 
     pub fn block_tag(&self, block: usize) -> L3Value {
@@ -358,10 +390,12 @@ impl Memory {
             self.free_lists[i] = 0;
         }
 
+        debug_println!("Sweeping");
         while current < end {
             let tag = self.block_tag(current);
-            let size = self.block_size(current) as usize;
+            let mut size = self.block_size(current) as usize;
             let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(current);
+            debug_println!("Sweeping block at index: {} and size {}", current, size);
 
             if tag != TAG_NONE && !self.is_marked(bmp_addr, bmp_entry_index) {
                 self.mark_block(bmp_addr, bmp_entry_index);
@@ -373,6 +407,7 @@ impl Memory {
             } else {
                 if let Some(free_block) = prev {
                     current = self.coalesce(free_block, current);
+                    size = self.block_size(current) as usize;
 
                 } else {
                     self.set_block_header(current, TAG_NONE, size);
@@ -381,7 +416,9 @@ impl Memory {
             }
 
             current += size + HEADER_SIZE;
+            debug_println!("Current: {}", current);
         }
+        debug_println!("End Sweeping");
 
         if let Some(free_block) = prev {
             self.free(free_block);
@@ -393,11 +430,15 @@ impl Memory {
     // Helper functions
     // NEW
     fn addr_to_index(&mut self, addr: L3Value) -> usize {
+        debug_assert!(addr & ((1 << LOG2_VALUE_BYTES) - 1) == 0,
+        "invalid address: {} (16#{:x})", addr, addr);
         (addr >> LOG2_VALUE_BYTES) as usize
     }
 
     //NEW
     fn index_to_addr(&mut self, index: usize) -> L3Value {
+        //assert that the index is between the heap start and the end of the heap
+        debug_assert!(self.is_index_valid(index), "invalid index: {}", index);
         (index << LOG2_VALUE_BYTES) as L3Value
     }
 
