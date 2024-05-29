@@ -87,14 +87,16 @@ impl Memory {
     /// Add block in the free list according to the size of the block
     fn add_block_to_free_list(&mut self, block: usize) {
         debug_assert!(self.is_index_valid(block), "invalid block index: {}", block);
+        let header = block - HEADER_SIZE;
 
         let size = self.block_size(block);
+        debug_assert!(block + (size as usize) <= self.content.len(), "block + size: {} + {} < {}", block, size, self.content.len());
         debug_assert!(size >= 0);
         let free_list_index = self.get_index_free_list(size as usize);
 
         let next_header = self.free_lists[free_list_index];
         self.set_next_free_block(block, next_header);
-        self.free_lists[free_list_index] = (block-HEADER_SIZE) as usize;
+        self.free_lists[free_list_index] = (header) as usize;
     }
 
 
@@ -113,14 +115,13 @@ impl Memory {
 
 
         debug_println!("Heap start index: {} and end at {}", self.heap_start, self.content.len() - 1);
-        let heap_size = self.content.len() - self.heap_start;
+        let heap_size = self.content.len() - self.heap_start - HEADER_SIZE;
         let block = self.heap_start + HEADER_SIZE;
         // set the heap start
-        self.set_block_header(block, TAG_NONE, heap_size - HEADER_SIZE); // which TAG
+        self.set_block_header(block, TAG_NONE, heap_size); // which TAG
 
         //self.add_block_to_free_list(block, heap_size);
         self.add_block_to_free_list(block);
-
     }
 
 
@@ -133,13 +134,19 @@ impl Memory {
         let block_size = self.block_size(block);
         debug_assert!(block_size >= 0);
 
+        if block_size as usize == size {
+            return false;
+        }
+
         let block_size = block_size as usize;
-        debug_assert!(block_size >= size, "block size: {}, size: {}", block_size, size);
-        let new_size = block_size - size;
+        debug_assert!(block_size > size, "block size: {}, size: {}", block_size, size);
+        let new_size = block_size - size - HEADER_SIZE;
         if (new_size as usize) > MIN_BLOCK_SIZE  {
+            debug_println!("Splitting block of size: {} into blocks of size: {} and {}", block_size, size, new_size);
             let new_block = (block + size + HEADER_SIZE) as usize;
             debug_assert!(new_size > 0);
-            self.set_block_header(new_block, self.block_tag(block), (new_size - HEADER_SIZE) as usize);
+            self.set_block_header(new_block, self.block_tag(block), (new_size) as usize);
+            debug_assert!(self.block_size(new_block) as usize+ size + HEADER_SIZE == block_size);
             self.add_block_to_free_list(new_block);
             true
         }else { 
@@ -237,7 +244,7 @@ impl Memory {
                 //print tag in hex
                 debug_println!("Tag out of range: {:#x}", tag);
             }
-            debug_assert!(0 <= tag && tag <= 0xFF);
+            debug_assert!(0 <= tag && tag <= 0xFF, "tag: {}", tag);
             debug_assert!(0 <= size);
             debug_println!("Heap start at index: {}", self.heap_start);
             debug_println!("Heap end at index: {}", self.content.len() - 1);
@@ -250,6 +257,7 @@ impl Memory {
 
                 m_block = match self.find_next_free_block(size as usize) {
                     Some((block, new_size)) => {
+                        debug_println!("Block found at index: {} of size {}", block, new_size);
                         self.set_block_header(block, tag, new_size as usize);
                         //let index = self.addr_to_index(block);
                         let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(block);
@@ -262,8 +270,8 @@ impl Memory {
                             self.mark(root);
                             self.sweep();
 
-                            attempt += 1;
                         }   
+                        attempt += 1;
                         //None
                         debug_println!("Memory full for the first time");
                         None
@@ -277,7 +285,10 @@ impl Memory {
                 Some(block) => {
                     let size = self.block_size(block) as usize;
                     //not out of bounds
-                    debug_assert!(size+block < self.content.len());
+                    if size + block >= self.content.len() {
+                        debug_println!("Block allocated at index: {} of size {} not possible", block, size);
+                    }
+                    debug_assert!(size+block <= self.content.len(), "size + block: {} + {} < {}", size, block, self.content.len());
                     block
                 },
                 None => panic!("Out of memory")
@@ -343,11 +354,17 @@ impl Memory {
         // do nothing
         let mut stack = vec![root];
 
+        let top_frame_0 = self.bitmap_start - 258;
+        let top_frame_1 = top_frame_0 - 259;
+
+
+
         // READ ROOTS PARAGRAPH IN ASSIGNMENT
         let top_frame_2 = self[root + 1];
         if self.is_addr_aligned(top_frame_2){
             let top_frame_index = self.addr_to_index(top_frame_2);
             if self.is_index_valid(top_frame_index) && self.block_tag(top_frame_index) == TAG_REGISTER_FRAME {
+                debug_assert!(top_frame_index == top_frame_0 || top_frame_index == top_frame_1);
                 stack.push(top_frame_index);
             }
         }
@@ -404,6 +421,10 @@ impl Memory {
                 self.mark_block(bmp_addr, bmp_entry_index);
 
                 if let Some(free_block) = prev {
+                    // set memory to 0
+                    for i in 0..size {
+                        self[free_block + i] = 0;
+                    }
                     self.free(free_block);
                 }
                 prev = None;

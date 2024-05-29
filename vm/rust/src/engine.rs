@@ -4,8 +4,10 @@ use std::io;
 
 use crate::memory::Memory;
 use crate::{L3Value, LOG2_VALUE_BYTES, TAG_REGISTER_FRAME};
+use crate::debug_println;
 
 const CONTEXT_SIZE : usize = 2;
+
 
 #[cfg(feature = "tracing")]
 use crate::tracer;
@@ -151,6 +153,7 @@ impl Engine {
             tracer::tick();
 
             let inst = self.mem[pc];
+            debug_println!("pc={} inst={:x} opcode={}", pc, inst, opcode(inst));
 
             match opcode(inst) {
                 opcode::ADD => {
@@ -240,9 +243,12 @@ impl Engine {
                 opcode::ARGS => {
                     let other_addr = ix_to_addr(self.other_frame);
                     if self.mem[self.curr_frame + 1] == other_addr {
+                        debug_println!("Evicting frame");
                         let next_c = self.mem.copy(self.other_frame,
                                                    self.curr_frame);
                         self.mem[self.curr_frame + 1] = ix_to_addr(next_c);
+                    }else{
+                        debug_println!("Not evicting frame");
                     }
 
                     let mut i = CONTEXT_SIZE;
@@ -274,6 +280,7 @@ impl Engine {
                     let block_ix = self.mem.allocate(self.rb(inst),
                                                      self.rc(inst),
                                                      self.curr_frame);
+                    debug_println!("BALO block_ix={} tag={}, size={}", block_ix,self.rb(inst), self.rc(inst));
                     self.set_ra(inst, ix_to_addr(block_ix));
                     pc += 1;
                 }
@@ -290,12 +297,15 @@ impl Engine {
                 opcode::BGET => {
                     let block_ix = addr_to_ix(self.rb(inst));
                     let index = self.rc(inst) as usize;
+                    debug_println!("BGET block_ix={} index={}", block_ix, index);
                     self.set_ra(inst, self.mem[block_ix + index]);
                     pc += 1;
                 }
                 opcode::BSET => {
                     let block_ix = addr_to_ix(self.rb(inst));
                     let index = self.rc(inst) as usize;
+                    debug_println!("BSET block_ix={} index={}", block_ix, index);
+                    debug_println!("mem index = {}", block_ix + index);
                     self.mem[block_ix + index] = self.ra(inst);
                     pc += 1;
                 }
