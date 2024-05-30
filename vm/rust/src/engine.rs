@@ -125,6 +125,7 @@ impl Engine {
 
     fn ret(&mut self, ret_value: L3Value) -> usize {
         let curr_ix = self.curr_frame;
+        debug_println!("RET curr_ix={} ret_value={}", curr_ix, ret_value);
         let ret_pc = addr_to_ix(self.mem[curr_ix + 0]);
         let ret_reg = extract_u(self.mem[ret_pc - 1], 0, 8) as usize;
         let parent_frame = addr_to_ix(self.mem[curr_ix + 1]);
@@ -137,6 +138,8 @@ impl Engine {
                 self.mem[curr_ix - 1 + i] = self.mem[parent_frame - 1 + i]
             }
             self.mem.free(parent_frame);
+            debug_println!("RET freed parent_frame={} parent_size={}", parent_frame, parent_size);
+            debug_println!("current_frame={}", curr_ix);
         }
         self.mem[self.curr_frame + CONTEXT_SIZE + ret_reg] = ret_value;
         ret_pc
@@ -267,6 +270,7 @@ impl Engine {
                     let size = CONTEXT_SIZE + extract_u(inst, 0, 8) as usize;
                     let curr_size = self.mem.block_size(self.curr_frame)
                         as usize;
+                    debug_println!("FRAME size={} curr_size={}", size, curr_size);
                     if curr_size < size {
                         // TODO optimize
                         for i in curr_size..size {
