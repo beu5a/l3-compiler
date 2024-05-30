@@ -4,7 +4,7 @@ use std::io;
 
 use crate::memory::Memory;
 use crate::{L3Value, LOG2_VALUE_BYTES, TAG_REGISTER_FRAME};
-use crate::debug_println;
+
 
 const CONTEXT_SIZE : usize = 2;
 
@@ -125,7 +125,6 @@ impl Engine {
 
     fn ret(&mut self, ret_value: L3Value) -> usize {
         let curr_ix = self.curr_frame;
-        debug_println!("RET curr_ix={} ret_value={}", curr_ix, ret_value);
         let ret_pc = addr_to_ix(self.mem[curr_ix + 0]);
         let ret_reg = extract_u(self.mem[ret_pc - 1], 0, 8) as usize;
         let parent_frame = addr_to_ix(self.mem[curr_ix + 1]);
@@ -138,8 +137,7 @@ impl Engine {
                 self.mem[curr_ix - 1 + i] = self.mem[parent_frame - 1 + i]
             }
             self.mem.free(parent_frame);
-            debug_println!("RET parent_frame={} parent_size={}", parent_frame, parent_size);
-            debug_println!("current_frame={}", curr_ix);
+
         }
         self.mem[self.curr_frame + CONTEXT_SIZE + ret_reg] = ret_value;
         ret_pc
@@ -156,8 +154,6 @@ impl Engine {
             tracer::tick();
 
             let inst = self.mem[pc];
-            debug_println!("pc={} inst={:x} opcode={}", pc, inst, opcode(inst));
-
             match opcode(inst) {
                 opcode::ADD => {
                     self.arith(inst, |x, y| x.wrapping_add(y));
@@ -246,14 +242,10 @@ impl Engine {
                 opcode::ARGS => {
                     let other_addr = ix_to_addr(self.other_frame);
                     if self.mem[self.curr_frame + 1] == other_addr {
-                        debug_println!("Evicting frame");
                         let next_c = self.mem.copy(self.other_frame,
                                                    self.curr_frame);
                         self.mem[self.curr_frame + 1] = ix_to_addr(next_c);
-                    }else{
-                        debug_println!("Not evicting frame");
                     }
-
                     let mut i = CONTEXT_SIZE;
                     let mut inst = inst;
                     while opcode(inst) == opcode::ARGS {
@@ -270,7 +262,6 @@ impl Engine {
                     let size = CONTEXT_SIZE + extract_u(inst, 0, 8) as usize;
                     let curr_size = self.mem.block_size(self.curr_frame)
                         as usize;
-                    debug_println!("FRAME size={} curr_size={}", size, curr_size);
                     if curr_size < size {
                         // TODO optimize
                         for i in curr_size..size {
@@ -284,7 +275,6 @@ impl Engine {
                     let block_ix = self.mem.allocate(self.rb(inst),
                                                      self.rc(inst),
                                                      self.curr_frame);
-                    debug_println!("BALO block_ix={} tag={}, size={}", block_ix,self.rb(inst), self.rc(inst));
                     self.set_ra(inst, ix_to_addr(block_ix));
                     pc += 1;
                 }
@@ -301,15 +291,12 @@ impl Engine {
                 opcode::BGET => {
                     let block_ix = addr_to_ix(self.rb(inst));
                     let index = self.rc(inst) as usize;
-                    debug_println!("BGET block_ix={} index={} current_frame={}", block_ix, index, self.curr_frame);
                     self.set_ra(inst, self.mem[block_ix + index]);
                     pc += 1;
                 }
                 opcode::BSET => {
                     let block_ix = addr_to_ix(self.rb(inst));
                     let index = self.rc(inst) as usize;
-                    debug_println!("BSET block_ix={} index={}", block_ix, index);
-                    debug_println!("mem index = {}", block_ix + index);
                     self.mem[block_ix + index] = self.ra(inst);
                     pc += 1;
                 }

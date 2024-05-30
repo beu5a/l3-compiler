@@ -19,6 +19,8 @@ pub const VALUE_BITS       : usize = 1 << LOG2_VALUE_BITS;
 const DEFAULT_MEMORY_SIZE  : usize = 1_000_000;
 
 const TAG_REGISTER_FRAME : L3Value = 0xFF;
+const MAX_TAG : L3Value = 0xFF;
+const TAG_NONE : L3Value = 0x00; 
 
 fn load(file_name: &str, engine: &mut Engine) -> Result<(), String> {
     let file = File::open(file_name)
