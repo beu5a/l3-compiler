@@ -29,12 +29,6 @@ pub struct Memory {
 }
 
 fn addr_to_ix(addr: L3Value) -> usize {
-    debug_assert!(
-        (addr & ((1 << LOG2_VALUE_BYTES) - 1)) == 0,
-        "invalid address: {} (16#{:x})",
-        addr,
-        addr
-    );
     (addr >> LOG2_VALUE_BYTES) as usize
 }
 
@@ -113,9 +107,6 @@ impl Memory {
     }
 
     pub fn set_block_header(&mut self, block: usize, tag: L3Value, size: usize) {
-        debug_assert!(0 <= tag && tag <= MAX_TAG);
-        debug_assert!(size <= MAX_BLOCK_SIZE);
-
         self[block - HEADER_SIZE] = (tag << 24) | (size as L3Value);
     }
 
@@ -134,8 +125,6 @@ impl Memory {
      */
 
     fn set_next_free_block(&mut self, block: usize, next_header: usize) {
-        debug_assert!(block < self.content.len() && next_header < self.content.len());
-        debug_assert!(block != 0);
         if next_header == 0 {
             self[block] = 0;
         } else {
@@ -198,9 +187,7 @@ impl Memory {
 
             while header != 0 {
                 let block = header + HEADER_SIZE;
-                debug_assert!(self.is_ix_valid(block));
                 let block_size = self.block_size(block);
-                debug_assert!(block_size >= 0);
                 let block_size = block_size as usize;
 
                 //first fit
@@ -300,7 +287,7 @@ impl Memory {
                 stack.push(top_frame_1);
             }
         } else if root == top_frame_1 {
-            if (idx as usize) == top_frame_0 && self.block_tag(idx) == TAG_REGISTER_FRAME {
+            if idx == top_frame_0 && self.block_tag(idx) == TAG_REGISTER_FRAME {
                 stack.push(top_frame_0);
             }
         } else {
