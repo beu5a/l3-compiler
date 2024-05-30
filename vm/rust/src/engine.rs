@@ -138,7 +138,7 @@ impl Engine {
                 self.mem[curr_ix - 1 + i] = self.mem[parent_frame - 1 + i]
             }
             self.mem.free(parent_frame);
-            debug_println!("RET freed parent_frame={} parent_size={}", parent_frame, parent_size);
+            debug_println!("RET parent_frame={} parent_size={}", parent_frame, parent_size);
             debug_println!("current_frame={}", curr_ix);
         }
         self.mem[self.curr_frame + CONTEXT_SIZE + ret_reg] = ret_value;
@@ -301,7 +301,7 @@ impl Engine {
                 opcode::BGET => {
                     let block_ix = addr_to_ix(self.rb(inst));
                     let index = self.rc(inst) as usize;
-                    debug_println!("BGET block_ix={} index={}", block_ix, index);
+                    debug_println!("BGET block_ix={} index={} current_frame={}", block_ix, index, self.curr_frame);
                     self.set_ra(inst, self.mem[block_ix + index]);
                     pc += 1;
                 }

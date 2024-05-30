@@ -119,10 +119,6 @@ impl Memory {
 
     pub fn set_heap_start(&mut self, heap_start_index: usize) {
         debug_assert!(heap_start_index < self.content.len());
-        //NEW -- create the free lists, and add the first block to the free list
-        //       according to the size of the block
-
-        // get size of heap
 
         let bitmap_size = (self.content.len() - heap_start_index  + 32) / 33;
         self.bitmap_start = heap_start_index;
@@ -288,10 +284,12 @@ impl Memory {
                 m_block = match self.find_next_free_block(size as usize) {
                     Some((block, new_size)) => {
                         debug_println!("Block found at index: {} of size {}", block, new_size);
+                        debug_assert!(new_size == size as usize);
                         self.set_block_header(block, tag, new_size as usize);
                         //let index = self.addr_to_index(block);
                         let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(block);
                         self.mark_block(bmp_addr, bmp_entry_index);
+                        debug_assert!(self.is_marked(bmp_addr, bmp_entry_index), "block at index {} is not marked in allocated", block);
                         debug_println!("Allocated block at index: {} of size {}", block, new_size);
                         Some(block)
                     },
@@ -313,12 +311,12 @@ impl Memory {
 
             match m_block {
                 Some(block) => {
-                    let size = self.block_size(block) as usize;
+                    let b_size = self.block_size(block) as usize;
                     //not out of bounds
-                    if size + block >= self.content.len() {
-                        debug_println!("Block allocated at index: {} of size {} not possible", block, size);
+                    if b_size + block >= self.content.len() {
+                        debug_println!("Block allocated at index: {} of size {} not possible", block, b_size);
                     }
-                    debug_assert!(size+block <= self.content.len(), "size + block: {} + {} < {}", size, block, self.content.len());
+                    debug_assert!(b_size+block <= self.content.len(), "size + block: {} + {} < {}", b_size, block, self.content.len());
                     block
                 },
                 None => panic!("Out of memory")
@@ -359,13 +357,19 @@ impl Memory {
         debug_assert!(self.is_index_valid(block));
         debug_println!("Freeing block at index: {} of size {}", block, self.block_size(block) as usize);
 
-        //unmark if marked
         let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(block);
+        //debug_assert!(self.is_marked(bmp_addr, bmp_entry_index), "block at index {} is already freed", block);
         if self.is_marked(bmp_addr, bmp_entry_index) {
             self.unmark_block(bmp_addr, bmp_entry_index);
         }
 
-        self.set_block_header(block, TAG_NONE, self.block_size(block) as usize);
+        let size = self.block_size(block) as usize;
+
+        for i in 0..size {
+            self[block + i] = 0;
+        }
+
+        self.set_block_header(block, TAG_NONE, size);
 
         debug_assert!(self.block_tag(block) == TAG_NONE, "tag: {}", self.block_tag(block));
 
@@ -404,10 +408,12 @@ impl Memory {
 
         if root == top_frame_0 {
             if idx == top_frame_1 && self.block_tag(idx) == TAG_REGISTER_FRAME{
+                debug_println!("Pushing top frame 1");
                 stack.push(top_frame_1);
             } 
         } else if root == top_frame_1 {
             if idx as usize == top_frame_0 && self.block_tag(idx) == TAG_REGISTER_FRAME {
+                debug_println!("Pushing top frame 0");
                 stack.push(top_frame_0);
             }
         } else{
@@ -431,17 +437,22 @@ impl Memory {
            */
 
 
+        debug_println!("Marking phase");
         // We start with all allocated blocks marked, so we can unmark them (ie set to 0)
         // Assigmnet , Bitmap, Paragraph 4
         while let Some(block) = stack.pop() {
+            debug_println!("Marking block at index: {}", block);
             let block_size = self.block_size(block) as usize;
 
-            if ! self.is_index_valid(block) {
+            let is_top_frame = block == top_frame_0 || block == top_frame_1;
+
+            if ! self.is_index_valid(block) && ! is_top_frame{
+                debug_println!("Block at index: {} is not valid", block);
                 continue;
             }
             for i in 0..block_size {
 
-                if ! self.is_index_valid(block + i) {
+                if ! self.is_index_valid(block + i) && ! is_top_frame{
                     continue;
                 }
 
@@ -457,15 +468,19 @@ impl Memory {
                     continue;
                 }
 
+                debug_println!("Found block at index: {}", index);
+
 
                 let (bmp_addr, bmp_entry_index) = self.block_index_to_bitmap_addr(index);
                 //if reachable (and not already unmarked) add to stack
                 if self.is_marked(bmp_addr, bmp_entry_index) {
+                    debug_println!("Block at index: {} is reachable", index);
                     self.unmark_block(bmp_addr, bmp_entry_index);
                     stack.push(index);
                 }
             }
-        }    
+        }; 
+        debug_println!("End of marking phase");
     }
 
     fn sweep(&mut self) {
@@ -487,15 +502,12 @@ impl Memory {
             debug_println!("Sweeping block at index: {} and size {} and tag {}", current, size, tag);
             debug_println!("is marked {}", self.is_marked(bmp_addr, bmp_entry_index));
 
-            if (tag != TAG_NONE && !self.is_marked(bmp_addr, bmp_entry_index)){
+            if tag != TAG_NONE && !self.is_marked(bmp_addr, bmp_entry_index) {
                 self.mark_block(bmp_addr, bmp_entry_index);
 
                 if let Some(free_block) = prev {
-                    // set memory to 0
-                    for i in 0..size {
-                        self[free_block + i] = 0;
-                    }
                     debug_assert!(self.block_tag(free_block) == TAG_NONE, "in sweep: tag: {}", self.block_tag(free_block));
+
                     self.free(free_block);
                     debug_println!("Freeing block at index: {} of size {}", free_block, self.block_size(free_block) as usize);
                 }
