@@ -119,9 +119,10 @@ impl Memory {
      * 4. add_block_to_free_list
      * 5. can_split_block
      * 6. get_header_from_free_list
-     * 7. find_next_free_block
-     * 8. coalesce
-     * 9. try_allocate
+     * 7. find_first_fit
+     * 8. find_next_free_block
+     * 9. coalesce
+     * 10. try_allocate
      */
 
     fn set_next_free_block(&mut self, block: usize, next_header: usize) {
@@ -132,7 +133,7 @@ impl Memory {
         }
     }
 
-    fn get_next_free_header(&mut self, block: usize) -> usize {
+    fn get_next_free_header(&self, block: usize) -> usize {
         let next_header = self[block];
         if next_header == 0 {
             return 0;
@@ -160,7 +161,7 @@ impl Memory {
         self.free_lists[free_list_index] = header as usize;
     }
 
-    fn can_split_block(&mut self, header: usize, size: usize) -> bool {
+    fn try_split_block(&mut self, header: usize, size: usize) -> bool {
         let block = header + HEADER_SIZE;
         let block_size = self.block_size(block);
 
@@ -233,7 +234,7 @@ impl Memory {
                 Some(header) => {
                     let block = header + HEADER_SIZE;
                     // if the block can be split, split it
-                    if self.can_split_block(header, size) {
+                    if self.try_split_block(header, size) {
                         return Some((block, size));
                     } else {
                         let block = header + HEADER_SIZE;
@@ -384,24 +385,24 @@ impl Memory {
      * 5. mark_block
      * 6. unmark_block
      */
-    fn is_ix_valid(&mut self, index: usize) -> bool {
+    fn is_ix_valid(&self, index: usize) -> bool {
         self.heap_start <= index && index < self.content.len()
     }
 
-    fn is_addr_aligned(&mut self, addr: L3Value) -> bool {
+    fn is_addr_aligned(&self, addr: L3Value) -> bool {
         let align_mask = (1 << LOG2_VALUE_BYTES) - 1;
         let is_aligned = (addr & align_mask) == 0;
         is_aligned
     }
 
-    fn block_ix_to_bitmap_addr(&mut self, index: usize) -> (usize, usize) {
+    fn block_ix_to_bitmap_addr(&self, index: usize) -> (usize, usize) {
         let bmp_offset = (index - self.heap_start) >> LOG2_VALUE_BITS;
         let mask = (1 << LOG2_VALUE_BITS) - 1;
         let bmp_entry_index = (index - self.heap_start) & mask;
         (self.bitmap_start + bmp_offset, bmp_entry_index)
     }
 
-    fn is_marked(&mut self, bmp_addr: usize, bmp_entry_index: usize) -> bool {
+    fn is_marked(&self, bmp_addr: usize, bmp_entry_index: usize) -> bool {
         ((self[bmp_addr] >> bmp_entry_index) & 1) == 1
     }
 
