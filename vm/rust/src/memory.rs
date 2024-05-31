@@ -182,46 +182,46 @@ impl Memory {
 
     fn get_header_from_free_list(&mut self, free_list_index: usize, size: usize) -> Option<usize> {
         if free_list_index == SIZE_FREE_LISTS - 1 {
-            let mut header = self.free_lists[free_list_index];
-            let mut last_header = 0;
-
-            while header != 0 {
-                let block = header + HEADER_SIZE;
-                let block_size = self.block_size(block);
-                let block_size = block_size as usize;
-
-                //first fit
-                if block_size >= size + MIN_BLOCK_SIZE {
-                    //remove header from the free list
-                    if last_header == 0 {
-                        self.free_lists[free_list_index] = self.get_next_free_header(block);
-                    } else {
-                        let next_header = self.get_next_free_header(block);
-                        let last_block = last_header + HEADER_SIZE;
-                        self.set_next_free_block(last_block, next_header);
-                    }
-
-                    return Some(header);
-                }
-                last_header = header;
-                header = self.get_next_free_header(block);
-            }
-            return None;
+            self.find_first_fit(size)
         } else {
             let header = self.free_lists[free_list_index];
             if header == 0 {
-                return None;
+                None
             } else {
-                //remove header from the free list
                 let block = header + HEADER_SIZE;
-                if (self.block_size(block) as usize) >= size + MIN_BLOCK_SIZE {
+                if self.block_size(block) as usize >= size + MIN_BLOCK_SIZE {
                     self.free_lists[free_list_index] = self.get_next_free_header(block);
-                    return Some(header);
+                    Some(header)
                 } else {
-                    return None;
+                    None
                 }
             }
         }
+    }
+
+    fn find_first_fit(&mut self, size: usize) -> Option<usize> {
+        let free_list_index = SIZE_FREE_LISTS - 1;
+        let mut header = self.free_lists[free_list_index];
+        let mut last_header = 0;
+
+        while header != 0 {
+            let block = header + HEADER_SIZE;
+            let block_size = self.block_size(block) as usize;
+
+            if block_size >= size + MIN_BLOCK_SIZE {
+                if last_header == 0 {
+                    self.free_lists[free_list_index] = self.get_next_free_header(block);
+                } else {
+                    let next_header = self.get_next_free_header(block);
+                    let last_block = last_header + HEADER_SIZE;
+                    self.set_next_free_block(last_block, next_header);
+                }
+                return Some(header);
+            }
+            last_header = header;
+            header = self.get_next_free_header(block);
+        }
+        None
     }
 
     fn find_next_free_block(&mut self, size: usize) -> Option<(usize, usize)> {
